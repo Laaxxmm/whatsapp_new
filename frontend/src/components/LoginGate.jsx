@@ -79,7 +79,7 @@ export default function LoginGate({ onLogin }) {
                 letterSpacing: '-0.02em',
                 color: C.headerText,
               }}>
-                Forge<span style={{ color: C.primary }}>Chat</span>
+                Indefine<span style={{ color: C.primary }}>Chat</span>
               </div>
               <div style={{
                 fontSize: 11,
@@ -89,7 +89,7 @@ export default function LoginGate({ onLogin }) {
                 textTransform: 'uppercase',
                 marginTop: 4,
               }}>
-                powered by FMOS
+                Indefine LMS · WhatsApp
               </div>
             </div>
           </div>
@@ -115,6 +115,7 @@ export default function LoginGate({ onLogin }) {
 
         </div>
 
+        {/* Upstream attribution — this app is built on ForgeChat by Forgemind. */}
         <a
           href="https://forgemind.in/"
           target="_blank"
@@ -132,7 +133,7 @@ export default function LoginGate({ onLogin }) {
             cursor: 'pointer',
           }}
         >
-          FORGEMIND <span style={{ color: C.primary }}>AI</span>
+          Built on ForgeChat by <span style={{ color: C.primary }}>Forgemind</span>
         </a>
       </div>
 
@@ -189,7 +190,7 @@ export default function LoginGate({ onLogin }) {
               </div>
               <input
                 type="email"
-                placeholder="admin@forgemind.space"
+                placeholder="admin@yourcompany.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 autoFocus

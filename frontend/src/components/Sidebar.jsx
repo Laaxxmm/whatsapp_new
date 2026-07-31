@@ -128,7 +128,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
               letterSpacing: '.06em',
               textTransform: 'uppercase',
             }}>
-              Powered by FMOS
+              Indefine · WhatsApp
             </span>
           </div>
         )}
@@ -142,7 +142,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
               letterSpacing: '.04em',
               textTransform: 'uppercase',
             }}>
-              FMOS
+              INDF
             </span>
           </div>
         )}

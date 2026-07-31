@@ -21,10 +21,10 @@ export default function AboutUsPage() {
           style={{ height: 64, width: 64, objectFit: 'contain', marginBottom: 14 }}
           onError={e => { e.currentTarget.style.display = 'none'; }}
         />
-        <h1 style={{ fontSize: 28, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>About FORGEMIND <span style={{ color: C.primary }}>AI</span></h1>
+        <h1 style={{ fontSize: 28, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>Built on <span style={{ color: C.primary }}>ForgeChat</span></h1>
         <p style={{ fontSize: 14, color: C.textSecondary, margin: '10px auto 0', maxWidth: 540, lineHeight: 1.6 }}>
-          Forgemind builds practical AI automation tools — including this WhatsApp CRM.
-          Follow us and explore our work through the links below.
+          Indefine Chat is built on ForgeChat, the open WhatsApp inbox and CRM by Forgemind,
+          used here under its Sustainable Use License. Explore the original project below.
         </p>
       </div>
 
@@ -79,7 +79,7 @@ export default function AboutUsPage() {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: 36, fontSize: 12, color: C.textMuted }}>
-        © {new Date().getFullYear()} Forgemind · Powered by FMOS
+        ForgeChat © {new Date().getFullYear()} Forgemind Techhub LLP · Sustainable Use License
       </div>
     </div>
   );

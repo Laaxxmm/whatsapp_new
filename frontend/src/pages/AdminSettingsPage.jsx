@@ -1784,7 +1784,7 @@ function McpToolsTab() {
             <ol style={{ fontSize: 13, color: C.text, lineHeight: 1.8, paddingLeft: 18, margin: '0 0 10px' }}>
               <li>Enable the master switch + capabilities above, then <b>Generate a key</b> (the key-created popup shows a ready-to-paste URL).</li>
               <li>In Claude (web/desktop/mobile) → <b>Settings → Connectors → Add custom connector</b>, paste the URL below with your key appended.</li>
-              <li>Say <i>“create a ForgeChat agent”</i> — it asks the setup questions.</li>
+              <li>Say <i>“create an Indefine Chat agent”</i> — it asks the setup questions.</li>
             </ol>
             {install?.remoteUrl && (
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, gap: 8 }}>

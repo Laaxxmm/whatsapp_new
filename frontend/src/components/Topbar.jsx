@@ -114,7 +114,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
             alignItems: 'center',
             gap: 6,
           }}>
-            FORGE
+            INDEFINE
             <span style={{
               background: C.primary,
               color: '#fff',
@@ -134,7 +134,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
         {/* GitHub stars — opens this project's repo */}
         <button
           onClick={() => window.open(GITHUB_REPO_URL, '_blank', 'noopener,noreferrer')}
-          title="Star ForgeChat on GitHub"
+          title="ForgeChat on GitHub — the upstream project this is built on"
           style={{
             height: 36, borderRadius: 9, padding: '0 12px',
             background: C.headerSurface, border: `1.5px solid ${C.headerBorder}`,
