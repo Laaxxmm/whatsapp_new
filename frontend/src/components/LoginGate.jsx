@@ -67,8 +67,8 @@ export default function LoginGate({ onLogin }) {
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 480 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 40 }}>
             <img
-              src="/forgemind-logo.gif"
-              alt="ForgeMind Logo"
+              src="/indefine-mark.svg"
+              alt="Indefine"
               style={{ height: 56, width: 56, objectFit: 'contain', flexShrink: 0 }}
               onError={e => { e.currentTarget.style.display = 'none'; }}
             />

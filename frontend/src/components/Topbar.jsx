@@ -96,8 +96,8 @@ export default function Topbar({ user, onLogout, onNavigate }) {
         }}
       >
         <img
-          src="/forgemind-logo.gif"
-          alt="ForgeMind"
+          src="/indefine-mark.svg"
+          alt="Indefine"
           style={{ height: 36, width: 36, objectFit: 'contain', flexShrink: 0 }}
           onError={e => { e.currentTarget.style.display = 'none'; }}
         />

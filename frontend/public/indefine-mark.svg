@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <!-- Indefine mark, matching src/components/Logo.tsx (primary variant) in the LMS. -->
+  <defs>
+    <linearGradient id="indefine-mark-g" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D5BF0"/>
+      <stop offset="1" stop-color="#4B37D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="12" fill="url(#indefine-mark-g)"/>
+  <path d="M10 27 L17.5 18.5 L23 23 L30 12" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="30" cy="12" r="3.2" fill="#FF3B30"/>
+</svg>
