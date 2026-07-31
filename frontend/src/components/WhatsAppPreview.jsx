@@ -15,7 +15,7 @@ export function PhoneFrame({ children, headerTitle = 'Your Business', headerSubt
     <div style={{
       width: 278,
       height,
-      background: 'linear-gradient(155deg, #D8D8DE 0%, #A6A6AD 30%, #82828A 58%, #BFBFC5 82%, #6E6E76 100%)',
+      background: 'linear-gradient(155deg, #dcdbe8 0%, #b7b5c6 30%, #6c6a82 58%, #b7b5c6 82%, #6c6a82 100%)',
       borderRadius: 52,
       padding: 3.5,
       boxShadow: '0 22px 50px rgba(0,0,0,.28), 0 4px 10px rgba(0,0,0,.10), inset 0 0 0 0.5px rgba(255,255,255,.55), inset 0 -2px 4px rgba(0,0,0,.18)',
@@ -24,13 +24,13 @@ export function PhoneFrame({ children, headerTitle = 'Your Business', headerSubt
       flexDirection: 'column',
     }}>
       {/* Side buttons */}
-      <div style={{ position: 'absolute', left: 0, top: 84, width: 3, height: 30, background: 'linear-gradient(90deg,#4A4A50,#6B6B72)', borderRadius: '3px 0 0 3px' }} />
-      <div style={{ position: 'absolute', left: 0, top: 130, width: 3, height: 48, background: 'linear-gradient(90deg,#4A4A50,#6B6B72)', borderRadius: '3px 0 0 3px' }} />
-      <div style={{ position: 'absolute', left: 0, top: 188, width: 3, height: 48, background: 'linear-gradient(90deg,#4A4A50,#6B6B72)', borderRadius: '3px 0 0 3px' }} />
-      <div style={{ position: 'absolute', right: 0, top: 130, width: 3, height: 64, background: 'linear-gradient(270deg,#4A4A50,#6B6B72)', borderRadius: '0 3px 3px 0' }} />
-      <div style={{ position: 'absolute', right: 0, top: 208, width: 3, height: 38, background: 'linear-gradient(270deg,#4A4A50,#6B6B72)', borderRadius: '0 3px 3px 0' }} />
+      <div style={{ position: 'absolute', left: 0, top: 84, width: 3, height: 30, background: 'linear-gradient(90deg,#3a3852,#6c6a82)', borderRadius: '3px 0 0 3px' }} />
+      <div style={{ position: 'absolute', left: 0, top: 130, width: 3, height: 48, background: 'linear-gradient(90deg,#3a3852,#6c6a82)', borderRadius: '3px 0 0 3px' }} />
+      <div style={{ position: 'absolute', left: 0, top: 188, width: 3, height: 48, background: 'linear-gradient(90deg,#3a3852,#6c6a82)', borderRadius: '3px 0 0 3px' }} />
+      <div style={{ position: 'absolute', right: 0, top: 130, width: 3, height: 64, background: 'linear-gradient(270deg,#3a3852,#6c6a82)', borderRadius: '0 3px 3px 0' }} />
+      <div style={{ position: 'absolute', right: 0, top: 208, width: 3, height: 38, background: 'linear-gradient(270deg,#3a3852,#6c6a82)', borderRadius: '0 3px 3px 0' }} />
 
-      <div style={{ background: '#000', borderRadius: 48.5, padding: 2, flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.12)' }}>
+      <div style={{ background: '#15132b', borderRadius: 48.5, padding: 2, flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.12)' }}>
         <div style={{ flex: 1, minHeight: 0, position: 'relative', borderRadius: 46.5, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#075E54' }}>
 
           {/* Status bar */}
@@ -60,15 +60,15 @@ export function PhoneFrame({ children, headerTitle = 'Your Business', headerSubt
           </div>
 
           {/* Dynamic Island */}
-          <div style={{ position: 'absolute', top: 11, left: '50%', transform: 'translateX(-50%)', width: 108, height: 32, background: '#000', borderRadius: 99, zIndex: 6, boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.08), 0 0 0 0.5px #000' }}>
-            <div style={{ position: 'absolute', top: 11, right: 14, width: 9, height: 9, borderRadius: '50%', background: '#1a1a1d', boxShadow: 'inset 0 0 0 1px #050505, inset 0 0 4px rgba(80,120,200,.3)' }} />
+          <div style={{ position: 'absolute', top: 11, left: '50%', transform: 'translateX(-50%)', width: 108, height: 32, background: '#15132b', borderRadius: 99, zIndex: 6, boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.08), 0 0 0 0.5px #15132b' }}>
+            <div style={{ position: 'absolute', top: 11, right: 14, width: 9, height: 9, borderRadius: '50%', background: '#15132b', boxShadow: 'inset 0 0 0 1px #15132b, inset 0 0 4px rgba(80,120,200,.3)' }} />
           </div>
 
           {/* Chat header */}
           <div style={{ background: '#075E54', paddingTop: 50, paddingBottom: 8, paddingLeft: 12, paddingRight: 12, color: '#fff', fontFamily: "-apple-system, 'SF Pro Display', system-ui, sans-serif", flexShrink: 0, position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{ color: '#fff', fontSize: 20, lineHeight: 1, opacity: .9, marginRight: -2 }}>‹</span>
-              <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'linear-gradient(135deg,#1D9E75,#0F6E56)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>F</div>
+              <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'linear-gradient(135deg,#17b978,#0e8a5a)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>F</div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{headerTitle}</div>
                 <div style={{ fontSize: 10, opacity: .82, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{headerSubtitle}</div>
@@ -101,7 +101,7 @@ export function PhoneFrame({ children, headerTitle = 'Your Business', headerSubt
           {inputBar ? (
             <div style={{ background: 'var(--c-hover)', flexShrink: 0, position: 'relative' }}>
               {inputBar}
-              <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 110, height: 4, background: '#111', borderRadius: 99, opacity: .85, pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 110, height: 4, background: '#15132b', borderRadius: 99, opacity: .85, pointerEvents: 'none' }} />
             </div>
           ) : (
             <div style={{ background: 'var(--c-hover)', padding: '7px 9px 22px', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, position: 'relative' }}>
@@ -114,7 +114,7 @@ export function PhoneFrame({ children, headerTitle = 'Your Business', headerSubt
                   <polygon points="22,2 15,22 11,13 2,9 22,2" fill="currentColor" stroke="none"/>
                 </svg>
               </div>
-              <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 110, height: 4, background: '#111', borderRadius: 99, opacity: .85 }} />
+              <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 110, height: 4, background: '#15132b', borderRadius: 99, opacity: .85 }} />
             </div>
           )}
         </div>
@@ -129,11 +129,11 @@ export default function WhatsAppPreview({ template, minHeight = 280, emptyText =
     return (
       <PhoneFrame headerTitle="Your Business" headerSubtitle="online" minHeight={minHeight}>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-          <span style={{ background: '#E1F2FA', color: '#3C6678', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
+          <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
         </div>
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20, textAlign: 'center' }}>
           <div style={{ fontSize: 26, marginBottom: 6, opacity: 0.4 }}>💬</div>
-          <div style={{ fontSize: 10, color: '#888', fontWeight: 500, lineHeight: 1.5, fontFamily: FONT, whiteSpace: 'pre-line' }}>{emptyText}</div>
+          <div style={{ fontSize: 10, color: '#6c6a82', fontWeight: 500, lineHeight: 1.5, fontFamily: FONT, whiteSpace: 'pre-line' }}>{emptyText}</div>
         </div>
       </PhoneFrame>
     );
@@ -144,7 +144,7 @@ export default function WhatsAppPreview({ template, minHeight = 280, emptyText =
   return (
     <PhoneFrame headerTitle="Your Business" headerSubtitle="online" minHeight={minHeight}>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-        <span style={{ background: '#E1F2FA', color: '#3C6678', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
+        <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
       </div>
       <div style={{ marginLeft: 'auto', maxWidth: '88%', minWidth: '55%' }}>
         <div style={{ background: '#DCF8C6', borderRadius: buttons.length > 0 ? '7.5px 7.5px 0 0' : '7.5px 7.5px 0 7.5px', padding: '6px 7px 5px 9px', boxShadow: '0 1px 0.5px rgba(11,20,26,.13)', position: 'relative', marginRight: buttons.length > 0 ? 0 : 8 }}>
@@ -207,7 +207,7 @@ export function BroadcastMessagePreview({ messageType, body, url, mediaLibraryId
           />
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.35)' }}>
             <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#111"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#15132b"/></svg>
             </div>
           </div>
         </div>

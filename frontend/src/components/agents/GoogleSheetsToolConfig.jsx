@@ -220,7 +220,7 @@ export default function GoogleSheetsToolConfig({ agentId, existingTool, onCancel
 
       {error && (
         <div style={{ padding: '8px 12px', borderRadius: 8, marginBottom: 12,
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 12 }}>
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 12 }}>
           {error}
         </div>
       )}
@@ -285,7 +285,7 @@ export default function GoogleSheetsToolConfig({ agentId, existingTool, onCancel
               display: 'flex', alignItems: 'flex-start', gap: 10,
               padding: '10px 12px', borderRadius: 8,
               border: ops.includes(o.key) ? `1.5px solid ${C.primary}` : `1px solid ${C.border}`,
-              background: ops.includes(o.key) ? '#FEF1F1' : C.cardBg,
+              background: ops.includes(o.key) ? '#eeebff' : C.cardBg,
               cursor: 'pointer',
             }}>
               <input type="checkbox" checked={ops.includes(o.key)} onChange={() => toggleOp(o.key)}
@@ -330,7 +330,7 @@ function ReconnectCard({ account, onReconnect, reconnecting }) {
   return (
     <div style={{ padding: 14, borderRadius: 8, background: C.cardBg, border: `1px dashed ${C.border}` }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: C.text, fontWeight: 700, fontSize: 12.5, marginBottom: 6 }}>
-        <AlertCircle size={14} color="#B45309" /> Can’t list this account’s spreadsheets
+        <AlertCircle size={14} color="#b47100" /> Can’t list this account’s spreadsheets
       </div>
       <div style={{ fontSize: 12, color: C.textSecondary, lineHeight: 1.55, marginBottom: 12 }}>
         <strong>{account?.accountLabel || 'This account'}</strong> was connected without permission to read your

@@ -29,9 +29,9 @@ const WA = '97300000000';
 const CN = '97333757214';
 const CATEGORIES = [{ id: 'cat-1', name: 'Status' }, { id: 'cat-2', name: 'Stage' }];
 const TAGS = [
-  { id: 't1', name: 'VIP', color: '#dc2626', category_id: 'cat-1' },
-  { id: 't2', name: 'Cold', color: '#999999', category_id: 'cat-1' },
-  { id: 't3', name: 'Hot', color: '#16a34a', category_id: 'cat-2' },
+  { id: 't1', name: 'VIP', color: '#5b4be6', category_id: 'cat-1' },
+  { id: 't2', name: 'Cold', color: '#b7b5c6', category_id: 'cat-1' },
+  { id: 't3', name: 'Hot', color: '#17b978', category_id: 'cat-2' },
 ];
 const USERS = [
   { id: 1, displayName: 'Riya', username: 'riya', role: 'bda_sales', isActive: true },
@@ -95,7 +95,7 @@ describe('ChatWindow header — tag + assign quick-actions', () => {
 
   it('enforces one tag per category (selecting a sibling replaces it)', async () => {
     const user = userEvent.setup();
-    setContact({ tags: [{ id: 't1', name: 'VIP', color: '#dc2626', category_id: 'cat-1' }] });
+    setContact({ tags: [{ id: 't1', name: 'VIP', color: '#5b4be6', category_id: 'cat-1' }] });
     renderCW();
     await user.click(await screen.findByTitle('Tags'));
     await user.click(screen.getByText('Cold'));         // t2, same category cat-1 as t1

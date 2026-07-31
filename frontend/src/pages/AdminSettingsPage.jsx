@@ -60,9 +60,9 @@ const TIMEZONES = [
 ];
 
 const COLOR_PRESETS = [
-  '#dc2626', '#ea580c', '#d97706', '#16a34a',
-  '#0891b2', '#2563eb', '#7c3aed', '#db2777',
-  '#4b5563', '#000000',
+  '#5b4be6', '#ff6b4a', '#e09400', '#17b978',
+  '#0284c7', '#0284c7', '#8b5cf6', '#f43f5e',
+  '#3a3852', '#15132b',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -124,8 +124,8 @@ function GeneralTab({ onLogout, user }) {
             <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: 16, marginTop: 6 }}>
               <button onClick={handleDeleteClick} style={{
                 width: 'fit-content', display: 'flex', alignItems: 'center', gap: 8,
-                padding: '10px 18px', borderRadius: 8, border: '1.5px solid #fca5a5',
-                background: '#fef2f2', cursor: 'pointer', fontFamily: FONT, fontSize: 13,
+                padding: '10px 18px', borderRadius: 8, border: '1.5px solid #fda4af',
+                background: '#fff1f2', cursor: 'pointer', fontFamily: FONT, fontSize: 13,
                 fontWeight: 600, color: C.primary,
               }}>
                 <Trash2 size={14} /> Delete account
@@ -159,7 +159,7 @@ function TagsTab({ categories, tags, onRefresh }) {
   const [showAdd, setShowAdd] = useState(false);
   const [editingTag, setEditingTag] = useState(null);
   const [name, setName] = useState('');
-  const [color, setColor] = useState('#dc2626');
+  const [color, setColor] = useState('#5b4be6');
   const [categoryId, setCategoryId] = useState('');
   const [deleteModal, setDeleteModal] = useState({ open: false, id: null });
   const [filterCategoryId, setFilterCategoryId] = useState('');
@@ -180,7 +180,7 @@ function TagsTab({ categories, tags, onRefresh }) {
   const openAdd = () => {
     setEditingTag(null);
     setName('');
-    setColor('#dc2626');
+    setColor('#5b4be6');
     setCategoryId('');
     setShowAdd(true);
   };
@@ -207,7 +207,7 @@ function TagsTab({ categories, tags, onRefresh }) {
       setShowAdd(false);
       setEditingTag(null);
       setName('');
-      setColor('#dc2626');
+      setColor('#5b4be6');
       setCategoryId('');
     } catch (err) {
       alert('Failed to save tag: ' + err.message);
@@ -283,7 +283,7 @@ function TagsTab({ categories, tags, onRefresh }) {
               </thead>
               <tbody>
                 {filteredTags.map(tag => (
-                  <tr key={tag.id} style={{ background: sel.isSelected(tag.id) ? '#FDF6F6' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}` }}>
+                  <tr key={tag.id} style={{ background: sel.isSelected(tag.id) ? '#f7f5ff' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}` }}>
                     <td style={{ padding: '12px 16px', width: 40 }}><RowCheckbox sel={sel} id={tag.id} label={tag.name} /></td>
                     <td style={{ padding: '12px 16px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -358,7 +358,7 @@ function TagsTab({ categories, tags, onRefresh }) {
                   <button key={c} onClick={() => setColor(c)} style={{
                     width: 28, height: 28, borderRadius: 6,
                     background: c,
-                    border: color === c ? '2px solid #111' : '2px solid transparent',
+                    border: color === c ? '2px solid #15132b' : '2px solid transparent',
                     cursor: 'pointer',
                     boxShadow: color === c ? '0 0 0 2px #fff inset' : 'none',
                   }} />
@@ -618,9 +618,9 @@ function CategoryTab({ categories, tags, onRefresh, detailId, onViewDetail, onBa
                 {categories.map(cat => {
                   const tagCount = tags.filter(t => t.category_id === cat.id).length;
                   return (
-                    <tr key={cat.id} style={{ background: sel.isSelected(cat.id) ? '#FDF6F6' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, cursor: 'pointer' }}
+                    <tr key={cat.id} style={{ background: sel.isSelected(cat.id) ? '#f7f5ff' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, cursor: 'pointer' }}
                       onClick={() => onViewDetail(cat.id)}
-                      onMouseEnter={e => { if (!sel.isSelected(cat.id)) e.currentTarget.style.background = '#f9fafb'; }}
+                      onMouseEnter={e => { if (!sel.isSelected(cat.id)) e.currentTarget.style.background = '#fafaff'; }}
                       onMouseLeave={e => { if (!sel.isSelected(cat.id)) e.currentTarget.style.background = '#fff'; }}
                     >
                       <td style={{ padding: '12px 16px', width: 40 }} onClick={(e) => e.stopPropagation()}><RowCheckbox sel={sel} id={cat.id} label={cat.name} /></td>
@@ -634,7 +634,7 @@ function CategoryTab({ categories, tags, onRefresh, detailId, onViewDetail, onBa
                         }}><Eye size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} />View</button>
                         <button onClick={(e) => { e.stopPropagation(); openEdit(cat); }} style={{
                           border: 'none', background: 'transparent', cursor: 'pointer',
-                          color: '#2563eb', fontSize: 12, fontWeight: 600, marginRight: 12,
+                          color: '#0284c7', fontSize: 12, fontWeight: 600, marginRight: 12,
                         }}>Edit</button>
                         <button onClick={(e) => { e.stopPropagation(); handleDeleteClick(cat.id); }} style={{
                           border: 'none', background: 'transparent', cursor: 'pointer',
@@ -876,11 +876,11 @@ function WhatsappAccountsTab() {
                     {(() => {
                       const h = acc.healthStatus || 'unknown';
                       const styles = {
-                        healthy: { bg: '#E1F5EE', fg: '#0F6E56', label: 'Healthy' },
-                        invalid_token: { bg: '#FCEBEB', fg: '#A32D2D', label: 'Token expired' },
-                        rate_limited: { bg: '#FFF3E0', fg: '#E65100', label: 'Rate limited' },
-                        unknown_error: { bg: '#FCEBEB', fg: '#A32D2D', label: 'Error' },
-                        unknown: { bg: '#EEEDE8', fg: C.textMuted, label: 'Not checked' },
+                        healthy: { bg: '#e1f7ef', fg: '#0e8a5a', label: 'Healthy' },
+                        invalid_token: { bg: '#fff1f2', fg: '#be123c', label: 'Token expired' },
+                        rate_limited: { bg: '#fff4e0', fg: '#d1522f', label: 'Rate limited' },
+                        unknown_error: { bg: '#fff1f2', fg: '#be123c', label: 'Error' },
+                        unknown: { bg: '#f1f0f7', fg: C.textMuted, label: 'Not checked' },
                       };
                       const s = styles[h] || styles.unknown;
                       return (
@@ -893,8 +893,8 @@ function WhatsappAccountsTab() {
                   <td style={tdStyle}>
                     <span style={{
                       fontSize: 11, padding: '3px 8px', borderRadius: 99, fontWeight: 600,
-                      background: acc.isActive ? '#E1F5EE' : '#EEEDE8',
-                      color: acc.isActive ? '#0F6E56' : C.textMuted,
+                      background: acc.isActive ? '#e1f7ef' : '#f1f0f7',
+                      color: acc.isActive ? '#0e8a5a' : C.textMuted,
                     }}>
                       {acc.isActive ? 'Active' : 'Inactive'}
                     </span>
@@ -1212,8 +1212,8 @@ function RoleBadge({ role }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 4,
       padding: '2px 9px', borderRadius: 999, fontSize: 11, fontWeight: 700,
-      background: isAdmin ? '#EEF2FF' : '#ECFDF5',
-      color: isAdmin ? '#4338CA' : '#047857',
+      background: isAdmin ? '#eeebff' : '#effcf6',
+      color: isAdmin ? '#4b37d8' : '#0b6b47',
     }}>
       <Shield size={11} /> {ROLE_LABEL[role] || role}
     </span>
@@ -1335,7 +1335,7 @@ function UsersTab({ currentUser }) {
       </div>
 
       <div style={{ flex: 1, overflowY: 'auto', padding: '20px 32px' }}>
-        {error && <div style={{ padding: 12, background: '#FEF2F2', color: '#991B1B', borderRadius: 8, marginBottom: 16, fontSize: 13 }}>{error}</div>}
+        {error && <div style={{ padding: 12, background: '#fff1f2', color: '#be123c', borderRadius: 8, marginBottom: 16, fontSize: 13 }}>{error}</div>}
         {loading ? (
           <div style={{ textAlign: 'center', color: C.textMuted, fontSize: 14, marginTop: 60 }}>Loading…</div>
         ) : (
@@ -1365,8 +1365,8 @@ function UsersTab({ currentUser }) {
                           style={{
                             padding: '2px 9px', borderRadius: 999, fontSize: 11, fontWeight: 700, border: 'none',
                             cursor: isSelf ? 'default' : 'pointer',
-                            background: u.isActive !== false ? '#ECFDF5' : '#F3F4F6',
-                            color: u.isActive !== false ? '#047857' : '#6B7280',
+                            background: u.isActive !== false ? '#effcf6' : '#f1f0f7',
+                            color: u.isActive !== false ? '#0b6b47' : '#6c6a82',
                           }}>
                           {u.isActive !== false ? 'Active' : 'Disabled'}
                         </button>
@@ -1505,7 +1505,7 @@ function Toggle({ checked, onChange, disabled }) {
         position: 'relative', flexShrink: 0,
         cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.45 : 1,
-        background: checked ? C.green : '#cfcfca',
+        background: checked ? C.green : '#dcdbe8',
         transition: 'background .15s',
       }}
     >
@@ -1623,7 +1623,7 @@ function McpToolsTab() {
   const h2 = { fontSize: 15, fontWeight: 700, color: C.text, margin: '0 0 4px' };
   const sub = { fontSize: 12.5, color: C.textSecondary, margin: '0 0 16px', lineHeight: 1.5 };
   const codeBox = {
-    background: '#0F0F10', color: '#E5E5E2', fontFamily: MONO, fontSize: 12,
+    background: '#15132b', color: '#ececf3', fontFamily: MONO, fontSize: 12,
     borderRadius: 8, padding: 14, overflowX: 'auto', whiteSpace: 'pre', lineHeight: 1.5,
   };
 
@@ -1659,7 +1659,7 @@ function McpToolsTab() {
         {!master && (
           <div style={{
             marginTop: 14, padding: '10px 12px', borderRadius: 8,
-            background: '#FCEBEB', color: '#A32D2D', fontSize: 12.5, fontWeight: 500,
+            background: '#eeebff', color: '#4b37d8', fontSize: 12.5, fontWeight: 500,
           }}>
             MCP access is currently disabled.
           </div>
@@ -1728,7 +1728,7 @@ function McpToolsTab() {
           <div style={{ border: `1px solid ${C.border}`, borderRadius: 8, overflow: 'hidden' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
               <thead>
-                <tr style={{ background: 'var(--c-hover, #f7f7f3)', textAlign: 'left' }}>
+                <tr style={{ background: 'var(--c-hover, #f5f5fb)', textAlign: 'left' }}>
                   <th style={{ padding: '10px 14px', fontWeight: 600, color: C.textSecondary }}>Label</th>
                   <th style={{ padding: '10px 14px', fontWeight: 600, color: C.textSecondary }}>Key</th>
                   <th style={{ padding: '10px 14px', fontWeight: 600, color: C.textSecondary }}>Last used</th>

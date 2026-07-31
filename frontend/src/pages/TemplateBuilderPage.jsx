@@ -16,41 +16,41 @@ import { C, FONT, maskPhone } from '../constants.js';
 
 // ─── Builder-local Design Tokens (purple accent per plan) ─────────────────────
 const B = {
-  bg: '#F7F7F3',
+  bg: '#f5f5fb',
   card: '#FFFFFF',
-  cardBorder: '#E5E5E0',
-  innerBg: '#FAFAF7',
-  innerBorder: '#EEEEE8',
-  sectionBg: '#F8F7F2',
-  sectionBorder: '#EEEEE8',
-  divider: '#F0F0EA',
-  rowSep: '#F5F5F0',
-  t1: '#111111',
-  t2: '#222222',
-  t3: '#444444',
-  t4: '#666666',
-  t5: '#777777',
-  t6: '#888888',
-  t7: '#999999',
+  cardBorder: '#ececf3',
+  innerBg: '#fafaff',
+  innerBorder: '#f1f0f7',
+  sectionBg: '#f5f5fb',
+  sectionBorder: '#f1f0f7',
+  divider: '#f1f0f7',
+  rowSep: '#f5f5fb',
+  t1: '#15132b',
+  t2: '#15132b',
+  t3: '#3a3852',
+  t4: '#6c6a82',
+  t5: '#6c6a82',
+  t6: '#6c6a82',
+  t7: '#b7b5c6',
   accent: C.primary,
   accentBg: C.primaryLight,
   accentDark: C.primaryHover,
-  green: '#0F6E56',
-  greenBright: '#1D9E75',
-  greenBg: '#E1F5EE',
-  red: '#A32D2D',
-  redBg: '#FCEBEB',
-  orange: '#E65100',
-  orangeBg: '#FFF3E0',
-  warn: '#854F0B',
-  warnBg: '#FAEEDA',
+  green: '#0e8a5a',
+  greenBright: '#17b978',
+  greenBg: '#e1f7ef',
+  red: '#e11d48',
+  redBg: '#fff1f2',
+  orange: '#d1522f',
+  orangeBg: '#fff4e0',
+  warn: '#b47100',
+  warnBg: '#fff4e0',
   wa: '#25D366',
   waHeader: '#00A884',
 };
 
 const CATEGORIES = [
   { id: 'MARKETING', icon: Megaphone, label: 'Marketing', color: B.orange, bg: B.orangeBg, desc: 'Promotions, offers, announcements' },
-  { id: 'UTILITY', icon: Bell, label: 'Utility', color: '#1565C0', bg: '#E3F2FD', desc: 'Order updates, delivery alerts' },
+  { id: 'UTILITY', icon: Bell, label: 'Utility', color: '#0284c7', bg: '#e0f2fe', desc: 'Order updates, delivery alerts' },
   { id: 'AUTHENTICATION', icon: Shield, label: 'Authentication', color: B.green, bg: B.greenBg, desc: 'OTPs, verification codes' },
 ];
 
@@ -73,18 +73,18 @@ const HEADER_TYPES = [
 ];
 
 const STATUSES = {
-  DRAFT: { color: B.t6, bg: '#EEEDE8', dot: '#aaa', label: 'DRAFT' },
+  DRAFT: { color: B.t6, bg: '#f1f0f7', dot: '#b7b5c6', label: 'DRAFT' },
   SUBMITTED: { color: B.accentDark, bg: B.accentBg, dot: B.accent, label: 'PENDING REVIEW' },
   APPROVED: { color: B.green, bg: B.greenBg, dot: B.greenBright, label: 'APPROVED' },
   REJECTED: { color: B.red, bg: B.redBg, dot: B.red, label: 'REJECTED' },
-  PAUSED: { color: '#E65100', bg: '#FFF3E0', dot: '#E65100', label: 'PAUSED' },
-  DISABLED: { color: '#666', bg: '#EEEDE8', dot: '#666', label: 'DISABLED' },
+  PAUSED: { color: '#d1522f', bg: '#fff4e0', dot: '#d1522f', label: 'PAUSED' },
+  DISABLED: { color: '#6c6a82', bg: '#f1f0f7', dot: '#6c6a82', label: 'DISABLED' },
 };
 
 const QUALITY_STYLES = {
-  GREEN: { color: '#0F6E56', label: 'Quality: Green' },
-  YELLOW: { color: '#E65100', label: 'Quality: Yellow' },
-  RED: { color: '#A32D2D', label: 'Quality: Red' },
+  GREEN: { color: '#0e8a5a', label: 'Quality: Green' },
+  YELLOW: { color: '#d1522f', label: 'Quality: Yellow' },
+  RED: { color: '#4b37d8', label: 'Quality: Red' },
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -193,8 +193,8 @@ function Sec({ n, title, note, children }) {
     <div style={{ background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12, padding: '16px 18px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
         <span style={{ width: 22, height: 22, borderRadius: 99, background: B.accent, color: '#fff', fontSize: 11, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: FONT }}>{n}</span>
-        <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, fontFamily: FONT }}>{title}</span>
-        {note && <span style={{ fontSize: 10, color: '#bbb', fontFamily: FONT, textTransform: 'none', letterSpacing: 0, fontStyle: 'italic' }}>{note}</span>}
+        <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, fontFamily: FONT }}>{title}</span>
+        {note && <span style={{ fontSize: 10, color: '#b7b5c6', fontFamily: FONT, textTransform: 'none', letterSpacing: 0, fontStyle: 'italic' }}>{note}</span>}
       </div>
       {children}
     </div>
@@ -204,7 +204,7 @@ function Sec({ n, title, note, children }) {
 function Toggle({ on, onChange, label, desc }) {
   return (
     <div onClick={() => onChange(!on)} style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', padding: '10px 14px', background: on ? B.greenBg : B.innerBg, border: `1.5px solid ${on ? B.greenBright + '66' : B.innerBorder}`, borderRadius: 10, transition: 'all .15s' }}>
-      <div style={{ width: 36, height: 20, borderRadius: 99, background: on ? B.greenBright : '#D5D5D0', transition: 'background .2s', position: 'relative', flexShrink: 0 }}>
+      <div style={{ width: 36, height: 20, borderRadius: 99, background: on ? B.greenBright : '#dcdbe8', transition: 'background .2s', position: 'relative', flexShrink: 0 }}>
         <div style={{ position: 'absolute', top: 2, left: on ? 18 : 2, width: 16, height: 16, borderRadius: 99, background: 'var(--c-cardBg)', transition: 'left .2s', boxShadow: '0 1px 3px rgba(0,0,0,.2)' }} />
       </div>
       <div>
@@ -243,12 +243,12 @@ function WaPreview({ headerType, headerText, bodyText, footerText, buttons, secu
   return (
     <PhoneFrame headerTitle="Your Business" headerSubtitle="online" minHeight={330}>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-        <span style={{ background: '#E1F2FA', color: '#3C6678', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
+        <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
       </div>
       {!hasBubble && !hasButtons ? (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20, textAlign: 'center' }}>
           <div style={{ fontSize: 26, marginBottom: 6, opacity: 0.4 }}>💬</div>
-          <div style={{ fontSize: 10, color: '#888', fontWeight: 500, lineHeight: 1.5, fontFamily: FONT }}>Your message<br />will appear here</div>
+          <div style={{ fontSize: 10, color: '#6c6a82', fontWeight: 500, lineHeight: 1.5, fontFamily: FONT }}>Your message<br />will appear here</div>
         </div>
       ) : (
         <div style={{ marginLeft: 'auto', maxWidth: '88%', minWidth: '55%' }}>
@@ -257,7 +257,7 @@ function WaPreview({ headerType, headerText, bodyText, footerText, buttons, secu
             {headerType === 'IMAGE' && (
               headerMediaLibraryId
                 ? <img src={api.mediaLibrary.downloadUrl(headerMediaLibraryId)} alt="" style={{ margin: '-6px -7px 6px -9px', borderRadius: '7.5px 7.5px 0 0', height: 120, width: 'calc(100% + 16px)', objectFit: 'cover', display: 'block' }} />
-                : <div style={{ margin: '-6px -7px 6px -9px', borderRadius: '7.5px 7.5px 0 0', height: 120, background: 'linear-gradient(135deg,#c9c9c9,#999)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Image size={28} color="rgba(255,255,255,.8)" /></div>
+                : <div style={{ margin: '-6px -7px 6px -9px', borderRadius: '7.5px 7.5px 0 0', height: 120, background: 'linear-gradient(135deg,#dcdbe8,#b7b5c6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Image size={28} color="rgba(255,255,255,.8)" /></div>
             )}
             {headerType === 'VIDEO' && (
               headerMediaLibraryId
@@ -269,21 +269,21 @@ function WaPreview({ headerType, headerText, bodyText, footerText, buttons, secu
                       </div>
                     </div>
                   </div>
-                : <div style={{ margin: '-6px -7px 6px -9px', borderRadius: '7.5px 7.5px 0 0', height: 120, background: '#1A1A1A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ width: 38, height: 38, borderRadius: 99, background: 'rgba(255,255,255,.15)', border: '1.5px solid rgba(255,255,255,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Play size={16} color="white" fill="white" /></div></div>
+                : <div style={{ margin: '-6px -7px 6px -9px', borderRadius: '7.5px 7.5px 0 0', height: 120, background: '#15132b', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ width: 38, height: 38, borderRadius: 99, background: 'rgba(255,255,255,.15)', border: '1.5px solid rgba(255,255,255,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Play size={16} color="white" fill="white" /></div></div>
             )}
             {headerType === 'DOCUMENT' && (
               headerMediaLibraryId
                 ? <div style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '7px 8px', background: 'rgba(0,0,0,.06)', borderRadius: 6, marginBottom: 7 }}>
                     <div style={{ width: 34, height: 38, background: 'var(--c-cardBg)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 1px 3px rgba(0,0,0,.15)', position: 'relative', overflow: 'hidden' }}>
                       <div style={{ position: 'absolute', top: 0, right: 0, width: 10, height: 10, background: '#e94235', clipPath: 'polygon(100% 0,0 0,100% 100%)' }} />
-                      <FileText size={16} color="#9e9e9e" />
+                      <FileText size={16} color="#b7b5c6" />
                     </div>
                     <div>
                       <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--c-text)', fontFamily: FONT }}>Document</div>
                       <div style={{ fontSize: 9.5, color: 'var(--c-textMuted)', marginTop: 1, fontFamily: FONT }}>From Media Library</div>
                     </div>
                   </div>
-                : <div style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '7px 8px', background: 'rgba(0,0,0,.06)', borderRadius: 6, marginBottom: 7 }}><div style={{ width: 34, height: 38, background: 'var(--c-cardBg)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 1px 3px rgba(0,0,0,.15)', position: 'relative', overflow: 'hidden' }}><div style={{ position: 'absolute', top: 0, right: 0, width: 10, height: 10, background: '#e94235', clipPath: 'polygon(100% 0,0 0,100% 100%)' }} /><FileText size={16} color="#9e9e9e" /></div><div><div style={{ fontSize: 11, fontWeight: 600, color: 'var(--c-text)', fontFamily: FONT }}>document.pdf</div><div style={{ fontSize: 9.5, color: 'var(--c-textMuted)', marginTop: 1, fontFamily: FONT }}>PDF · 1 page</div></div></div>
+                : <div style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '7px 8px', background: 'rgba(0,0,0,.06)', borderRadius: 6, marginBottom: 7 }}><div style={{ width: 34, height: 38, background: 'var(--c-cardBg)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 1px 3px rgba(0,0,0,.15)', position: 'relative', overflow: 'hidden' }}><div style={{ position: 'absolute', top: 0, right: 0, width: 10, height: 10, background: '#e94235', clipPath: 'polygon(100% 0,0 0,100% 100%)' }} /><FileText size={16} color="#b7b5c6" /></div><div><div style={{ fontSize: 11, fontWeight: 600, color: 'var(--c-text)', fontFamily: FONT }}>document.pdf</div><div style={{ fontSize: 9.5, color: 'var(--c-textMuted)', marginTop: 1, fontFamily: FONT }}>PDF · 1 page</div></div></div>
             )}
             {headerType === 'TEXT' && headerText && <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--c-text)', marginBottom: 4, lineHeight: 1.4, fontFamily: FONT }}>{headerText}</div>}
             {bodyText && <div style={{ fontSize: 13.5, color: 'var(--c-text)', lineHeight: 1.55, whiteSpace: 'pre-wrap', wordBreak: 'break-word', fontFamily: FONT }}>{bodyText}</div>}
@@ -332,8 +332,8 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
         { type: 'COPY_CODE', icon: <KeyRound size={16} />, label: 'Copy Coupon Code', hint: 'One-tap copy of a promo code', disabled: couponCount >= 1, disabledMsg: 'Max 1 coupon button' },
       ];
 
-  const tColor = { QUICK_REPLY: B.accent, URL: '#1565C0', PHONE_NUMBER: B.green, OTP: B.green, COPY_CODE: '#8E24AA' };
-  const tBg = { QUICK_REPLY: B.accentBg, URL: '#E3F2FD', PHONE_NUMBER: B.greenBg, OTP: B.greenBg };
+  const tColor = { QUICK_REPLY: B.accent, URL: '#0284c7', PHONE_NUMBER: B.green, OTP: B.green, COPY_CODE: '#8b5cf6' };
+  const tBg = { QUICK_REPLY: B.accentBg, URL: '#e0f2fe', PHONE_NUMBER: B.greenBg, OTP: B.greenBg };
   const tLabel = { QUICK_REPLY: '↩ Quick Reply', URL: '🔗 Visit Website', PHONE_NUMBER: '📞 Call Phone', OTP: '🔑 OTP / Copy Code' };
 
   return (
@@ -348,20 +348,20 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              style={{ padding: '7px 14px', background: 'var(--c-cardBg)', border: '1.5px solid #D5D5D0', borderRadius: 10, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#444', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5 }}
+              style={{ padding: '7px 14px', background: 'var(--c-cardBg)', border: '1.5px solid #dcdbe8', borderRadius: 10, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#3a3852', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5 }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = B.accent; e.currentTarget.style.color = B.accent; e.currentTarget.style.background = B.accentBg; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#D5D5D0'; e.currentTarget.style.color = '#444'; e.currentTarget.style.background = '#fff'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#dcdbe8'; e.currentTarget.style.color = '#3a3852'; e.currentTarget.style.background = '#fff'; }}
             >+ Add Button</button>
             {menuOpen && (
               <div style={{ position: 'absolute', right: 0, top: '110%', background: 'var(--c-cardBg)', border: '1px solid var(--c-border)', borderRadius: 10, padding: 6, boxShadow: '0 8px 32px rgba(0,0,0,.12)', zIndex: 50, minWidth: 200 }}>
                 {menuOpts.map(o => (
                   <button key={o.type} disabled={o.disabled}
                     onClick={() => { if (!o.disabled) { onAdd(o.type); setMenuOpen(false); } }}
-                    style={{ display: 'flex', alignItems: 'center', gap: 10, width: '100%', padding: '9px 12px', border: 'none', background: 'none', fontSize: 12, fontFamily: FONT, cursor: o.disabled ? 'not-allowed' : 'pointer', fontWeight: 600, borderRadius: 8, color: o.disabled ? '#bbb' : B.t2, transition: 'background .1s' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, width: '100%', padding: '9px 12px', border: 'none', background: 'none', fontSize: 12, fontFamily: FONT, cursor: o.disabled ? 'not-allowed' : 'pointer', fontWeight: 600, borderRadius: 8, color: o.disabled ? '#b7b5c6' : B.t2, transition: 'background .1s' }}
                     onMouseEnter={e => { if (!o.disabled) e.currentTarget.style.background = B.bg; }}
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                     <span style={{ fontSize: 16 }}>{o.icon}</span>
-                    <div><div>{o.label}</div><div style={{ fontSize: 10, color: o.disabled ? '#ccc' : B.t6, fontWeight: 500 }}>{o.disabled ? o.disabledMsg : o.hint}</div></div>
+                    <div><div>{o.label}</div><div style={{ fontSize: 10, color: o.disabled ? '#dcdbe8' : B.t6, fontWeight: 500 }}>{o.disabled ? o.disabledMsg : o.hint}</div></div>
                   </button>
                 ))}
               </div>
@@ -369,7 +369,7 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
           </div>
         )}
       </div>
-      {buttons.length === 0 && <div style={{ textAlign: 'center', padding: '14px 0', color: '#bbb', fontSize: 12, fontFamily: FONT }}>No buttons added yet.</div>}
+      {buttons.length === 0 && <div style={{ textAlign: 'center', padding: '14px 0', color: '#b7b5c6', fontSize: 12, fontFamily: FONT }}>No buttons added yet.</div>}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {buttons.map((btn, i) => {
           const urlVars = btn.type === 'URL' ? extractVars(btn.value || '') : [];
@@ -384,7 +384,7 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
                   <div>
                     <Lbl>Button Text</Lbl>
-                    <input style={{ border: '1.5px solid #D5D5D0', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="Copy Code" value={btn.text || ''} maxLength={25} onChange={e => onUpdate(i, 'text', e.target.value)} />
+                    <input style={{ border: '1.5px solid #dcdbe8', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="Copy Code" value={btn.text || ''} maxLength={25} onChange={e => onUpdate(i, 'text', e.target.value)} />
                   </div>
                   <div>
                     <Lbl>OTP Type</Lbl>
@@ -400,8 +400,8 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
                   </div>
                   {btn.otpType === 'ONE_TAP' && (
                     <>
-                      <div><Lbl note="Android only">Package Name</Lbl><input style={{ border: '1.5px solid #D5D5D0', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="com.example.app" value={btn.packageName || ''} onChange={e => onUpdate(i, 'packageName', e.target.value)} /></div>
-                      <div><Lbl>Signature Hash</Lbl><input style={{ border: '1.5px solid #D5D5D0', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="K8a%2FAINcGX7" value={btn.signatureHash || ''} onChange={e => onUpdate(i, 'signatureHash', e.target.value)} /></div>
+                      <div><Lbl note="Android only">Package Name</Lbl><input style={{ border: '1.5px solid #dcdbe8', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="com.example.app" value={btn.packageName || ''} onChange={e => onUpdate(i, 'packageName', e.target.value)} /></div>
+                      <div><Lbl>Signature Hash</Lbl><input style={{ border: '1.5px solid #dcdbe8', borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }} placeholder="K8a%2FAINcGX7" value={btn.signatureHash || ''} onChange={e => onUpdate(i, 'signatureHash', e.target.value)} /></div>
                     </>
                   )}
                 </div>
@@ -410,7 +410,7 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
                   <div style={{ display: 'grid', gridTemplateColumns: btn.type === 'QUICK_REPLY' ? '1fr' : '1fr 1fr', gap: 8 }}>
                     <div>
                       <Lbl required>Button Text</Lbl>
-                      <input style={{ border: `1.5px solid ${errors[`btn_text_${i}`] ? B.red : '#D5D5D0'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
+                      <input style={{ border: `1.5px solid ${errors[`btn_text_${i}`] ? B.red : '#dcdbe8'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
                         placeholder={btn.type === 'QUICK_REPLY' ? 'e.g. Yes, Confirm' : btn.type === 'URL' ? 'e.g. View Order' : 'e.g. Call Us'}
                         value={btn.text || ''} maxLength={25} onChange={e => onUpdate(i, 'text', e.target.value)} />
                       <div style={{ fontSize: 10, color: B.t7, textAlign: 'right', marginTop: 2, fontFamily: "'DM Mono', monospace" }}>{(btn.text || '').length}/25</div>
@@ -418,7 +418,7 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
                     {btn.type !== 'QUICK_REPLY' && (
                       <div>
                         <Lbl required>{btn.type === 'URL' ? 'Website URL' : 'Phone Number (E.164)'}</Lbl>
-                        <input style={{ border: `1.5px solid ${errors[`btn_url_${i}`] || errors[`btn_phone_${i}`] ? B.red : '#D5D5D0'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
+                        <input style={{ border: `1.5px solid ${errors[`btn_url_${i}`] || errors[`btn_phone_${i}`] ? B.red : '#dcdbe8'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
                           placeholder={btn.type === 'URL' ? 'https://example.com/orders/{{1}}' : '+919876543210'}
                           value={btn.value || ''} onChange={e => onUpdate(i, 'value', e.target.value)} />
                         {errors[`btn_url_${i}`] && <Hint error>{errors[`btn_url_${i}`]}</Hint>}
@@ -433,7 +433,7 @@ function ButtonsSection({ buttons, onAdd, onRemove, onUpdate, category, errors }
                       <div style={{ fontSize: 11, fontWeight: 600, color: B.t4, marginBottom: 6, fontFamily: FONT }}>
                         URL has <span style={{ fontFamily: "'DM Mono', monospace", background: B.accentBg, padding: '1px 5px', borderRadius: 4, fontSize: 11, color: B.accentDark }}>{'{{1}}'}</span> — provide a sample URL:
                       </div>
-                      <input style={{ border: `1.5px solid ${errors[`btn_urlsample_${i}`] ? B.red : '#D5D5D0'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
+                      <input style={{ border: `1.5px solid ${errors[`btn_urlsample_${i}`] ? B.red : '#dcdbe8'}`, borderRadius: 8, padding: '7px 12px', fontSize: 12, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
                         placeholder="https://example.com/orders/ORD-12345"
                         value={btn.urlSample || ''} onChange={e => onUpdate(i, 'urlSample', e.target.value)} />
                       {errors[`btn_urlsample_${i}`] && <Hint error>{errors[`btn_urlsample_${i}`]}</Hint>}
@@ -506,7 +506,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
 
   const chipStyle = (active) => ({
     padding: '6px 12px', borderRadius: 99, fontSize: 12, fontWeight: 600, fontFamily: FONT,
-    border: `1px solid ${active ? C.primary : '#D5D5D0'}`,
+    border: `1px solid ${active ? C.primary : '#dcdbe8'}`,
     background: active ? C.primary : 'var(--c-cardBg)',
     color: active ? '#fff' : B.t3, cursor: 'pointer',
   });
@@ -559,7 +559,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 1 360px', minWidth: 220 }}>
           <Search size={16} color={B.t6} />
           <input
-            style={{ flex: 1, border: '1.5px solid #D5D5D0', borderRadius: 8, padding: '8px 12px', fontSize: 13, fontFamily: FONT, background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
+            style={{ flex: 1, border: '1.5px solid #dcdbe8', borderRadius: 8, padding: '8px 12px', fontSize: 13, fontFamily: FONT, background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
             placeholder="Search by name or body…"
             value={search}
             onChange={e => setSearch(e.target.value)}
@@ -586,7 +586,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
         </div>
       ) : filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px', background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12 }}>
-          <LayoutTemplate size={40} color="#ccc" style={{ marginBottom: 12 }} />
+          <LayoutTemplate size={40} color="#dcdbe8" style={{ marginBottom: 12 }} />
           <div style={{ fontSize: 15, fontWeight: 600, color: B.t3, marginBottom: 4, fontFamily: FONT }}>No templates yet</div>
           <div style={{ fontSize: 12, color: B.t6, marginBottom: 16, fontFamily: FONT }}>Create your first WhatsApp message template.</div>
           <button
@@ -612,7 +612,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
                 const cat = CATEGORIES.find(c => c.id === t.category);
                 const canEdit = ['DRAFT', 'REJECTED', 'APPROVED', 'PAUSED'].includes(t.status);
                 return (
-                  <tr key={t.id} style={{ borderBottom: `1px solid ${B.rowSep}`, background: sel.isSelected(t.id) ? '#FDF6F6' : 'transparent' }}>
+                  <tr key={t.id} style={{ borderBottom: `1px solid ${B.rowSep}`, background: sel.isSelected(t.id) ? '#f7f5ff' : 'transparent' }}>
                     <td style={{ padding: '12px 14px', width: 36 }}><RowCheckbox sel={sel} id={t.id} label={t.name} /></td>
                     <td style={{ padding: '12px 14px', fontSize: 13, fontWeight: 600, color: B.t2, fontFamily: FONT }}>{t.name}</td>
                     <td style={{ padding: '12px 14px' }}>
@@ -622,7 +622,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
                           <span style={{ fontSize: 10, color: B.t6, fontFamily: 'DM Mono, monospace' }}>{maskPhone(t.whatsappAccountPhone)}</span>
                         </div>
                       ) : (
-                        <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 99, background: '#FFF3E0', color: '#E65100', fontWeight: 600, fontFamily: FONT }}>Unassigned</span>
+                        <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 99, background: '#fff4e0', color: '#d1522f', fontWeight: 600, fontFamily: FONT }}>Unassigned</span>
                       )}
                     </td>
                     <td style={{ padding: '12px 14px' }}>
@@ -640,7 +640,7 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
                               title={`Open ${s.language} variant (${s.status})`}
                               style={{
                                 fontSize: 10, padding: '2px 7px', borderRadius: 99,
-                                border: `1px solid ${STATUSES[s.status]?.bg || '#eee'}`,
+                                border: `1px solid ${STATUSES[s.status]?.bg || '#f1f0f7'}`,
                                 background: s.id === t.id ? STATUSES[s.status]?.bg : 'var(--c-cardBg)',
                                 color: STATUSES[s.status]?.color || B.t5,
                                 fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase',
@@ -667,17 +667,17 @@ function TemplateList({ templates, loading, onAdd, onEdit, onDelete, onView, onB
                     <td style={{ padding: '12px 14px' }}>
                       <div style={{ display: 'flex', gap: 6 }}>
                         {canEdit && (
-                          <button onClick={() => onEdit(t)} title="Edit" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
+                          <button onClick={() => onEdit(t)} title="Edit" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
                             <Pencil size={13} />
                           </button>
                         )}
-                        <button onClick={() => onView(t)} title="View" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
+                        <button onClick={() => onView(t)} title="View" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
                           <Eye size={13} />
                         </button>
-                        <button onClick={() => onDuplicate(t)} title="Duplicate" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
+                        <button onClick={() => onDuplicate(t)} title="Duplicate" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
                           <Plus size={13} />
                         </button>
-                        <button onClick={() => setDeleteModal({ open: true, template: t })} title="Delete" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.red }}>
+                        <button onClick={() => setDeleteModal({ open: true, template: t })} title="Delete" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.red }}>
                           <Trash2 size={13} />
                         </button>
                       </div>
@@ -897,14 +897,14 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
   ].filter(([,,, show]) => show !== false);
 
   // Input styles
-  const inpStyle = { border: '1.5px solid #D5D5D0', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none', transition: 'border .15s' };
+  const inpStyle = { border: '1.5px solid #dcdbe8', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none', transition: 'border .15s' };
   const inpErrStyle = { ...inpStyle, borderColor: B.red };
   const taStyle = { ...inpStyle, resize: 'vertical', lineHeight: 1.65 };
   const taErrStyle = { ...taStyle, borderColor: B.red };
   const btnPriStyle = { padding: '10px 22px', background: B.accent, color: '#fff', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT, transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 6, whiteSpace: 'nowrap' };
-  const btnGhostStyle = { padding: '7px 14px', background: 'var(--c-cardBg)', border: '1.5px solid #D5D5D0', borderRadius: 10, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#444', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5 };
-  const hdrTabStyle = { padding: '7px 14px', borderRadius: 99, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', color: '#444', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5, fontFamily: FONT };
-  const hdrTabOnStyle = { ...hdrTabStyle, background: '#111', color: '#fff', borderColor: 'var(--c-text)' };
+  const btnGhostStyle = { padding: '7px 14px', background: 'var(--c-cardBg)', border: '1.5px solid #dcdbe8', borderRadius: 10, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#3a3852', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5 };
+  const hdrTabStyle = { padding: '7px 14px', borderRadius: 99, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', color: '#3a3852', transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 5, fontFamily: FONT };
+  const hdrTabOnStyle = { ...hdrTabStyle, background: '#15132b', color: '#fff', borderColor: 'var(--c-text)' };
   const catCardStyle = { border: '2px solid var(--c-border)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: 'var(--c-cardBg)', transition: 'all .18s', textAlign: 'left', width: '100%', fontFamily: FONT };
   const catCardOnStyle = { ...catCardStyle, borderColor: B.accent, background: B.accentBg };
 
@@ -925,7 +925,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
             {showErrors && errCount > 0 && <span style={{ fontSize: 11, color: B.red, fontWeight: 600, fontFamily: FONT }}>⚠ {errCount} issue{errCount > 1 ? 's' : ''}</span>}
             {!readOnly && (
               <button
-                style={{ ...btnPriStyle, background: canSubmit ? B.green : '#ccc' }}
+                style={{ ...btnPriStyle, background: canSubmit ? B.green : '#dcdbe8' }}
                 onClick={isApprovedEdit ? () => handleSave('DRAFT') : handleSubmit}
                 disabled={saving}
                 title={isApprovedEdit ? 'Saves edits to Meta — template re-enters review' : 'Submit template for Meta review'}
@@ -976,7 +976,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
               )}
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
                 <button onClick={() => setTranslationOpen(false)} style={{ ...btnGhostStyle }}>Cancel</button>
-                <button onClick={handleAddTranslation} disabled={translationSaving} style={{ ...btnPriStyle, background: translationSaving ? '#ccc' : B.green }}>
+                <button onClick={handleAddTranslation} disabled={translationSaving} style={{ ...btnPriStyle, background: translationSaving ? '#dcdbe8' : B.green }}>
                   {translationSaving ? <Loader2 size={13} style={{ animation: 'spin 1s linear infinite' }} /> : <Plus size={13} />} Create
                 </button>
               </div>
@@ -994,7 +994,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
               </div>
               <div style={{ marginBottom: 12 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: B.t4, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Recipient phone</div>
-                <input value={testTo} onChange={e => setTestTo(e.target.value)} placeholder="+919xxxxxxxxx" style={{ width: '100%', padding: '8px 12px', border: '1px solid #D5D5D0', borderRadius: 8, fontSize: 13, fontFamily: FONT, outline: 'none', boxSizing: 'border-box' }} />
+                <input value={testTo} onChange={e => setTestTo(e.target.value)} placeholder="+919xxxxxxxxx" style={{ width: '100%', padding: '8px 12px', border: '1px solid #dcdbe8', borderRadius: 8, fontSize: 13, fontFamily: FONT, outline: 'none', boxSizing: 'border-box' }} />
               </div>
               {bodyVars.length > 0 && (
                 <div style={{ marginBottom: 12 }}>
@@ -1005,7 +1005,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                       value={testSampleValues[v] || samples[v] || ''}
                       onChange={e => setTestSampleValues({ ...testSampleValues, [v]: e.target.value })}
                       placeholder={`{{${v}}}`}
-                      style={{ width: '100%', padding: '7px 12px', border: '1px solid #D5D5D0', borderRadius: 8, fontSize: 12, fontFamily: FONT, outline: 'none', marginTop: 4, boxSizing: 'border-box' }}
+                      style={{ width: '100%', padding: '7px 12px', border: '1px solid #dcdbe8', borderRadius: 8, fontSize: 12, fontFamily: FONT, outline: 'none', marginTop: 4, boxSizing: 'border-box' }}
                     />
                   ))}
                 </div>
@@ -1017,7 +1017,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
               )}
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
                 <button onClick={() => setTestOpen(false)} style={{ ...btnGhostStyle }}>Close</button>
-                <button onClick={handleTestSend} disabled={testSending || !testTo.trim()} style={{ ...btnPriStyle, background: testSending || !testTo.trim() ? '#ccc' : B.green }}>
+                <button onClick={handleTestSend} disabled={testSending || !testTo.trim()} style={{ ...btnPriStyle, background: testSending || !testTo.trim() ? '#dcdbe8' : B.green }}>
                   {testSending ? <Loader2 size={13} style={{ animation: 'spin 1s linear infinite' }} /> : <Send size={13} />} Send Test
                 </button>
               </div>
@@ -1027,7 +1027,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
 
         {/* Approved-edit warning — appears when editing a live template */}
         {isApprovedEdit && !readOnly && (
-          <div style={{ background: '#FFF8E1', border: '1px solid #FFD54F', borderRadius: 10, padding: '10px 14px', marginBottom: 14, fontSize: 12, color: '#7A5500', fontFamily: FONT }}>
+          <div style={{ background: '#fff8e6', border: '1px solid #ffc861', borderRadius: 10, padding: '10px 14px', marginBottom: 14, fontSize: 12, color: '#7a5000', fontFamily: FONT }}>
             ⚠ <strong>You're editing a live template.</strong> Saving sends the changes to Meta for re-review (status reverts to SUBMITTED until re-approval, usually within 24h). Name and language are locked.
           </div>
         )}
@@ -1063,15 +1063,15 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
           </div>
         )}
         {status === 'PAUSED' && (
-          <div style={{ background: '#FFF3E0', border: '1px solid #FFB74D', borderRadius: 10, padding: '12px 16px', marginBottom: 16 }}>
-            <div style={{ fontSize: 13, fontWeight: 700, color: '#E65100', fontFamily: FONT }}>⏸ Template paused by Meta</div>
-            <div style={{ fontSize: 11, color: '#E65100', marginTop: 4, opacity: 0.85, fontFamily: FONT }}>
+          <div style={{ background: '#fff4e0', border: '1px solid #ffc861', borderRadius: 10, padding: '12px 16px', marginBottom: 16 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: '#d1522f', fontFamily: FONT }}>⏸ Template paused by Meta</div>
+            <div style={{ fontSize: 11, color: '#d1522f', marginTop: 4, opacity: 0.85, fontFamily: FONT }}>
               Quality score dropped — sends are blocked until quality recovers. Reduce send volume and improve recipient engagement, then click Refresh from Meta to re-check.
             </div>
           </div>
         )}
         {status === 'DISABLED' && (
-          <div style={{ background: '#EEEDE8', border: '1px solid #aaa', borderRadius: 10, padding: '12px 16px', marginBottom: 16, fontSize: 13, fontWeight: 700, color: '#444', fontFamily: FONT }}>
+          <div style={{ background: '#f1f0f7', border: '1px solid #b7b5c6', borderRadius: 10, padding: '12px 16px', marginBottom: 16, fontSize: 13, fontWeight: 700, color: '#3a3852', fontFamily: FONT }}>
             🚫 Template disabled by Meta — cannot be sent. Duplicate and resubmit with revised content.
           </div>
         )}
@@ -1087,7 +1087,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
         )}
         {/* Category auto-change banner */}
         {template?.previous_category && template.previous_category !== category && (
-          <div style={{ background: '#FFF3E0', border: '1px solid #FFB74D', borderRadius: 10, padding: '10px 16px', marginBottom: 16, fontSize: 12, color: '#E65100', fontFamily: FONT }}>
+          <div style={{ background: '#fff4e0', border: '1px solid #ffc861', borderRadius: 10, padding: '10px 16px', marginBottom: 16, fontSize: 12, color: '#d1522f', fontFamily: FONT }}>
             ℹ Meta reclassified this template from <strong>{template.previous_category}</strong> → <strong>{category}</strong>.
           </div>
         )}
@@ -1120,7 +1120,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                     {accounts[0].displayName} ({maskPhone(accounts[0].displayPhoneNumber)})
                   </div>
                 ) : (
-                  <div style={{ padding: '8px 12px', background: '#FFF3E0', border: `1px solid #E65100`, borderRadius: 8, fontSize: 12, color: '#E65100', fontFamily: FONT }}>
+                  <div style={{ padding: '8px 12px', background: '#fff4e0', border: `1px solid #d1522f`, borderRadius: 8, fontSize: 12, color: '#d1522f', fontFamily: FONT }}>
                     No WhatsApp accounts configured yet. Add one in Settings → WhatsApp Accounts.
                   </div>
                 )}
@@ -1155,7 +1155,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                     <button key={cat.id} style={on ? catCardOnStyle : catCardStyle} onClick={() => !readOnly && handleCategoryChange(cat.id)} disabled={readOnly}>
                       <div style={{ marginBottom: 7 }}><Icon size={22} color={on ? cat.color : B.t4} /></div>
                       <div style={{ fontSize: 13, fontWeight: 700, color: on ? B.accentDark : B.t1, marginBottom: 3, fontFamily: FONT }}>{cat.label}</div>
-                      <div style={{ fontSize: 11, color: on ? '#6055cc' : B.t6, lineHeight: 1.45, fontFamily: FONT }}>{cat.desc}</div>
+                      <div style={{ fontSize: 11, color: on ? '#5b4be6' : B.t6, lineHeight: 1.45, fontFamily: FONT }}>{cat.desc}</div>
                     </button>
                   );
                 })}
@@ -1263,7 +1263,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                           />
                           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.25)' }}>
                             <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                              <Play size={16} color="#111" fill="#111" />
+                              <Play size={16} color="#15132b" fill="#15132b" />
                             </div>
                           </div>
                         </div>
@@ -1301,7 +1301,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                 <div style={{ display: 'flex', gap: 5 }}>
                   {[['*', 'B', { fontWeight: 700 }], ['_', 'I', { fontStyle: 'italic' }], ['~', 'S', { textDecoration: 'line-through' }]].map(([w, l, s]) => (
-                    <button key={w} style={{ width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1.5px solid #D5D5D0', borderRadius: 8, background: 'var(--c-cardBg)', cursor: 'pointer', fontSize: 12, fontWeight: 700, color: '#444', fontFamily: FONT, transition: 'all .15s', ...s }} onClick={() => !readOnly && wrapFmt(w)} disabled={readOnly}>{l}</button>
+                    <button key={w} style={{ width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1.5px solid #dcdbe8', borderRadius: 8, background: 'var(--c-cardBg)', cursor: 'pointer', fontSize: 12, fontWeight: 700, color: '#3a3852', fontFamily: FONT, transition: 'all .15s', ...s }} onClick={() => !readOnly && wrapFmt(w)} disabled={readOnly}>{l}</button>
                   ))}
                 </div>
                 {!readOnly && (
@@ -1340,7 +1340,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
               {/* Samples */}
               {bodyVars.length > 0 && (
                 <div style={{ marginTop: 14, padding: '12px 14px', background: B.sectionBg, border: `1px solid ${showErrors && errors.bodySamples ? B.red + '55' : B.sectionBorder}`, borderRadius: 10 }}>
-                  <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, marginBottom: 6, fontFamily: FONT }}>Sample Values for Variables</div>
+                  <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, marginBottom: 6, fontFamily: FONT }}>Sample Values for Variables</div>
                   <div style={{ fontSize: 11, color: B.t6, marginBottom: 10, fontFamily: FONT }}>Required by Meta — realistic examples for each placeholder.</div>
                   {showErrors && errors.bodySamples && <Hint error style={{ marginBottom: 8 }}>{errors.bodySamples}</Hint>}
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
@@ -1381,7 +1381,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
             {/* 7 — Submit / Save */}
             {!readOnly && (
               <div style={{ background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12, padding: '16px 18px' }}>
-                <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, marginBottom: 14, fontFamily: FONT }}>Submit for Meta Approval</div>
+                <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, marginBottom: 14, fontFamily: FONT }}>Submit for Meta Approval</div>
                 {showErrors && errCount > 0 && (
                   <div style={{ background: B.redBg, border: `1px solid ${B.red}33`, borderRadius: 10, padding: '12px 14px', marginBottom: 14 }}>
                     <div style={{ fontSize: 12, fontWeight: 700, color: B.red, marginBottom: 8, fontFamily: FONT }}>⚠ {errCount} issue{errCount > 1 ? 's' : ''} to fix before submitting:</div>
@@ -1394,7 +1394,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                   </div>
                 )}
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  <button style={{ ...btnPriStyle, background: canSubmit ? B.green : '#ccc', flex: 1, justifyContent: 'center', fontSize: 14, padding: 12 }} onClick={handleSubmit} disabled={saving}>
+                  <button style={{ ...btnPriStyle, background: canSubmit ? B.green : '#dcdbe8', flex: 1, justifyContent: 'center', fontSize: 14, padding: 12 }} onClick={handleSubmit} disabled={saving}>
                     {saving ? <Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} /> : <Send size={16} />} Submit for Approval
                   </button>
                   <button style={{ ...btnGhostStyle }} onClick={() => { setShowPayload(p => !p); setShowErrors(true); }}>
@@ -1409,7 +1409,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
             {showPayload && (
               <div style={{ background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12, padding: '16px 18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                  <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, fontFamily: FONT }}>API Payload</div>
+                  <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, fontFamily: FONT }}>API Payload</div>
                   <button style={{ ...btnGhostStyle, fontSize: 11, gap: 5 }} onClick={copyPayload}>
                     {copied ? <Check size={13} /> : <Copy size={13} />} {copied ? 'Copied!' : 'Copy JSON'}
                   </button>
@@ -1417,7 +1417,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
                 <div style={{ marginBottom: 8, fontSize: 11, color: B.t5, fontFamily: "'DM Mono', monospace", background: B.sectionBg, padding: '6px 10px', borderRadius: 6 }}>
                   POST https://graph.facebook.com/v20.0/<strong style={{ color: B.accent }}>{'{WABA_ID}'}</strong>/message_templates
                 </div>
-                <div style={{ background: '#1A1A2E', borderRadius: 10, padding: '14px 16px', overflow: 'auto', fontFamily: "'DM Mono', monospace", fontSize: 11, color: '#E8E8F0', lineHeight: 1.7, maxHeight: 320 }}>
+                <div style={{ background: '#15132b', borderRadius: 10, padding: '14px 16px', overflow: 'auto', fontFamily: "'DM Mono', monospace", fontSize: 11, color: '#ececf3', lineHeight: 1.7, maxHeight: 320 }}>
                   <pre style={{ margin: 0 }}>{JSON.stringify(payload, null, 2)}</pre>
                 </div>
               </div>
@@ -1427,7 +1427,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
           {/* RIGHT */}
           <div style={{ position: 'sticky', top: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, fontFamily: FONT }}>Live Preview</span>
+              <span style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, fontFamily: FONT }}>Live Preview</span>
               <span style={{ fontSize: 11, color: B.t7, fontStyle: 'italic', fontFamily: FONT }}>Updates as you type</span>
             </div>
             <WaPreview headerType={headerType} headerText={previewHeader} bodyText={previewBody} footerText={footer} buttons={buttons} securityRec={securityRec} codeExpiry={codeExpiry} headerMediaLibraryId={headerMediaLibraryId} />
@@ -1435,7 +1435,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
             {/* Checklist */}
             <div style={{ background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12, padding: '14px 16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, fontFamily: FONT }}>Submission Checklist</div>
+                <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, fontFamily: FONT }}>Submission Checklist</div>
                 {errCount === 0
                   ? <span style={{ fontSize: 10, fontWeight: 700, color: B.green, background: B.greenBg, padding: '2px 8px', borderRadius: 99, fontFamily: FONT }}>✓ Ready</span>
                   : <span style={{ fontSize: 10, fontWeight: 700, color: B.red, background: B.redBg, padding: '2px 8px', borderRadius: 99, fontFamily: FONT }}>{errCount} issues</span>
@@ -1455,7 +1455,7 @@ function BuilderView({ template, onBack, onSave, readOnly, accounts }) {
 
             {/* Spec */}
             <div style={{ background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12, padding: '14px 16px' }}>
-              <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700, marginBottom: 10, fontFamily: FONT }}>Template Spec</div>
+              <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700, marginBottom: 10, fontFamily: FONT }}>Template Spec</div>
               {[
                 ['Name', name || '—', true],
                 ['Category', CATEGORIES.find(c => c.id === category)?.label || '—', false],
@@ -1546,7 +1546,7 @@ function TemplateLibraryPickerModal({ headerType, accountId, onClose, onPicked }
         }}
       >
         <div style={{ padding: '18px 22px', borderBottom: '1px solid var(--c-border)', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Library size={20} color="#dc2626" />
+          <Library size={20} color="#5b4be6" />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--c-text)' }}>Pick {targetType} from Media Library</div>
             <div style={{ fontSize: 12, color: 'var(--c-textSecondary)', marginTop: 2 }}>
@@ -1558,9 +1558,9 @@ function TemplateLibraryPickerModal({ headerType, accountId, onClose, onPicked }
           </button>
         </div>
 
-        <div style={{ flex: 1, overflow: 'auto', padding: 16, background: '#FAFAF8' }}>
+        <div style={{ flex: 1, overflow: 'auto', padding: 16, background: '#fafaff' }}>
           {error && (
-            <div style={{ padding: 10, background: 'var(--c-primaryLight)', color: '#A32D2D', borderRadius: 6, fontSize: 13, marginBottom: 12 }}>{error}</div>
+            <div style={{ padding: 10, background: 'var(--c-dangerBg)', color: 'var(--c-dangerText)', borderRadius: 6, fontSize: 13, marginBottom: 12 }}>{error}</div>
           )}
           {!media ? (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--c-textMuted)' }}>Loading…</div>
@@ -1578,14 +1578,14 @@ function TemplateLibraryPickerModal({ headerType, accountId, onClose, onPicked }
                     onClick={() => setSelected(m)}
                     style={{
                       textAlign: 'left', padding: 0, background: 'var(--c-cardBg)', borderRadius: 10,
-                      border: `2px solid ${isSel ? '#dc2626' : '#E5E5E0'}`,
+                      border: `2px solid ${isSel ? '#5b4be6' : '#ececf3'}`,
                       cursor: 'pointer', overflow: 'hidden', fontFamily: FONT,
                     }}
                   >
                     <div style={{
                       aspectRatio: '1 / 1', display: 'flex', alignItems: 'center',
                       justifyContent: 'center', position: 'relative',
-                      background: targetType === 'image' ? '#3B82F615' : targetType === 'video' ? '#8B5CF615' : '#F59E0B15',
+                      background: targetType === 'image' ? '#0EA5E915' : targetType === 'video' ? '#8B5CF615' : '#FFB02015',
                     }}>
                       {targetType === 'image' ? (
                         <img src={api.mediaLibrary.downloadUrl(m.id)} alt={m.name || m.originalName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -1613,10 +1613,10 @@ function TemplateLibraryPickerModal({ headerType, accountId, onClose, onPicked }
                           </div>
                         </>
                       ) : (
-                        <Icon size={40} color={targetType === 'video' ? '#8B5CF6' : '#F59E0B'} />
+                        <Icon size={40} color={targetType === 'video' ? '#8B5CF6' : '#ffb020'} />
                       )}
                       {isSel && (
-                        <div style={{ position: 'absolute', top: 6, right: 6, background: '#dc2626', color: '#fff', borderRadius: '50%', width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ position: 'absolute', top: 6, right: 6, background: '#5b4be6', color: '#fff', borderRadius: '50%', width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <CheckCircle2 size={14} />
                         </div>
                       )}
@@ -1649,7 +1649,7 @@ function TemplateLibraryPickerModal({ headerType, accountId, onClose, onPicked }
             disabled={!selected || uploading}
             style={{
               padding: '9px 18px', borderRadius: 8, border: 'none',
-              background: !selected ? 'var(--c-hover)' : '#dc2626', color: '#fff',
+              background: !selected ? 'var(--c-hover)' : '#5b4be6', color: '#fff',
               cursor: !selected || uploading ? 'not-allowed' : 'pointer',
               fontSize: 13, fontWeight: 600, fontFamily: FONT,
               display: 'inline-flex', alignItems: 'center', gap: 6,

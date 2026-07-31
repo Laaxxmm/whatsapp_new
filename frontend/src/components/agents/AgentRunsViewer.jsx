@@ -75,7 +75,7 @@ export default function AgentRunsViewer({ agentId }) {
       <div style={{ marginTop: 16 }}>
       {error && (
         <div style={{ padding: '8px 12px', borderRadius: 8, marginBottom: 10,
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 12 }}>
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 12 }}>
           {error}
         </div>
       )}
@@ -134,9 +134,9 @@ export default function AgentRunsViewer({ agentId }) {
 }
 
 function StatusIcon({ status }) {
-  if (status === 'completed') return <CheckCircle2 size={14} color="#0F7A38" />;
+  if (status === 'completed') return <CheckCircle2 size={14} color="#0e8a5a" />;
   if (status === 'failed')    return <AlertCircle size={14} color={C.primary} />;
-  if (status === 'capped')    return <AlertCircle size={14} color="#B45309" />;
+  if (status === 'capped')    return <AlertCircle size={14} color="#b47100" />;
   return <Clock size={14} color={C.textMuted} />;
 }
 
@@ -151,8 +151,8 @@ function Steps({ run }) {
       {run.finalReply && (
         <div style={{
           padding: '10px 12px', borderRadius: 8,
-          background: '#ECFDF5', border: '1px solid #A7F3D0',
-          fontSize: 12, color: '#065F46', display: 'flex', gap: 8, alignItems: 'flex-start',
+          background: '#effcf6', border: '1px solid #a3ecc9',
+          fontSize: 12, color: '#0b6b47', display: 'flex', gap: 8, alignItems: 'flex-start',
         }}>
           <MessageSquare size={13} style={{ marginTop: 1 }} />
           <div>
@@ -175,7 +175,7 @@ function Step({ step }) {
       background: C.cardBg, border: `1px solid ${C.border}`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-        <Icon size={13} color={isTool ? '#0F7A38' : '#534AB7'} />
+        <Icon size={13} color={isTool ? '#0e8a5a' : '#5b4be6'} />
         <div style={{ fontSize: 12, fontWeight: 700, color: titleColor, flex: 1 }}>
           {isTool ? `Tool: ${step.toolType}` : 'LLM call'}
           {step.status === 'error' && ' · error'}

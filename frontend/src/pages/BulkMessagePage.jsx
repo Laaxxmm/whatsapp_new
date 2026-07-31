@@ -20,11 +20,11 @@ const FILTER_TABS = [
 
 function StatusBadge({ status }) {
   const config = {
-    DRAFT:     { bg: '#f3f4f6', color: 'var(--c-textSecondary)', border: '#e5e7eb', dot: '#9ca3af' },
-    SENDING:   { bg: '#dbeafe', color: '#1e40af', border: '#bfdbfe', dot: '#3b82f6' },
-    SENT:      { bg: '#d1fae5', color: '#065f46', border: '#a7f3d0', dot: '#10b981' },
-    PARTIAL:   { bg: '#fef3c7', color: '#92400e', border: '#fde68a', dot: '#f59e0b' },
-    FAILED:    { bg: '#fee2e2', color: '#991b1b', border: '#fecaca', dot: '#ef4444' },
+    DRAFT:     { bg: '#f1f0f7', color: 'var(--c-textSecondary)', border: '#ececf3', dot: '#b7b5c6' },
+    SENDING:   { bg: '#e0f2fe', color: '#0369a1', border: '#bae6fd', dot: '#0ea5e9' },
+    SENT:      { bg: '#c7f3e0', color: '#0b6b47', border: '#a3ecc9', dot: '#17b978' },
+    PARTIAL:   { bg: '#fff0cc', color: '#b47100', border: '#ffdfa0', dot: '#ffb020' },
+    FAILED:    { bg: '#ffe4e6', color: '#be123c', border: '#fecdd3', dot: '#f43f5e' },
   };
   const c = config[status] || config.SENT;
   return (
@@ -51,10 +51,10 @@ function ActionBadge({ action }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 4,
       padding: '2px 8px', borderRadius: 4,
-      background: isTest ? '#fef3c7' : '#dbeafe',
-      color: isTest ? '#92400e' : '#1e40af',
+      background: isTest ? '#fff0cc' : '#e0f2fe',
+      color: isTest ? '#b47100' : '#0369a1',
       fontSize: 11, fontWeight: 700, fontFamily: FONT,
-      border: `1px solid ${isTest ? '#fde68a' : '#bfdbfe'}`,
+      border: `1px solid ${isTest ? '#ffdfa0' : '#bae6fd'}`,
       textTransform: 'uppercase', letterSpacing: '0.04em',
     }}>
       {isTest ? 'Test' : 'Broadcast'}
@@ -64,9 +64,9 @@ function ActionBadge({ action }) {
 
 function LogStatusBadge({ status }) {
   const colors = {
-    PENDING: { bg: '#f3f4f6', color: 'var(--c-textSecondary)', border: '#e5e7eb' },
-    SENT: { bg: '#d1fae5', color: '#065f46', border: '#a7f3d0' },
-    FAILED: { bg: '#fee2e2', color: '#991b1b', border: '#fecaca' },
+    PENDING: { bg: '#f1f0f7', color: 'var(--c-textSecondary)', border: '#ececf3' },
+    SENT: { bg: '#c7f3e0', color: '#0b6b47', border: '#a3ecc9' },
+    FAILED: { bg: '#ffe4e6', color: '#be123c', border: '#fecdd3' },
   };
   const c = colors[status] || colors.PENDING;
   return (
@@ -103,14 +103,14 @@ function BroadcastMessagePreview({ messageType, body, url, mediaLibraryId, capti
   const resolvedBody = (body || url || caption || '').replace(/\{\{name\}\}/g, 'John Doe').replace(/\{\{contact_number\}\}/g, '+91 98765 43210');
 
   return (
-    <div style={{ width: 278, background: 'linear-gradient(155deg, #D8D8DE 0%, #A6A6AD 30%, #82828A 58%, #BFBFC5 82%, #6E6E76 100%)', borderRadius: 52, padding: 3.5, boxShadow: '0 22px 50px rgba(0,0,0,.28), 0 4px 10px rgba(0,0,0,.10), inset 0 0 0 0.5px rgba(255,255,255,.55), inset 0 -2px 4px rgba(0,0,0,.18)', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ background: '#000', borderRadius: 48.5, padding: 2, flex: 1, minHeight: 280, display: 'flex', flexDirection: 'column', boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.12)' }}>
+    <div style={{ width: 278, background: 'linear-gradient(155deg, #dcdbe8 0%, #b7b5c6 30%, #6c6a82 58%, #b7b5c6 82%, #6c6a82 100%)', borderRadius: 52, padding: 3.5, boxShadow: '0 22px 50px rgba(0,0,0,.28), 0 4px 10px rgba(0,0,0,.10), inset 0 0 0 0.5px rgba(255,255,255,.55), inset 0 -2px 4px rgba(0,0,0,.18)', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ background: '#15132b', borderRadius: 48.5, padding: 2, flex: 1, minHeight: 280, display: 'flex', flexDirection: 'column', boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,.12)' }}>
         <div style={{ flex: 1, minHeight: 0, position: 'relative', borderRadius: 46.5, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#075E54' }}>
           {/* Chat header */}
           <div style={{ background: '#075E54', paddingTop: 50, paddingBottom: 8, paddingLeft: 12, paddingRight: 12, color: '#fff', fontFamily: "-apple-system, 'SF Pro Display', system-ui, sans-serif", flexShrink: 0, position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{ color: '#fff', fontSize: 20, lineHeight: 1, opacity: .9, marginRight: -2 }}>‹</span>
-              <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'linear-gradient(135deg,#1D9E75,#0F6E56)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>F</div>
+              <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'linear-gradient(135deg,#17b978,#0e8a5a)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>F</div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Your Business</div>
                 <div style={{ fontSize: 10, opacity: .82, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>online</div>
@@ -120,7 +120,7 @@ function BroadcastMessagePreview({ messageType, body, url, mediaLibraryId, capti
           {/* Chat body */}
           <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', background: 'var(--c-chatWall)', padding: '10px 7px', backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M20 20 L25 25 M55 55 L60 60' stroke='%23D9CFC4' stroke-width='1'/%3E%3C/svg%3E\")" }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-              <span style={{ background: '#E1F2FA', color: '#3C6678', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
+              <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
             </div>
             <div style={{ marginLeft: 'auto', maxWidth: '88%', minWidth: '55%' }}>
               <div style={{ background: '#DCF8C6', borderRadius: '7.5px 7.5px 0 7.5px', padding: '6px 7px 5px 9px', boxShadow: '0 1px 0.5px rgba(11,20,26,.13)', position: 'relative', marginRight: 8 }}>
@@ -141,7 +141,7 @@ function BroadcastMessagePreview({ messageType, body, url, mediaLibraryId, capti
                 )}
                 {messageType === 'audio' && selectedMedia && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                    <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#0F6E56', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#0e8a5a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <Music size={14} color="#fff" />
                     </div>
                     <div style={{ flex: 1, height: 4, background: 'rgba(0,0,0,0.1)', borderRadius: 2 }} />
@@ -151,7 +151,7 @@ function BroadcastMessagePreview({ messageType, body, url, mediaLibraryId, capti
                 {messageType === 'document' && selectedMedia && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, padding: '6px 8px', background: 'rgba(0,0,0,.06)', borderRadius: 6 }}>
                     <div style={{ width: 34, height: 38, background: 'var(--c-cardBg)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 1px 3px rgba(0,0,0,.15)' }}>
-                      <FileText size={16} color="#9e9e9e" />
+                      <FileText size={16} color="#b7b5c6" />
                     </div>
                     <div>
                       <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--c-text)', fontFamily: FONT }}>{selectedMedia.name || 'Document'}</div>
@@ -181,10 +181,10 @@ function KpiCards({ metrics }) {
   const { totalRecipients, totalSent, totalDelivered, totalRead } = metrics;
 
   const cards = [
-    { key: 'recipients', label: 'Recipients', value: totalRecipients, color: '#dc2626', bg: '#FCEBEB', icon: Users },
-    { key: 'sent', label: 'Sent', value: totalSent, color: '#2563eb', bg: '#E3F2FD', icon: Send },
-    { key: 'delivered', label: 'Received', value: totalDelivered, color: '#0F6E56', bg: '#E1F5EE', icon: CheckCircle },
-    { key: 'read', label: 'Read', value: totalRead, color: '#7c3aed', bg: '#EDE9FE', icon: Eye },
+    { key: 'recipients', label: 'Recipients', value: totalRecipients, color: '#5b4be6', bg: '#eeebff', icon: Users },
+    { key: 'sent', label: 'Sent', value: totalSent, color: '#0284c7', bg: '#e0f2fe', icon: Send },
+    { key: 'delivered', label: 'Received', value: totalDelivered, color: '#0e8a5a', bg: '#e1f7ef', icon: CheckCircle },
+    { key: 'read', label: 'Read', value: totalRead, color: '#8b5cf6', bg: '#eeebff', icon: Eye },
   ];
 
   return (
@@ -832,7 +832,7 @@ export default function BulkMessagePage({ onNavigate }) {
         <div style={{ background: C.cardBg, borderRadius: 12, border: `1px solid ${C.border}`, overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
-              <tr style={{ background: '#fafaf9', borderBottom: `1px solid ${C.border}` }}>
+              <tr style={{ background: '#fafaff', borderBottom: `1px solid ${C.border}` }}>
                 <th style={{ padding: '12px 16px', width: 40 }}><SelectAllCheckbox sel={sel} /></th>
                 <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Broadcast</th>
                 <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>From</th>
@@ -868,9 +868,9 @@ export default function BulkMessagePage({ onNavigate }) {
                       borderBottom: `1px solid ${C.border}`,
                       cursor: 'pointer',
                       transition: 'background .15s',
-                      background: sel.isSelected(b.id) ? '#FDF6F6' : 'transparent',
+                      background: sel.isSelected(b.id) ? '#f7f5ff' : 'transparent',
                     }}
-                    onMouseEnter={e => { if (!sel.isSelected(b.id)) e.currentTarget.style.background = '#fafaf9'; }}
+                    onMouseEnter={e => { if (!sel.isSelected(b.id)) e.currentTarget.style.background = '#fafaff'; }}
                     onMouseLeave={e => { if (!sel.isSelected(b.id)) e.currentTarget.style.background = 'transparent'; }}
                   >
                     <td style={{ padding: '12px 16px', width: 40 }} onClick={(e) => e.stopPropagation()}>
@@ -981,12 +981,12 @@ export default function BulkMessagePage({ onNavigate }) {
                     {/* Linked account status — shown once the lookup resolves */}
                     {newBroadcastFrom && accountLookupDone && (
                       linkedAccount ? (
-                        <div style={{ marginTop: 6, fontSize: 11, color: '#0F6E56', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <div style={{ marginTop: 6, fontSize: 11, color: '#0e8a5a', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 4 }}>
                           ✓ Linked to <strong>{linkedAccount.displayName}</strong> · WABA {linkedAccount.wabaId}
-                          {!linkedAccount.isActive && <span style={{ color: '#E65100', marginLeft: 6 }}>(inactive)</span>}
+                          {!linkedAccount.isActive && <span style={{ color: '#d1522f', marginLeft: 6 }}>(inactive)</span>}
                         </div>
                       ) : (
-                        <div style={{ marginTop: 6, padding: '8px 10px', background: '#FFF3E0', border: `1px solid #FFB74D`, borderRadius: 6, fontSize: 11, color: '#E65100', fontFamily: FONT }}>
+                        <div style={{ marginTop: 6, padding: '8px 10px', background: '#fff4e0', border: `1px solid #ffc861`, borderRadius: 6, fontSize: 11, color: '#d1522f', fontFamily: FONT }}>
                           ⚠ This number isn't linked to a WhatsApp Account. Broadcasts can't be sent until you register it in Settings → WhatsApp Accounts.
                         </div>
                       )
@@ -1040,7 +1040,7 @@ export default function BulkMessagePage({ onNavigate }) {
                         {!newBroadcastFrom ? (
                           <div style={{ fontSize: 11, color: C.textMuted, marginTop: 4, fontFamily: FONT }}>Pick a sending number first.</div>
                         ) : !linkedAccount && accountLookupDone ? (
-                          <div style={{ fontSize: 11, color: '#E65100', marginTop: 4, fontFamily: FONT }}>Templates are scoped to a WhatsApp Account — register the number above first.</div>
+                          <div style={{ fontSize: 11, color: '#d1522f', marginTop: 4, fontFamily: FONT }}>Templates are scoped to a WhatsApp Account — register the number above first.</div>
                         ) : eligibleTemplates.length === 0 && linkedAccount ? (
                           <div style={{ fontSize: 11, color: C.textMuted, marginTop: 4, fontFamily: FONT }}>No approved templates for <strong>{linkedAccount.displayName}</strong>. Create one in Template Builder.</div>
                         ) : null}
@@ -1183,7 +1183,7 @@ export default function BulkMessagePage({ onNavigate }) {
 
                 {/* RIGHT — WhatsApp Preview */}
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 8 }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontFamily: FONT }}>Live Preview</div>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontFamily: FONT }}>Live Preview</div>
                   {newBroadcastMessageType === 'template' ? (
                     <WhatsAppPreview template={previewTemplate} minHeight={280} emptyText="Select a template&#10;to preview" />
                   ) : (
@@ -1301,7 +1301,7 @@ export default function BulkMessagePage({ onNavigate }) {
                           return (
                             <tr key={c.contact_number} style={{ background: isSelected ? 'var(--c-primaryLight)' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, cursor: 'pointer' }}
                               onClick={() => toggleSelectOne(c.contact_number)}
-                              onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = '#f9fafb'; }}
+                              onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = '#fafaff'; }}
                               onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = '#fff'; }}
                             >
                               <td style={{ padding: '12px 8px 12px 16px', textAlign: 'center' }} onClick={e => e.stopPropagation()}>
@@ -1359,7 +1359,7 @@ export default function BulkMessagePage({ onNavigate }) {
                   disabled={isBroadcastFormInvalid()}
                   style={{
                     padding: '10px 18px', borderRadius: 8, border: 'none',
-                    background: isBroadcastFormInvalid() ? '#ccc' : C.primary,
+                    background: isBroadcastFormInvalid() ? '#dcdbe8' : C.primary,
                     color: '#fff', cursor: isBroadcastFormInvalid() ? 'not-allowed' : 'pointer',
                     fontSize: 13, fontWeight: 700, fontFamily: FONT,
                     display: 'flex', alignItems: 'center', gap: 6,
@@ -1471,7 +1471,7 @@ export default function BulkMessagePage({ onNavigate }) {
 
             {/* Preview */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontFamily: FONT }}>Template Preview</div>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontFamily: FONT }}>Template Preview</div>
               <WhatsAppPreview template={tpl} />
             </div>
           </div>
@@ -1491,7 +1491,7 @@ export default function BulkMessagePage({ onNavigate }) {
             ) : (
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                 <thead>
-                  <tr style={{ background: '#fafaf9', borderBottom: `1px solid ${C.border}` }}>
+                  <tr style={{ background: '#fafaff', borderBottom: `1px solid ${C.border}` }}>
                     <th style={{ padding: '10px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Action</th>
                     <th style={{ padding: '10px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Sent To</th>
                     <th style={{ padding: '10px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Status</th>
@@ -1508,7 +1508,7 @@ export default function BulkMessagePage({ onNavigate }) {
                         cursor: 'pointer',
                         transition: 'background .15s',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.background = '#fafaf9'}
+                      onMouseEnter={e => e.currentTarget.style.background = '#fafaff'}
                       onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                     >
                       <td style={{ padding: '10px 16px' }}><ActionBadge action={log.action} /></td>
@@ -1566,7 +1566,7 @@ export default function BulkMessagePage({ onNavigate }) {
               </div>
               {selectedLog.action === 'BROADCAST' && b?.statusRollup && (
                 <div style={{
-                  background: '#fafaf9', borderRadius: 8, padding: 12, border: `1px solid ${C.border}`,
+                  background: '#fafaff', borderRadius: 8, padding: 12, border: `1px solid ${C.border}`,
                 }}>
                   <div style={{ fontSize: 11, fontWeight: 700, color: C.textSecondary, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Delivery Summary</div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr', gap: 8 }}>
@@ -1575,19 +1575,19 @@ export default function BulkMessagePage({ onNavigate }) {
                       <div style={{ fontSize: 10, color: C.textMuted }}>Total</div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#3b82f6' }}>{b.statusRollup.sent || 0}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: '#0ea5e9' }}>{b.statusRollup.sent || 0}</div>
                       <div style={{ fontSize: 10, color: C.textMuted }}>Sent</div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#10b981' }}>{b.statusRollup.delivered || 0}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: '#17b978' }}>{b.statusRollup.delivered || 0}</div>
                       <div style={{ fontSize: 10, color: C.textMuted }}>Delivered</div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#059669' }}>{b.statusRollup.read || 0}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: '#17b978' }}>{b.statusRollup.read || 0}</div>
                       <div style={{ fontSize: 10, color: C.textMuted }}>Read</div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#ef4444' }}>{b.statusRollup.failed || 0}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: '#f43f5e' }}>{b.statusRollup.failed || 0}</div>
                       <div style={{ fontSize: 10, color: C.textMuted }}>Failed</div>
                     </div>
                   </div>
@@ -1636,7 +1636,7 @@ export default function BulkMessagePage({ onNavigate }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {/* Readonly summary */}
                 <div style={{
-                  background: '#fafaf9', borderRadius: 8, padding: 12, border: `1px solid ${C.border}`,
+                  background: '#fafaff', borderRadius: 8, padding: 12, border: `1px solid ${C.border}`,
                   display: 'flex', flexDirection: 'column', gap: 8,
                 }}>
                   <div style={{ fontSize: 11, fontWeight: 700, color: C.textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Broadcast Summary</div>
@@ -1698,7 +1698,7 @@ export default function BulkMessagePage({ onNavigate }) {
                     disabled={repeatSending}
                     style={{
                       padding: '10px 18px', borderRadius: 8, border: 'none',
-                      background: repeatSending ? '#ccc' : C.primary,
+                      background: repeatSending ? '#dcdbe8' : C.primary,
                       color: '#fff', cursor: repeatSending ? 'not-allowed' : 'pointer',
                       fontSize: 13, fontWeight: 700, fontFamily: FONT,
                       display: 'flex', alignItems: 'center', gap: 6,
@@ -1712,7 +1712,7 @@ export default function BulkMessagePage({ onNavigate }) {
 
               {/* RIGHT — Preview */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 8 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontFamily: FONT }}>Template Preview</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontFamily: FONT }}>Template Preview</div>
                 <WhatsAppPreview template={tpl} />
               </div>
             </div>

@@ -3,11 +3,11 @@ import { C, FONT } from '../constants.js';
 
 // Forgemind links surfaced on the About Us page. Each opens in a new tab.
 const LINKS = [
-  { label: 'Website',   sub: 'forgemind.in',                 url: 'https://forgemind.in/',                      Icon: Globe,     color: '#2563EB', img: '/forgemind-logo.png' },
+  { label: 'Website',   sub: 'forgemind.in',                 url: 'https://forgemind.in/',                      Icon: Globe,     color: '#0284c7', img: '/forgemind-logo.png' },
   { label: 'Instagram', sub: '@forgemind_ai',                url: 'https://www.instagram.com/forgemind_ai/',    Icon: Instagram, color: '#E1306C' },
-  { label: 'YouTube',   sub: '@forgemind_ai',                url: 'https://www.youtube.com/@forgemind_ai',      Icon: Youtube,   color: '#FF0000' },
+  { label: 'YouTube',   sub: '@forgemind_ai',                url: 'https://www.youtube.com/@forgemind_ai',      Icon: Youtube,   color: '#e11d48' },
   { label: 'Facebook',  sub: 'forgemindai',                  url: 'https://www.facebook.com/forgemindai',       Icon: Facebook,  color: '#1877F2' },
-  { label: 'GitHub',    sub: 'Forgemind-git',                url: 'https://github.com/Forgemind-git',           Icon: Github,    color: '#111111' },
+  { label: 'GitHub',    sub: 'Forgemind-git',                url: 'https://github.com/Forgemind-git',           Icon: Github,    color: '#15132b' },
 ];
 
 export default function AboutUsPage() {

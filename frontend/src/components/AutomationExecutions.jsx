@@ -20,17 +20,17 @@ const C = {
   t5: 'var(--c-textMuted)',
   t6: 'var(--c-textMuted)',
   muted: 'var(--c-textMuted)',
-  green: '#0F6E56',
-  greenBg: '#E1F5EE',
-  greenBright: '#1D9E75',
-  red: '#A32D2D',
-  redBg: '#FCEBEB',
-  orange: '#E65100',
-  orangeBg: '#FFF3E0',
-  blue: '#1565C0',
-  blueBg: '#E3F2FD',
-  purple: '#534AB7',
-  purpleBg: '#EEEDFE',
+  green: '#0e8a5a',
+  greenBg: '#e1f7ef',
+  greenBright: '#17b978',
+  red: '#e11d48',
+  redBg: '#fff1f2',
+  orange: '#d1522f',
+  orangeBg: '#fff4e0',
+  blue: '#0284c7',
+  blueBg: '#e0f2fe',
+  purple: '#5b4be6',
+  purpleBg: '#eeebff',
 };
 
 /* ── Status helpers ─────────────────────────────────────────────────────────── */
@@ -288,7 +288,7 @@ function NodeDetailPanel({ step, onClose }) {
 
         {/* Error */}
         {step.error_message && (
-          <div style={{ background: C.redBg, border: `1px solid #F4C9C9`, borderRadius: 10, padding: 10, marginBottom: 14 }}>
+          <div style={{ background: C.redBg, border: `1px solid #fecdd3`, borderRadius: 10, padding: 10, marginBottom: 14 }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: C.red, marginBottom: 4 }}>Error</div>
             <div style={{ fontSize: 11, color: C.red, fontFamily: FONT }}>{step.error_message}</div>
           </div>

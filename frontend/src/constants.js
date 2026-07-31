@@ -2,35 +2,40 @@
 // whole app re-themes when <html data-theme> flips. Fallbacks = light values,
 // so colors still render even if the stylesheet hasn't loaded.
 export const C = {
-  pageBg: 'var(--c-pageBg, #F7F7F3)',
-  sidebarBg: 'var(--c-sidebarBg, #FAF9F5)',
-  sidebarBorder: 'var(--c-sidebarBorder, #E5E5E0)',
-  headerBg: 'var(--c-headerBg, #0F0F10)',
-  headerText: 'var(--c-headerText, #F5F5F2)',
-  headerMuted: 'var(--c-headerMuted, #A1A1AA)',
+  pageBg: 'var(--c-pageBg, #f5f5fb)',
+  sidebarBg: 'var(--c-sidebarBg, #ffffff)',
+  sidebarBorder: 'var(--c-sidebarBorder, #ececf3)',
+  headerBg: 'var(--c-headerBg, #15132b)',
+  headerText: 'var(--c-headerText, #f5f5fb)',
+  headerMuted: 'var(--c-headerMuted, #b7b5c6)',
   headerBorder: 'var(--c-headerBorder, rgba(255,255,255,.12))',
   headerSurface: 'var(--c-headerSurface, rgba(255,255,255,.06))',
   cardBg: 'var(--c-cardBg, #ffffff)',
-  border: 'var(--c-border, #E5E5E0)',
-  borderDark: 'var(--c-borderDark, #d1d7db)',
-  text: 'var(--c-text, #111111)',
-  textSecondary: 'var(--c-textSecondary, #6B7280)',
-  textMuted: 'var(--c-textMuted, #8696a0)',
-  primary: 'var(--c-primary, #dc2626)',
-  primaryHover: 'var(--c-primaryHover, #b91c1c)',
-  primaryLight: 'var(--c-primaryLight, #FCEBEB)',
-  primaryText: 'var(--c-primaryText, #111b21)',
-  purple: 'var(--c-purple, #534AB7)',
-  green: 'var(--c-green, #0F6E56)',
-  amber: 'var(--c-amber, #E8A317)',
-  shadowSm: 'var(--c-shadowSm, 0 1px 2px rgba(0,0,0,.08))',
-  shadowMd: 'var(--c-shadowMd, 0 8px 24px rgba(0,0,0,.06))',
-  shadowLg: 'var(--c-shadowLg, 0 20px 60px rgba(0,0,0,.15))',
+  border: 'var(--c-border, #ececf3)',
+  borderDark: 'var(--c-borderDark, #dcdbe8)',
+  text: 'var(--c-text, #15132b)',
+  textSecondary: 'var(--c-textSecondary, #6c6a82)',
+  textMuted: 'var(--c-textMuted, #b7b5c6)',
+  primary: 'var(--c-primary, #5b4be6)',
+  primaryHover: 'var(--c-primaryHover, #4b37d8)',
+  primaryLight: 'var(--c-primaryLight, #eeebff)',
+  primaryText: 'var(--c-primaryText, #15132b)',
+  purple: 'var(--c-purple, #8b5cf6)',
+  green: 'var(--c-green, #0e8a5a)',
+  amber: 'var(--c-amber, #ffb020)',
+  // Failure states — kept distinct from `primary` so errors never read as brand.
+  danger: 'var(--c-danger, #e11d48)',
+  dangerText: 'var(--c-dangerText, #be123c)',
+  dangerBg: 'var(--c-dangerBg, #fff1f2)',
+  dangerBorder: 'var(--c-dangerBorder, #fecdd3)',
+  shadowSm: 'var(--c-shadowSm, 0 1px 2px 0 rgba(20,19,43,.04), 0 1px 3px 0 rgba(20,19,43,.06))',
+  shadowMd: 'var(--c-shadowMd, 0 10px 30px -18px rgba(20,19,43,.25))',
+  shadowLg: 'var(--c-shadowLg, 0 12px 24px -8px rgba(91,75,230,.28), 0 4px 12px -4px rgba(91,75,230,.18))',
   waBg: 'var(--c-waBg, #e5ddd5)',
   // neutral surface aliases (used when migrating literal-heavy views)
   surface: 'var(--c-surface, #ffffff)',
-  surfaceAlt: 'var(--c-surfaceAlt, #F7F7F3)',
-  hover: 'var(--c-hover, #EFEEE6)',
+  surfaceAlt: 'var(--c-surfaceAlt, #f5f5fb)',
+  hover: 'var(--c-hover, #f1f0f7)',
   waBgPattern: 'url("data:image/svg+xml,%3Csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h8v8H0z\' fill=\'%23d1d7db\' fill-opacity=\'0.15\'/%3E%3C/svg%3E")',
 };
 
@@ -47,7 +52,10 @@ export const CHAT = {
   statusSent: 'var(--c-statusSent, #8696a0)',
 };
 
-export const FONT = "'DM Sans', system-ui, sans-serif";
+// Type stack shared with the Indefine LMS portal (see index.html for loading).
+export const FONT = "'Plus Jakarta Sans', system-ui, sans-serif";
+// Display face, used for the wordmark — the LMS uses it for headings.
+export const DISPLAY = "'Schibsted Grotesk', 'Plus Jakarta Sans', sans-serif";
 export const MONO = "'DM Mono', monospace";
 
 export function relativeTime(ts) {
@@ -81,7 +89,7 @@ export function maskPhone(raw) {
 // the tag keeps its own hue. Falls back to a dark slate for missing/invalid.
 export function darkenColor(hex, factor = 0.5) {
   const m = /^#?([0-9a-fA-F]{6})$/.exec(hex || '');
-  if (!m) return '#374151';
+  if (!m) return '#3a3852';
   const n = parseInt(m[1], 16);
   const r = Math.round(((n >> 16) & 255) * factor);
   const g = Math.round(((n >> 8) & 255) * factor);

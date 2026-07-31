@@ -8,34 +8,34 @@ import { C, FONT } from '../constants.js';
 
 // ─── Design Tokens ────────────────────────────────────────────────────────────
 const B = {
-  bg: '#F7F7F3',
+  bg: '#f5f5fb',
   card: '#FFFFFF',
-  cardBorder: '#E5E5E0',
-  innerBg: '#FAFAF7',
-  innerBorder: '#EEEEE8',
-  rowSep: '#F5F5F0',
-  t1: '#111111',
-  t2: '#222222',
-  t3: '#444444',
-  t4: '#666666',
-  t5: '#777777',
-  t6: '#888888',
-  t7: '#999999',
+  cardBorder: '#ececf3',
+  innerBg: '#fafaff',
+  innerBorder: '#f1f0f7',
+  rowSep: '#f5f5fb',
+  t1: '#15132b',
+  t2: '#15132b',
+  t3: '#3a3852',
+  t4: '#6c6a82',
+  t5: '#6c6a82',
+  t6: '#6c6a82',
+  t7: '#b7b5c6',
   accent: C.primary,
   accentBg: C.primaryLight,
   accentDark: C.primaryHover,
-  green: '#0F6E56',
-  greenBright: '#1D9E75',
-  greenBg: '#E1F5EE',
-  red: '#A32D2D',
-  redBg: '#FCEBEB',
-  orange: '#E65100',
-  orangeBg: '#FFF3E0',
+  green: '#0e8a5a',
+  greenBright: '#17b978',
+  greenBg: '#e1f7ef',
+  red: '#e11d48',
+  redBg: '#fff1f2',
+  orange: '#d1522f',
+  orangeBg: '#fff4e0',
 };
 
 const STATUS_STYLES = {
   active:   { color: B.green, bg: B.greenBg, dot: B.greenBright, label: 'Active' },
-  inactive: { color: B.t6, bg: '#EEEDE8', dot: '#aaa', label: 'Inactive' },
+  inactive: { color: B.t6, bg: '#f1f0f7', dot: '#b7b5c6', label: 'Inactive' },
   draft:    { color: B.orange, bg: B.orangeBg, dot: B.orange, label: 'Draft' },
 };
 
@@ -80,9 +80,9 @@ function NewAutomationModal({ open, onClose, onCreate }) {
 
   const overlayStyle = { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.35)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' };
   const modalStyle = { background: 'var(--c-cardBg)', borderRadius: 14, padding: '24px 28px', width: 440, maxWidth: '90vw', boxShadow: '0 20px 60px rgba(0,0,0,0.18)' };
-  const inpStyle = { border: '1.5px solid #D5D5D0', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' };
+  const inpStyle = { border: '1.5px solid #dcdbe8', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontFamily: FONT, width: '100%', background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' };
   const btnPriStyle = { padding: '10px 22px', background: B.accent, color: '#fff', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT };
-  const btnGhostStyle = { padding: '10px 22px', background: 'var(--c-cardBg)', border: '1.5px solid #D5D5D0', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#444' };
+  const btnGhostStyle = { padding: '10px 22px', background: 'var(--c-cardBg)', border: '1.5px solid #dcdbe8', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: FONT, color: '#3a3852' };
 
   return (
     <div style={overlayStyle} onClick={onClose}>
@@ -147,7 +147,7 @@ function ChatbotList({ chatbots, loading, onAdd, onEdit, onDelete, onDuplicate, 
               <button
                 onClick={() => importRef.current?.click()}
                 title="Import an automation from a .json export file"
-                style={{ padding: '10px 16px', background: 'var(--c-cardBg)', color: B.t2, border: '1.5px solid #D5D5D0', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 6 }}
+                style={{ padding: '10px 16px', background: 'var(--c-cardBg)', color: B.t2, border: '1.5px solid #dcdbe8', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 6 }}
               >
                 <Upload size={16} /> Import
               </button>
@@ -169,7 +169,7 @@ function ChatbotList({ chatbots, loading, onAdd, onEdit, onDelete, onDuplicate, 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 1 360px', minWidth: 220 }}>
           <Search size={16} color={B.t6} />
           <input
-            style={{ flex: 1, border: '1.5px solid #D5D5D0', borderRadius: 8, padding: '8px 12px', fontSize: 13, fontFamily: FONT, background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
+            style={{ flex: 1, border: '1.5px solid #dcdbe8', borderRadius: 8, padding: '8px 12px', fontSize: 13, fontFamily: FONT, background: 'var(--c-cardBg)', color: 'var(--c-text)', outline: 'none' }}
             placeholder="Search automations..."
             value={search}
             onChange={e => setSearch(e.target.value)}
@@ -185,7 +185,7 @@ function ChatbotList({ chatbots, loading, onAdd, onEdit, onDelete, onDuplicate, 
         </div>
       ) : filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px', background: B.card, border: `1px solid ${B.cardBorder}`, borderRadius: 12 }}>
-          <Bot size={40} color="#ccc" style={{ marginBottom: 12 }} />
+          <Bot size={40} color="#dcdbe8" style={{ marginBottom: 12 }} />
           <div style={{ fontSize: 15, fontWeight: 600, color: B.t3, marginBottom: 4, fontFamily: FONT }}>No automations yet</div>
           <div style={{ fontSize: 12, color: B.t6, marginBottom: 16, fontFamily: FONT }}>Create your first automation.</div>
           <button
@@ -208,7 +208,7 @@ function ChatbotList({ chatbots, loading, onAdd, onEdit, onDelete, onDuplicate, 
             </thead>
             <tbody>
               {filtered.map(c => (
-                <tr key={c.id} style={{ borderBottom: `1px solid ${B.rowSep}`, background: sel.isSelected(c.id) ? '#FDF6F6' : 'transparent' }}>
+                <tr key={c.id} style={{ borderBottom: `1px solid ${B.rowSep}`, background: sel.isSelected(c.id) ? '#f7f5ff' : 'transparent' }}>
                   <td style={{ padding: '12px 14px', width: 36 }}><RowCheckbox sel={sel} id={c.id} label={c.name} /></td>
                   <td style={{ padding: '12px 14px', fontSize: 13, fontWeight: 600, color: B.t2, fontFamily: FONT }}>{c.name}</td>
                   <td style={{ padding: '12px 14px', fontSize: 12, color: B.t4, fontFamily: FONT, maxWidth: 300 }}>
@@ -221,13 +221,13 @@ function ChatbotList({ chatbots, loading, onAdd, onEdit, onDelete, onDuplicate, 
                   <td style={{ padding: '12px 14px', fontSize: 11, color: B.t6, fontFamily: FONT, whiteSpace: 'nowrap' }}>{new Date(c.created_at).toLocaleDateString()}</td>
                   <td style={{ padding: '12px 14px' }}>
                     <div style={{ display: 'flex', gap: 6 }}>
-                      <button onClick={() => onEdit(c)} title="Edit" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
+                      <button onClick={() => onEdit(c)} title="Edit" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
                         <Pencil size={13} />
                       </button>
-                      <button onClick={() => onDuplicate(c)} title="Duplicate (creates a disabled copy)" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
+                      <button onClick={() => onDuplicate(c)} title="Duplicate (creates a disabled copy)" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.t4 }}>
                         <Copy size={13} />
                       </button>
-                      <button onClick={() => setDeleteModal({ open: true, chatbot: c })} title="Delete" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.red }}>
+                      <button onClick={() => setDeleteModal({ open: true, chatbot: c })} title="Delete" style={{ width: 28, height: 28, borderRadius: 6, border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: B.red }}>
                         <Trash2 size={13} />
                       </button>
                     </div>

@@ -8,18 +8,18 @@ import { C, FONT, MONO, maskPhone } from '../constants.js';
 import SearchableSelect from '../components/SearchableSelect.jsx';
 
 const TYPE_META = {
-  image:    { Icon: ImageIcon, label: 'Image',    color: '#3B82F6' },
+  image:    { Icon: ImageIcon, label: 'Image',    color: '#0ea5e9' },
   video:    { Icon: Video,     label: 'Video',    color: '#8B5CF6' },
-  audio:    { Icon: Music,     label: 'Audio',    color: '#10B981' },
-  document: { Icon: FileText,  label: 'Document', color: '#F59E0B' },
+  audio:    { Icon: Music,     label: 'Audio',    color: '#17b978' },
+  document: { Icon: FileText,  label: 'Document', color: '#ffb020' },
 };
 
 const STATUS_META = {
-  pending: { label: 'Not synced',   bg: '#F3F4F6', fg: '#6B7280' },
-  syncing: { label: 'Syncing…',     bg: '#EFF6FF', fg: '#3B82F6' },
-  synced:  { label: 'Synced',       bg: '#ECFDF5', fg: '#059669' },
-  failed:  { label: 'Failed',       bg: '#FEF2F2', fg: '#DC2626' },
-  expired: { label: 'Expired',      bg: '#FEF3C7', fg: '#B45309' },
+  pending: { label: 'Not synced',   bg: '#f1f0f7', fg: '#6c6a82' },
+  syncing: { label: 'Syncing…',     bg: '#f0f9ff', fg: '#0ea5e9' },
+  synced:  { label: 'Synced',       bg: '#effcf6', fg: '#17b978' },
+  failed:  { label: 'Failed',       bg: '#fff1f2', fg: '#e11d48' },
+  expired: { label: 'Expired',      bg: '#fff0cc', fg: '#b47100' },
 };
 
 function fmtBytes(n) {
@@ -169,7 +169,7 @@ export default function MediaLibraryPage() {
       </div>
 
       {error && (
-        <div style={{ padding: 12, background: '#FEF2F2', color: '#991B1B', borderRadius: 8, marginBottom: 16, fontSize: 13 }}>
+        <div style={{ padding: 12, background: '#fff1f2', color: '#be123c', borderRadius: 8, marginBottom: 16, fontSize: 13 }}>
           {error}
         </div>
       )}
@@ -213,7 +213,7 @@ export default function MediaLibraryPage() {
       {toast && (
         <div style={{
           position: 'fixed', bottom: 24, right: 24, padding: '10px 16px',
-          background: toast.kind === 'err' ? '#991B1B' : toast.kind === 'ok' ? '#065F46' : '#111',
+          background: toast.kind === 'err' ? '#be123c' : toast.kind === 'ok' ? '#0b6b47' : '#15132b',
           color: '#fff', borderRadius: 8, fontSize: 13, fontWeight: 600,
           boxShadow: C.shadowLg, zIndex: 1000,
         }}>{toast.msg}</div>
@@ -298,7 +298,7 @@ function MediaRow({ media, account, syncingKey, isLast, onSync, onToggleAutoResy
           }}>
             {s.label}
             {sync.status === 'synced' && days != null && (
-              <span style={{ color: days < 3 ? '#B45309' : s.fg }}>&nbsp;· expires in {days}d</span>
+              <span style={{ color: days < 3 ? '#b47100' : s.fg }}>&nbsp;· expires in {days}d</span>
             )}
           </span>
           {sync.metaMediaId && (
@@ -314,7 +314,7 @@ function MediaRow({ media, account, syncingKey, isLast, onSync, onToggleAutoResy
             </span>
           )}
           {sync.lastError && (
-            <span style={{ color: '#991B1B', display: 'inline-flex', alignItems: 'center', gap: 4 }} title={sync.lastError}>
+            <span style={{ color: '#be123c', display: 'inline-flex', alignItems: 'center', gap: 4 }} title={sync.lastError}>
               <AlertTriangle size={11} /> {sync.lastError.slice(0, 50)}
             </span>
           )}
@@ -328,9 +328,9 @@ function MediaRow({ media, account, syncingKey, isLast, onSync, onToggleAutoResy
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
           padding: '7px 12px', borderRadius: 6,
-          background: media.autoResync ? '#ECFDF5' : 'var(--c-hover)',
-          color: media.autoResync ? '#059669' : '#6B7280',
-          border: `1px solid ${media.autoResync ? '#A7F3D0' : '#E5E7EB'}`,
+          background: media.autoResync ? '#effcf6' : 'var(--c-hover)',
+          color: media.autoResync ? '#17b978' : '#6c6a82',
+          border: `1px solid ${media.autoResync ? '#a3ecc9' : '#ececf3'}`,
           cursor: 'pointer', fontFamily: FONT, fontSize: 12, fontWeight: 600,
         }}
       >
@@ -362,7 +362,7 @@ function MediaRow({ media, account, syncingKey, isLast, onSync, onToggleAutoResy
         title="Delete"
         style={{
           padding: 8, borderRadius: 6, background: 'var(--c-cardBg)',
-          border: `1px solid ${C.border}`, cursor: 'pointer', color: '#991B1B',
+          border: `1px solid ${C.border}`, cursor: 'pointer', color: '#be123c',
         }}
       >
         <Trash2 size={14} />
@@ -449,7 +449,7 @@ function UploadModal({ accountId, onClose, onUploaded, onError }) {
           style={{
             border: `2px dashed ${file ? C.primary : C.border}`,
             borderRadius: 8, padding: 28, textAlign: 'center', cursor: 'pointer',
-            background: file ? '#FFF7F7' : '#FAFAF8',
+            background: file ? '#f7f5ff' : '#fafaff',
           }}
         >
           <Upload size={28} style={{ color: file ? C.primary : C.textMuted, marginBottom: 8 }} />
@@ -585,7 +585,7 @@ function PreviewModal({ media, onClose }) {
         <div style={{
           flex: 1, overflow: 'auto', padding: 18,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: '#0f0f0f',
+          background: '#15132b',
           minHeight: 200,
         }}>
           {isImage ? (

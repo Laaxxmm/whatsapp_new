@@ -51,7 +51,7 @@ export default function LoginGate({ onLogin }) {
           right: '-10%',
           width: '60%',
           height: '60%',
-          background: 'radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(91,75,230,0.15) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         <div style={{
@@ -60,7 +60,7 @@ export default function LoginGate({ onLogin }) {
           left: '-10%',
           width: '50%',
           height: '50%',
-          background: 'radial-gradient(circle, rgba(83,74,183,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(91,75,230,0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -125,7 +125,7 @@ export default function LoginGate({ onLogin }) {
             left: 64,
             fontSize: 10,
             fontWeight: 600,
-            color: '#52525b',
+            color: '#3a3852',
             letterSpacing: '.06em',
             textTransform: 'uppercase',
             textDecoration: 'none',
@@ -266,7 +266,7 @@ export default function LoginGate({ onLogin }) {
             {error && (
               <div style={{
                 background: C.primaryLight,
-                color: '#A32D2D',
+                color: '#4b37d8',
                 borderRadius: 8,
                 padding: '10px 14px',
                 fontSize: 13,

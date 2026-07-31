@@ -78,7 +78,7 @@ export default function AiModelsTab() {
         {error && (
           <div style={{
             padding: '10px 14px', borderRadius: 8, marginBottom: 16,
-            background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 13,
+            background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 13,
           }}>
             {error}
           </div>
@@ -159,7 +159,7 @@ function AddModelForm({ onCancel, onCreated, onError }) {
               style={{
                 flex: 1, padding: '10px 14px', borderRadius: 8,
                 border: provider === p.value ? `1.5px solid ${C.primary}` : `1px solid ${C.border}`,
-                background: provider === p.value ? '#FEF1F1' : C.cardBg,
+                background: provider === p.value ? '#eeebff' : C.cardBg,
                 color: provider === p.value ? C.primary : C.text,
                 fontSize: 13, fontWeight: 600, fontFamily: FONT, cursor: 'pointer',
               }}
@@ -228,7 +228,7 @@ function ModelRow({ model, onDelete }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
         <div style={{
-          width: 34, height: 34, borderRadius: 9, background: '#FEF1F1',
+          width: 34, height: 34, borderRadius: 9, background: '#eeebff',
           display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
         }}>
           <Bot size={17} color={C.primary} />
@@ -247,7 +247,7 @@ function ModelRow({ model, onDelete }) {
         style={{
           display: 'flex', alignItems: 'center', gap: 6,
           padding: '7px 10px', borderRadius: 8,
-          border: '1px solid #FBC8C8', background: '#fff',
+          border: '1px solid #e0dbff', background: '#fff',
           color: C.primary, fontSize: 12, fontFamily: FONT, fontWeight: 600, cursor: 'pointer', flexShrink: 0,
         }}>
         <Trash2 size={13} /> Remove
@@ -263,7 +263,7 @@ function EmptyState({ onAdd }) {
       border: `1px dashed ${C.border}`, textAlign: 'center',
     }}>
       <div style={{
-        width: 52, height: 52, borderRadius: 13, margin: '0 auto 14px', background: '#FEF1F1',
+        width: 52, height: 52, borderRadius: 13, margin: '0 auto 14px', background: '#eeebff',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         <Bot size={26} color={C.primary} />

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Info, LogOut, Settings, AlertTriangle, Star, Github } from 'lucide-react';
-import { C, FONT } from '../constants.js';
+import { C, FONT, DISPLAY } from '../constants.js';
 import { api } from '../api.js';
 
 // This project's GitHub repo — powers the star counter in the header.
@@ -52,7 +52,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
       <div
         onClick={() => onNavigate('admin-settings')}
         style={{
-          background: '#A32D2D', color: '#fff', padding: '8px 16px',
+          background: C.danger, color: '#fff', padding: '8px 16px',
           fontSize: 12, fontFamily: FONT, display: 'flex', alignItems: 'center',
           justifyContent: 'center', gap: 8, cursor: 'pointer', fontWeight: 500,
         }}
@@ -106,7 +106,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
             fontSize: 16,
             fontWeight: 900,
             color: C.headerText,
-            fontFamily: FONT,
+            fontFamily: DISPLAY,
             letterSpacing: '-0.01em',
             textTransform: 'uppercase',
             lineHeight: 1,
@@ -143,7 +143,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
           }}
         >
           <Github size={16} color={C.headerText} />
-          <Star size={14} color="#F5B400" fill="#F5B400" />
+          <Star size={14} color="#ffb020" fill="#ffb020" />
           <span style={{ minWidth: 8, textAlign: 'left' }}>{stars == null ? '—' : stars}</span>
         </button>
 
@@ -173,7 +173,7 @@ export default function Topbar({ user, onLogout, onNavigate }) {
               width: 36,
               height: 36,
               borderRadius: 9,
-              background: 'linear-gradient(135deg, #534AB7, #7B72E0)',
+              background: 'linear-gradient(135deg, #5b4be6, #8a6bf5)',
               border: userOpen ? '2px solid #fff' : `1.5px solid ${C.headerBorder}`,
               cursor: 'pointer',
               display: 'flex',

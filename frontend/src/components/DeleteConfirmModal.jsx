@@ -27,7 +27,7 @@ export default function DeleteConfirmModal({
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
           <div style={{
             width: 36, height: 36, borderRadius: '50%',
-            background: danger ? '#fef2f2' : '#f0f2f5',
+            background: danger ? '#fff1f2' : '#f0f2f5',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: danger ? C.primary : C.textSecondary,
             flexShrink: 0,

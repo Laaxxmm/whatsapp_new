@@ -56,7 +56,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
                 transition: 'all .15s',
                 marginBottom: 2,
                 background: active ? C.primary : 'transparent',
-                color: active ? '#fff' : '#111',
+                color: active ? '#fff' : '#15132b',
                 justifyContent: collapsed ? 'center' : 'flex-start',
                 fontFamily: FONT,
                 fontSize: 13,
@@ -67,13 +67,13 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
               }}
               onMouseEnter={e => {
                 if (!active) {
-                  e.currentTarget.style.background = '#EFEEE6';
-                  e.currentTarget.style.color = '#111';
+                  e.currentTarget.style.background = '#f1f0f7';
+                  e.currentTarget.style.color = '#15132b';
                 }
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = active ? C.primary : 'transparent';
-                e.currentTarget.style.color = active ? '#fff' : '#111';
+                e.currentTarget.style.color = active ? '#fff' : '#15132b';
               }}
             >
               <span style={{
@@ -93,7 +93,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
       </div>
 
       {/* Collapse button + watermark */}
-      <div style={{ borderTop: `1px solid #F0F0EA` }}>
+      <div style={{ borderTop: `1px solid #f1f0f7` }}>
         <div
           onClick={() => setCollapsed(p => !p)}
           style={{
@@ -105,15 +105,15 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
             justifyContent: collapsed ? 'center' : 'flex-start',
             transition: 'background .15s',
           }}
-          onMouseEnter={e => e.currentTarget.style.background = '#EFEEE6'}
+          onMouseEnter={e => e.currentTarget.style.background = '#f1f0f7'}
           onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
-          <span style={{ display: 'flex', alignItems: 'center', color: '#888', lineHeight: 1 }}>
+          <span style={{ display: 'flex', alignItems: 'center', color: '#6c6a82', lineHeight: 1 }}>
             {collapsed ? <ChevronRight size={22} strokeWidth={2.5} /> : <ChevronLeft size={22} strokeWidth={2.5} />}
           </span>
           {!collapsed && (
-            <span style={{ fontSize: 15, fontWeight: 600, color: '#888', fontFamily: FONT, lineHeight: 1 }}>
+            <span style={{ fontSize: 15, fontWeight: 600, color: '#6c6a82', fontFamily: FONT, lineHeight: 1 }}>
               Collapse
             </span>
           )}
@@ -123,7 +123,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
             <span style={{
               fontSize: 9,
               fontWeight: 600,
-              color: '#ccc',
+              color: '#dcdbe8',
               fontFamily: FONT,
               letterSpacing: '.06em',
               textTransform: 'uppercase',
@@ -137,7 +137,7 @@ export default function Sidebar({ activePage, onPageChange, collapsed, setCollap
             <span style={{
               fontSize: 7,
               fontWeight: 600,
-              color: '#ddd',
+              color: '#dcdbe8',
               fontFamily: FONT,
               letterSpacing: '.04em',
               textTransform: 'uppercase',

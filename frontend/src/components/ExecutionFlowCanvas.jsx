@@ -4,31 +4,31 @@ import { FONT } from '../constants.js';
 
 /* ── Design Tokens ──────────────────────────────────────────────────────────── */
 const C = {
-  pageBg: '#F7F7F3',
-  dot: '#E5E5E0',
-  nodeBorder: '#E5E5E0',
-  nodeBorderExecuted: '#0F6E56',
-  nodeBorderError: '#A32D2D',
+  pageBg: '#f5f5fb',
+  dot: '#ececf3',
+  nodeBorder: '#ececf3',
+  nodeBorderExecuted: '#0e8a5a',
+  nodeBorderError: '#e11d48',
   nodeBg: '#FFFFFF',
-  text1: '#111111',
-  text2: '#222222',
-  text3: '#444444',
-  text4: '#666666',
-  text5: '#777777',
-  muted: '#888888',
-  edgeDefault: '#D5D5D0',
-  edgeExecuted: '#0F6E56',
-  edgeError: '#A32D2D',
-  green: '#0F6E56',
-  greenBg: '#E1F5EE',
-  red: '#A32D2D',
-  redBg: '#FCEBEB',
-  blue: '#1565C0',
-  blueBg: '#E3F2FD',
-  orange: '#E65100',
-  orangeBg: '#FFF3E0',
-  purple: '#534AB7',
-  purpleBg: '#EEEDFE',
+  text1: '#15132b',
+  text2: '#15132b',
+  text3: '#3a3852',
+  text4: '#6c6a82',
+  text5: '#6c6a82',
+  muted: '#6c6a82',
+  edgeDefault: '#dcdbe8',
+  edgeExecuted: '#0e8a5a',
+  edgeError: '#e11d48',
+  green: '#0e8a5a',
+  greenBg: '#e1f7ef',
+  red: '#e11d48',
+  redBg: '#fff1f2',
+  blue: '#0284c7',
+  blueBg: '#e0f2fe',
+  orange: '#d1522f',
+  orangeBg: '#fff4e0',
+  purple: '#5b4be6',
+  purpleBg: '#eeebff',
 };
 
 const NODE_W = 240;
@@ -41,15 +41,15 @@ const nodeH = (n) => {
 };
 
 const NT = {
-  trigger:  { bg:'#FCEBEB', border:'#E8A0A0', color:'#A32D2D', accent:'#791F1F', label:'TRIGGER' },
-  message:  { bg:'#FDF2F2', border:'#E8B0B0', color:'#B53D3D', accent:'#A32D2D', label:'MESSAGE' },
-  condition:{ bg:'#FFF5F5', border:'#F0C0C0', color:'#C44A4A', accent:'#A32D2D', label:'CONDITION' },
-  action:   { bg:'#FAF0F0', border:'#D8B0B0', color:'#8B3A3A', accent:'#A32D2D', label:'ACTION' },
-  delay:    { bg:'#FDF8F5', border:'#E0C8B8', color:'#A05040', accent:'#A32D2D', label:'DELAY' },
-  api:      { bg:'#F5ECEC', border:'#C8A0A0', color:'#7A2A2A', accent:'#791F1F', label:'API' },
-  handoff:  { bg:'#FDF0F0', border:'#E0B8B8', color:'#B04040', accent:'#A32D2D', label:'HANDOFF' },
-  ai:       { bg:'#F8F0F0', border:'#D0B0B0', color:'#8B3A3A', accent:'#A32D2D', label:'AI' },
-  subflow:  { bg:'#F0E8E8', border:'#C0A0A0', color:'#6A2A2A', accent:'#791F1F', label:'SUB-FLOW' },
+  trigger:  { bg:'#eeebff', border:'#a99cf5', color:'#4b37d8', accent:'#2f2196', label:'TRIGGER' },
+  message:  { bg:'#fff1f2', border:'#c7befb', color:'#4b37d8', accent:'#4b37d8', label:'MESSAGE' },
+  condition:{ bg:'#fff1f2', border:'#c7befb', color:'#5b4be6', accent:'#4b37d8', label:'CONDITION' },
+  action:   { bg:'#f7f5ff', border:'#c7befb', color:'#3d2cb8', accent:'#4b37d8', label:'ACTION' },
+  delay:    { bg:'#f7f5ff', border:'#ffd9cc', color:'#4b37d8', accent:'#4b37d8', label:'DELAY' },
+  api:      { bg:'#eeebff', border:'#a99cf5', color:'#2f2196', accent:'#2f2196', label:'API' },
+  handoff:  { bg:'#f7f5ff', border:'#c7befb', color:'#4b37d8', accent:'#4b37d8', label:'HANDOFF' },
+  ai:       { bg:'#f7f5ff', border:'#c7befb', color:'#3d2cb8', accent:'#4b37d8', label:'AI' },
+  subflow:  { bg:'#eeebff', border:'#a99cf5', color:'#241a72', accent:'#2f2196', label:'SUB-FLOW' },
 };
 
 const TYPE_ICONS = {
@@ -88,7 +88,7 @@ function ExecutionNode({ node, step, isSelected, onClick }) {
 
   const borderColor = hasError ? C.nodeBorderError : executed ? C.nodeBorderExecuted : C.nodeBorder;
   const bgOpacity = executed ? 1 : 0.55;
-  const topStripColor = hasError ? C.red : executed ? C.green : '#E5E5E0';
+  const topStripColor = hasError ? C.red : executed ? C.green : '#ececf3';
 
   return (
     <div
@@ -123,7 +123,7 @@ function ExecutionNode({ node, step, isSelected, onClick }) {
           background: hasError ? C.redBg : C.greenBg,
           color: hasError ? C.red : C.green,
           fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em',
-          border: `1px solid ${hasError ? '#F4C9C9' : '#BBDFD1'}`,
+          border: `1px solid ${hasError ? '#fecdd3' : '#a3ecc9'}`,
         }}>
           {hasError ? 'Error' : 'Success'}
         </div>
@@ -377,7 +377,7 @@ export default function ExecutionFlowCanvas({ nodes, edges, steps, onNodeClick, 
 
 const iconBtnStyle = {
   width: 28, height: 28, borderRadius: 6,
-  border: '1px solid #E5E5E0', background: '#fff',
+  border: '1px solid #ececf3', background: '#fff',
   display: 'flex', alignItems: 'center', justifyContent: 'center',
   cursor: 'pointer', color: C.text4,
 };

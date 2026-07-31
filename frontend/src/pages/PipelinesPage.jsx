@@ -269,8 +269,8 @@ export default function PipelinesPage({ user }) {
 function KanbanGlyph() {
   return <span style={{ display: 'inline-flex', gap: 2 }}>
     <span style={{ width: 3, height: 12, background: C.primary, borderRadius: 1 }} />
-    <span style={{ width: 3, height: 12, background: '#EAB308', borderRadius: 1 }} />
-    <span style={{ width: 3, height: 12, background: '#16A34A', borderRadius: 1 }} />
+    <span style={{ width: 3, height: 12, background: '#ffb020', borderRadius: 1 }} />
+    <span style={{ width: 3, height: 12, background: '#17b978', borderRadius: 1 }} />
   </span>;
 }
 
@@ -309,7 +309,7 @@ function DealCard({ deal, onDragStart, onClick }) {
       )}
       {deal.assignedUserName && (
         <div style={{ marginTop: 6 }}>
-          <span style={{ fontSize: 10.5, fontWeight: 600, color: C.purple, background: '#EEF', borderRadius: 99, padding: '2px 8px' }}>{deal.assignedUserName}</span>
+          <span style={{ fontSize: 10.5, fontWeight: 600, color: C.purple, background: '#eeebff', borderRadius: 99, padding: '2px 8px' }}>{deal.assignedUserName}</span>
         </div>
       )}
     </div>
@@ -476,7 +476,7 @@ function DealModal({ deal, defaultStageId, pipeline, stages, isAdmin, onClose, o
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 20 }}>
         <div>
           {isAdmin && editing && (
-            <button onClick={remove} style={{ ...ghostBtnStyle, color: C.primary, borderColor: '#F3D2D2' }}><Trash2 size={14} /> Delete</button>
+            <button onClick={remove} style={{ ...ghostBtnStyle, color: C.danger, borderColor: C.dangerBorder }}><Trash2 size={14} /> Delete</button>
           )}
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
@@ -544,7 +544,7 @@ function StagesModal({ pipeline, onClose, onChanged }) {
   const addStage = async () => {
     setBusy(true);
     try {
-      await api.pipelines.addStage(pipeline.id, { name: 'New Stage', probability: 0, stageType: 'open', color: '#64748B' });
+      await api.pipelines.addStage(pipeline.id, { name: 'New Stage', probability: 0, stageType: 'open', color: '#6c6a82' });
       await refreshLocal();
     } catch (err) { alert(err.message || 'Add failed'); }
     finally { setBusy(false); }
@@ -563,7 +563,7 @@ function StagesModal({ pipeline, onClose, onChanged }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxHeight: '60vh', overflowY: 'auto' }}>
         {stages.map(s => (
           <div key={s.id} style={{ display: 'flex', alignItems: 'center', gap: 8, border: `1px solid ${C.border}`, borderRadius: 10, padding: 8 }}>
-            <input type="color" value={s.color || '#64748B'} onChange={e => patch(s.id, 'color', e.target.value)} style={{ width: 28, height: 28, border: 'none', background: 'none', cursor: 'pointer', flexShrink: 0 }} />
+            <input type="color" value={s.color || '#6c6a82'} onChange={e => patch(s.id, 'color', e.target.value)} style={{ width: 28, height: 28, border: 'none', background: 'none', cursor: 'pointer', flexShrink: 0 }} />
             <input style={{ ...inp, flex: 2 }} value={s.name} onChange={e => patch(s.id, 'name', e.target.value)} />
             <input style={{ ...inp, width: 70, fontFamily: MONO }} type="number" min="0" max="100" value={s.probability} onChange={e => patch(s.id, 'probability', Number(e.target.value))} title="Win probability %" />
             <SearchableSelect

@@ -125,9 +125,9 @@ export default function GoogleIntegrationsTab() {
           <div style={{
             display: 'flex', alignItems: 'center', gap: 10,
             padding: '10px 14px', borderRadius: 8, marginBottom: 16,
-            background: banner.kind === 'ok' ? '#ECFDF5' : '#FCEBEB',
-            color: banner.kind === 'ok' ? '#065F46' : '#A32D2D',
-            border: `1px solid ${banner.kind === 'ok' ? '#A7F3D0' : '#FBC8C8'}`,
+            background: banner.kind === 'ok' ? '#effcf6' : '#eeebff',
+            color: banner.kind === 'ok' ? '#0b6b47' : '#4b37d8',
+            border: `1px solid ${banner.kind === 'ok' ? '#a3ecc9' : '#e0dbff'}`,
             fontSize: 13, fontFamily: FONT, fontWeight: 500,
           }}>
             {banner.kind === 'ok' ? <CheckCircle2 size={15} /> : <AlertCircle size={15} />}
@@ -138,8 +138,8 @@ export default function GoogleIntegrationsTab() {
         {error && (
           <div style={{
             padding: '10px 14px', borderRadius: 8, marginBottom: 16,
-            background: '#FCEBEB', color: '#A32D2D',
-            border: '1px solid #FBC8C8', fontSize: 13, fontFamily: FONT,
+            background: '#eeebff', color: '#4b37d8',
+            border: '1px solid #e0dbff', fontSize: 13, fontFamily: FONT,
           }}>
             {error}
           </div>
@@ -292,8 +292,8 @@ function CredentialsCard({ creds, onSaved }) {
         <Key size={16} color={C.primary} />
         <div style={{ fontWeight: 600, fontSize: 14, color: C.text }}>Google API credentials</div>
         {configured
-          ? <span style={{ fontSize: 11, padding: '2px 8px', background: '#dcfce7', color: '#15803d', borderRadius: 6, fontWeight: 700, letterSpacing: '.02em' }}>SAVED</span>
-          : <span style={{ fontSize: 11, padding: '2px 8px', background: '#fef9c3', color: '#854d0e', borderRadius: 6, fontWeight: 700, letterSpacing: '.02em' }}>REQUIRED</span>}
+          ? <span style={{ fontSize: 11, padding: '2px 8px', background: '#d9f7e9', color: '#0e8a5a', borderRadius: 6, fontWeight: 700, letterSpacing: '.02em' }}>SAVED</span>
+          : <span style={{ fontSize: 11, padding: '2px 8px', background: '#fff8e6', color: '#b47100', borderRadius: 6, fontWeight: 700, letterSpacing: '.02em' }}>REQUIRED</span>}
       </div>
 
       <div style={{ fontSize: 12, color: C.textSecondary, marginBottom: 14, lineHeight: 1.6 }}>
@@ -328,7 +328,7 @@ function CredentialsCard({ creds, onSaved }) {
       {err && (
         <div style={{
           padding: '8px 12px', borderRadius: 8, margin: '0 0 12px',
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 12,
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 12,
         }}>
           {err}
         </div>
@@ -336,7 +336,7 @@ function CredentialsCard({ creds, onSaved }) {
       {okMsg && (
         <div style={{
           padding: '8px 12px', borderRadius: 8, margin: '0 0 12px',
-          background: '#ECFDF5', color: '#065F46', border: '1px solid #A7F3D0', fontSize: 12,
+          background: '#effcf6', color: '#0b6b47', border: '1px solid #a3ecc9', fontSize: 12,
         }}>
           {okMsg}
         </div>
@@ -450,7 +450,7 @@ function AccountsList({ accounts, loading, onDelete }) {
               </div>
               <ScopeChips scopes={a.scopes} />
               {a.healthStatus === 'error' && a.lastErrorMessage && (
-                <div style={{ fontSize: 11, color: '#A32D2D', marginTop: 4 }}>
+                <div style={{ fontSize: 11, color: '#4b37d8', marginTop: 4 }}>
                   {a.lastErrorMessage}
                 </div>
               )}
@@ -462,7 +462,7 @@ function AccountsList({ accounts, loading, onDelete }) {
             style={{
               display: 'flex', alignItems: 'center', gap: 6,
               padding: '7px 10px', borderRadius: 8,
-              border: '1px solid #FBC8C8', background: '#fff',
+              border: '1px solid #e0dbff', background: '#fff',
               color: C.primary, fontSize: 12, fontFamily: FONT, fontWeight: 600,
               cursor: 'pointer',
             }}
@@ -522,7 +522,7 @@ function HealthDot({ status }) {
       title={ok ? 'Healthy' : (status || 'Unknown')}
       style={{
         width: 8, height: 8, borderRadius: '50%',
-        background: ok ? '#10B981' : '#EF4444', flexShrink: 0, marginTop: 5,
+        background: ok ? '#17b978' : '#f43f5e', flexShrink: 0, marginTop: 5,
       }}
     />
   );
@@ -550,7 +550,7 @@ function inputStyle() {
 function btnPrimary(disabled) {
   return {
     display: 'inline-flex', alignItems: 'center', gap: 6,
-    padding: '8px 14px', background: disabled ? '#b0b0aa' : C.primary,
+    padding: '8px 14px', background: disabled ? '#b7b5c6' : C.primary,
     color: '#fff', border: 0, borderRadius: 8, fontSize: 13, fontWeight: 600,
     fontFamily: FONT, cursor: disabled ? 'not-allowed' : 'pointer',
   };

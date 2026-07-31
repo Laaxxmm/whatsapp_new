@@ -258,7 +258,7 @@ export default function AgentEditor({ agentId, waAccounts, user, navigate, onDon
     <div style={{ padding: '24px 24px 80px', width: '100%', boxSizing: 'border-box', fontFamily: FONT }}>
       {error && (
         <div style={{ padding: '10px 14px', borderRadius: 8, marginBottom: 16,
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 13 }}>
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 13 }}>
           {error}
         </div>
       )}
@@ -270,7 +270,7 @@ export default function AgentEditor({ agentId, waAccounts, user, navigate, onDon
             <div style={{ fontSize: 18, fontWeight: 700, color: C.text, letterSpacing: '-.01em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {form.name || 'Agent'}
             </div>
-            <div style={{ fontSize: 12, color: form.isActive ? '#0F6E56' : C.textMuted, fontWeight: 600, marginTop: 2 }}>
+            <div style={{ fontSize: 12, color: form.isActive ? '#0e8a5a' : C.textMuted, fontWeight: 600, marginTop: 2 }}>
               {form.isActive ? '● Live — answering WhatsApp messages' : 'Inactive — not answering messages'}
             </div>
           </div>
@@ -299,9 +299,9 @@ export default function AgentEditor({ agentId, waAccounts, user, navigate, onDon
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '10px 20px', borderRadius: 99,
-              border: form.isActive ? '1.5px solid #1D9E75' : 'none',
-              background: form.isActive ? '#E1F5EE' : '#1D9E75',
-              color: form.isActive ? '#0F6E56' : '#fff',
+              border: form.isActive ? '1.5px solid #17b978' : 'none',
+              background: form.isActive ? '#e1f7ef' : '#17b978',
+              color: form.isActive ? '#0e8a5a' : '#fff',
               fontSize: 13.5, fontFamily: FONT, fontWeight: 700, whiteSpace: 'nowrap',
               cursor: (togglingLive || (!form.isActive && !hasModelSelected)) ? 'not-allowed' : 'pointer',
               opacity: (togglingLive || (!form.isActive && !hasModelSelected)) ? 0.6 : 1,
@@ -309,7 +309,7 @@ export default function AgentEditor({ agentId, waAccounts, user, navigate, onDon
           >
             {togglingLive
               ? <Loader2 size={14} style={{ animation: 'spin 1s linear infinite' }} />
-              : <span style={{ width: 8, height: 8, borderRadius: 99, background: form.isActive ? '#1D9E75' : '#fff' }} />}
+              : <span style={{ width: 8, height: 8, borderRadius: 99, background: form.isActive ? '#17b978' : '#fff' }} />}
             {togglingLive ? 'Saving…' : (form.isActive ? 'Live' : 'Go Live')}
           </button>
           </div>
@@ -598,7 +598,7 @@ export default function AgentEditor({ agentId, waAccounts, user, navigate, onDon
           flex: '0 0 300px', position: 'sticky', top: 24, alignSelf: 'flex-start',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
         }}>
-          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontWeight: 700 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontWeight: 700 }}>
             Live test chat
           </div>
           <AgentLivePreview
@@ -636,7 +636,7 @@ function NotIntegratedCard({ onGo, saving, canGo }) {
       border: `1px dashed ${C.border}`, fontFamily: FONT,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, color: C.text, fontWeight: 700, fontSize: 13 }}>
-        <AlertCircle size={15} color="#B45309" /> No AI model connected
+        <AlertCircle size={15} color="#b47100" /> No AI model connected
       </div>
       <div style={{ fontSize: 12, color: C.textSecondary, lineHeight: 1.55, marginBottom: 14 }}>
         Agents need a connected <strong>Anthropic</strong> or <strong>OpenAI</strong> key. Connect one
@@ -794,7 +794,7 @@ function Pill({ active, onClick, children }) {
       style={{
         padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
         border: `1.5px solid ${active ? C.primary : C.border}`,
-        background: active ? '#FEF1F1' : C.cardBg,
+        background: active ? '#eeebff' : C.cardBg,
         color: active ? C.primary : C.text,
         fontSize: 13, fontFamily: FONT, fontWeight: active ? 700 : 500,
       }}>
@@ -817,7 +817,7 @@ function ActionBar({ isCreate, saving, onSave, onCancel, onDelete }) {
             marginRight: 'auto',
             display: 'flex', alignItems: 'center', gap: 6,
             padding: '10px 14px', borderRadius: 8,
-            border: '1px solid #FBC8C8', background: '#fff',
+            border: '1px solid #e0dbff', background: '#fff',
             color: C.primary, fontSize: 13, fontFamily: FONT, fontWeight: 600,
             cursor: 'pointer',
           }}>

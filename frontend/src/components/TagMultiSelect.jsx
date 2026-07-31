@@ -55,9 +55,9 @@ export default function TagMultiSelect({ categories = [], tags = [], selectedIds
         style={{
           display: 'flex', alignItems: 'center', gap: 8, padding: '7px 8px',
           borderRadius: 6, cursor: 'pointer', fontFamily: FONT,
-          background: on ? '#FDF6F6' : 'transparent',
+          background: on ? '#f7f5ff' : 'transparent',
         }}
-        onMouseEnter={e => { if (!on) e.currentTarget.style.background = '#F5F5F0'; }}
+        onMouseEnter={e => { if (!on) e.currentTarget.style.background = '#f5f5fb'; }}
         onMouseLeave={e => { if (!on) e.currentTarget.style.background = 'transparent'; }}
       >
         <span style={{

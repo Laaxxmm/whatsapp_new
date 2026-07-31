@@ -13,16 +13,16 @@ const C = {
   rowDiv:"var(--c-border)", divider:"var(--c-border)", inputBorder:"var(--c-borderDark)",
   text1:"var(--c-text)", text2:"var(--c-text)", text3:"var(--c-textSecondary)", text4:"var(--c-textSecondary)", text5:"var(--c-textMuted)",
   muted:"var(--c-textMuted)", ghost:"var(--c-textMuted)", ph:"var(--c-textMuted)",
-  brand:"#0F6E56", brandBright:"#1D9E75", brandDark:"#085041", brandBg:"#E1F5EE", brandTint:"#F0FAF6",
-  purple:"#534AB7", purpleBg:"#EEEDFE", purpleDark:"#3C3489",
-  red:"#A32D2D", redBg:"#FCEBEB", redDark:"#791F1F",
-  orange:"#E65100", orangeBg:"#FFF3E0", orangeBorder:"#FFE0B2", orangeText:"#A04400",
-  amber:"#854F0B", amberBg:"#FAEEDA",
-  blue:"#1565C0", blueBg:"#E3F2FD", blueBorder:"#BBDEFB",
-  navy:"#1B2A4E", navyBg:"#E5EAF2",
-  teal:"#00796B", tealBg:"#DDF1EE",
-  pink:"#9C2153", pinkBg:"#FBE5EE",
-  sb:"#161513", sbItem:"#9E9A92", sbActive:"#26241F", sbBorder:"#26241F",
+  brand:"#0e8a5a", brandBright:"#17b978", brandDark:"#0b6b47", brandBg:"#e1f7ef", brandTint:"#effcf6",
+  purple:"#5b4be6", purpleBg:"#eeebff", purpleDark:"#3d2cb8",
+  red:"#f43f5e", redBg:"#fff1f2", redDark:"#be123c",
+  orange:"#d1522f", orangeBg:"#fff4e0", orangeBorder:"#ffd9cc", orangeText:"#8f3a1c",
+  amber:"#b47100", amberBg:"#fff4e0",
+  blue:"#0284c7", blueBg:"#e0f2fe", blueBorder:"#bae6fd",
+  navy:"#15132b", navyBg:"#e0f2fe",
+  teal:"#0b6b47", tealBg:"#e1f7ef",
+  pink:"#be123c", pinkBg:"#ffe4e6",
+  sb:"#15132b", sbItem:"#6c6a82", sbActive:"#15132b", sbBorder:"#15132b",
 };
 
 /* ── Inline SVG icon factory ──────────────────────────────────────── */
@@ -101,15 +101,15 @@ const Badge = ({ label, bg, color, border, dot, style }) => (
 
 const StatusPill = ({ status }) => {
   const m = {
-    Live:{bg:C.brandBg,color:C.brandDark,dot:true}, Draft:{bg:"#EFEEE9",color:C.text4,dot:true},
+    Live:{bg:C.brandBg,color:C.brandDark,dot:true}, Draft:{bg:"#f1f0f7",color:C.text4,dot:true},
     Paused:{bg:C.orangeBg,color:C.orangeText,dot:true}, Error:{bg:C.redBg,color:C.redDark,dot:true},
     Approved:{bg:C.brandBg,color:C.brandDark,dot:true}, "Pending Review":{bg:C.amberBg,color:C.amber,dot:true},
     Rejected:{bg:C.redBg,color:C.redDark,dot:true},
-    Connected:{bg:C.brandBg,color:C.brandDark,dot:true}, "Not connected":{bg:"#EFEEE9",color:C.text4,dot:true},
-    draft:{bg:"#EFEEE9",color:C.text4,dot:true}, active:{bg:C.brandBg,color:C.brandDark,dot:true},
-    inactive:{bg:"#EEEDE8",color:C.text4,dot:true},
+    Connected:{bg:C.brandBg,color:C.brandDark,dot:true}, "Not connected":{bg:"#f1f0f7",color:C.text4,dot:true},
+    draft:{bg:"#f1f0f7",color:C.text4,dot:true}, active:{bg:C.brandBg,color:C.brandDark,dot:true},
+    inactive:{bg:"#f1f0f7",color:C.text4,dot:true},
     paused:{bg:C.orangeBg,color:C.orangeText,dot:true}, error:{bg:C.redBg,color:C.redDark,dot:true},
-  }[status] || {bg:"#EFEEE9",color:C.text4,dot:true};
+  }[status] || {bg:"#f1f0f7",color:C.text4,dot:true};
   return <Badge label={status} bg={m.bg} color={m.color} dot={m.dot}/>;
 };
 
@@ -134,7 +134,7 @@ const Sec = ({ children, style }) => <div style={{ fontSize:10, textTransform:"u
 
 const Toggle = ({ value, onChange, size="md" }) => {
   const w = size==="sm" ? 32:38, h = size==="sm" ? 18:20, k = h-4;
-  return <div onClick={() => onChange && onChange(!value)} style={{ width:w, height:h, borderRadius:99, background:value?C.brandBright:"#D5D5D0", position:"relative", cursor:"pointer", transition:"background .2s", flexShrink:0 }}>
+  return <div onClick={() => onChange && onChange(!value)} style={{ width:w, height:h, borderRadius:99, background:value?C.brandBright:"#dcdbe8", position:"relative", cursor:"pointer", transition:"background .2s", flexShrink:0 }}>
     <div style={{ width:k, height:k, borderRadius:"50%", background:"#fff", position:"absolute", top:2, left:value?w-k-2:2, transition:"left .18s", boxShadow:"0 1px 3px rgba(0,0,0,.2)" }}/>
   </div>;
 };
@@ -377,7 +377,7 @@ const Alert = ({ kind, children, style }) => {
   const m = {
     info:{bg:C.blueBg,color:C.blue,border:C.blueBorder,icon:IC.warn(13)},
     warn:{bg:C.orangeBg,color:C.orangeText,border:C.orangeBorder,icon:IC.warn(13)},
-    error:{bg:C.redBg,color:C.redDark,border:"#F4C9C9",icon:IC.err(13)},
+    error:{bg:C.redBg,color:C.redDark,border:"#fecdd3",icon:IC.err(13)},
     ok:{bg:C.brandBg,color:C.brandDark,border:C.brandBright,icon:IC.ok(13)},
   }[kind];
   return <div style={{ background:m.bg, border:`1px solid ${m.border}`, borderRadius:10, padding:"9px 11px", display:"flex", gap:9, alignItems:"flex-start", margin:"12px 0 4px", ...style }}>
@@ -393,15 +393,15 @@ const Alert = ({ kind, children, style }) => {
    ══════════════════════════════════════════════════════════════════════ */
 
 const NT = {
-  trigger: { bg:"#FCEBEB", border:"#E8A0A0", color:"#A32D2D", accent:"#791F1F", label:"TRIGGER",       icon:IC.zap },
-  message: { bg:"#FDF2F2", border:"#E8B0B0", color:"#B53D3D", accent:"#A32D2D", label:"MESSAGE",       icon:IC.msg },
-  condition:{ bg:"#FFF5F5", border:"#F0C0C0", color:"#C44A4A", accent:"#A32D2D", label:"CONDITION",     icon:IC.branch },
-  action:  { bg:"#FAF0F0", border:"#D8B0B0", color:"#8B3A3A", accent:"#A32D2D", label:"ACTION",        icon:IC.tag },
-  delay:   { bg:"#FDF8F5", border:"#E0C8B8", color:"#A05040", accent:"#A32D2D", label:"DELAY",         icon:IC.clock },
-  api:     { bg:"#F5ECEC", border:"#C8A0A0", color:"#7A2A2A", accent:"#791F1F", label:"API",           icon:IC.api },
-  handoff: { bg:"#FDF0F0", border:"#E0B8B8", color:"#B04040", accent:"#A32D2D", label:"HUMAN HANDOFF", icon:IC.agent },
-  ai:      { bg:"#F8F0F0", border:"#D0B0B0", color:"#8B3A3A", accent:"#A32D2D", label:"AI",            icon:IC.ai },
-  subflow: { bg:"#F0E8E8", border:"#C0A0A0", color:"#6A2A2A", accent:"#791F1F", label:"SUB-FLOW",      icon:IC.flow },
+  trigger: { bg:"#eeebff", border:"#a99cf5", color:"#4b37d8", accent:"#2f2196", label:"TRIGGER",       icon:IC.zap },
+  message: { bg:"#fff1f2", border:"#c7befb", color:"#4b37d8", accent:"#4b37d8", label:"MESSAGE",       icon:IC.msg },
+  condition:{ bg:"#fff1f2", border:"#c7befb", color:"#5b4be6", accent:"#4b37d8", label:"CONDITION",     icon:IC.branch },
+  action:  { bg:"#f7f5ff", border:"#c7befb", color:"#3d2cb8", accent:"#4b37d8", label:"ACTION",        icon:IC.tag },
+  delay:   { bg:"#f7f5ff", border:"#ffd9cc", color:"#4b37d8", accent:"#4b37d8", label:"DELAY",         icon:IC.clock },
+  api:     { bg:"#eeebff", border:"#a99cf5", color:"#2f2196", accent:"#2f2196", label:"API",           icon:IC.api },
+  handoff: { bg:"#f7f5ff", border:"#c7befb", color:"#4b37d8", accent:"#4b37d8", label:"HUMAN HANDOFF", icon:IC.agent },
+  ai:      { bg:"#f7f5ff", border:"#c7befb", color:"#3d2cb8", accent:"#4b37d8", label:"AI",            icon:IC.ai },
+  subflow: { bg:"#eeebff", border:"#a99cf5", color:"#241a72", accent:"#2f2196", label:"SUB-FLOW",      icon:IC.flow },
 };
 
 const NODE_W = 240;
@@ -659,7 +659,7 @@ const FlowNode = ({ n, selected, onSelect, onStartDrag, onStartConnect, whatsapp
   const isCondition = n.type === "condition";
   const isAction = n.type === "action";
   const isDisabled = !!n.disabled;
-  const SEL = "#A32D2D";
+  const SEL = "#4b37d8";
   return (
     <div
       data-testid="flow-node"
@@ -668,7 +668,7 @@ const FlowNode = ({ n, selected, onSelect, onStartDrag, onStartConnect, whatsapp
       onClick={(e) => { e.stopPropagation(); onSelect(n.id); }}
       style={{
         position:"absolute", left:n.x, top:n.y, width:NODE_W, minHeight:h, background:"#fff",
-        border: selected ? `2px solid ${SEL}` : `1px solid ${isDisabled ? "#D0D0CA" : C.cardBorder}`,
+        border: selected ? `2px solid ${SEL}` : `1px solid ${isDisabled ? "#dcdbe8" : C.cardBorder}`,
         borderRadius:12,
         boxShadow: selected ? `0 0 0 3px rgba(0,0,0,.06), 0 10px 28px rgba(0,0,0,.08)` : "0 1px 4px rgba(0,0,0,.05)",
         cursor:"grab", userSelect:"none", fontFamily:"'DM Sans'", overflow:"visible",
@@ -679,7 +679,7 @@ const FlowNode = ({ n, selected, onSelect, onStartDrag, onStartConnect, whatsapp
       {isDisabled && (
         <div style={{
           position:"absolute", top:-9, right:8, zIndex:6,
-          background:"#fff", color:"#666", border:`1px solid ${C.cardBorder}`,
+          background:"#fff", color:"#6c6a82", border:`1px solid ${C.cardBorder}`,
           fontSize:8.5, fontWeight:700, padding:"2px 8px", borderRadius:99,
           letterSpacing:".1em", textTransform:"uppercase",
           boxShadow:"0 1px 3px rgba(0,0,0,.08)",
@@ -838,7 +838,7 @@ const Connectors = ({ nodes, edges, ghost }) => {
     <svg style={{ position:"absolute", top:0, left:0, width:"100%", height:"100%", overflow:"visible", pointerEvents:"none" }}>
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M0,0 L10,5 L0,10 z" fill="#9C9B92"/>
+          <path d="M0,0 L10,5 L0,10 z" fill="#6c6a82"/>
         </marker>
         <marker id="arrGhost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path d="M0,0 L10,5 L0,10 z" fill={C.red}/>
@@ -850,7 +850,7 @@ const Connectors = ({ nodes, edges, ghost }) => {
         const p2 = handlePos(b, "input");
         const d = edgePath(p1.x, p1.y, p2.x, p2.y);
         const isCond = e.fromHandle==="yes"||e.fromHandle==="no";
-        const color = isCond ? (e.fromHandle==="yes"?"#C44A4A":"#A32D2D") : "#9C9B92";
+        const color = isCond ? (e.fromHandle==="yes"?"#5b4be6":"#4b37d8") : "#6c6a82";
         return <g key={i}>
           <path d={d} fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" markerEnd="url(#arr)"/>
           <path d={d} fill="none" stroke={color} strokeWidth={10} strokeOpacity={0} style={{ pointerEvents:"stroke", cursor:"pointer" }}/>
@@ -934,7 +934,7 @@ const NodePicker = ({ x, y, onPick, onClose, mode, groups = [] }) => {
         const isOpen = hasSearch ? true : activeG === g.title;
         return (
           <div key={g.title} style={{ marginBottom:4 }}>
-            <div onClick={()=>setActiveG(prev => prev === g.title ? null : g.title)} style={{ display:"flex", alignItems:"center", gap:6, padding:"5px 8px", cursor:"pointer", borderRadius:6, transition:"background .12s" }} onMouseEnter={e=>e.currentTarget.style.background="#F8F7F2"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+            <div onClick={()=>setActiveG(prev => prev === g.title ? null : g.title)} style={{ display:"flex", alignItems:"center", gap:6, padding:"5px 8px", cursor:"pointer", borderRadius:6, transition:"background .12s" }} onMouseEnter={e=>e.currentTarget.style.background="#f5f5fb"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
               <span style={{ width:6, height:6, borderRadius:99, background:g.color }}/>
               <span style={{ fontSize:9, color:C.text4, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", flex:1 }}>{g.title}</span>
               <span style={{ fontSize:10, fontWeight:600, color:C.muted, background:C.sectionBg, borderRadius:99, padding:"1px 6px", minWidth:18, textAlign:"center" }}>{items.length}</span>
@@ -984,7 +984,7 @@ const BLOCK_GROUPS = [
     { name:"Smart Delay", type:"delay",     icon:IC.clock,  desc:"Wait minutes/hours/days",
       defaults:{ delayMode:"duration", waitValue:"10", waitUnit:"minutes", useContactTz:false, summary:"Pause the flow before continuing" } },
   ]},
-  { title:"Actions", color:"#5B5851", items:[
+  { title:"Actions", color:"#3a3852", items:[
     { name:"Add Tag",    type:"action", icon:IC.tag, desc:"Tag the contact",
       defaults:{ actions:[{ kind:"Add Tag", value:"" }], summary:"Add a tag to the contact" } },
     { name:"Remove Tag", type:"action", icon:IC.tag, desc:"Remove a tag",
@@ -996,7 +996,7 @@ const BlockLibrary = ({ onAddBlock }) => {
   const [openG, setOpenG] = useState({ Triggers:true, Messages:true, Logic:true, Actions:true, "API & Integrations":true, AI:true, Workflows:true });
   const [q, setQ] = useState("");
   return (
-    <aside style={{ width:236, borderRight:`1px solid ${C.cardBorder}`, background:"#FAFAF7", display:"flex", flexDirection:"column", flexShrink:0 }}>
+    <aside style={{ width:236, borderRight:`1px solid ${C.cardBorder}`, background:"#fafaff", display:"flex", flexDirection:"column", flexShrink:0 }}>
       <div style={{ padding:"14px 14px 10px", borderBottom:`1px solid ${C.cardBorder}` }}>
         <div style={{ fontSize:10, color:C.muted, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", marginBottom:6 }}>Block Library</div>
         <div style={{ position:"relative" }}>
@@ -1064,13 +1064,13 @@ const TemplatePreview = ({ template }) => {
       <div style={{ position:"relative", zIndex:1 }}>
         {/* Date pill */}
         <div style={{ display:"flex", justifyContent:"center", marginBottom:8 }}>
-          <span style={{ background:"#E1F2FA", color:"#3C6678", fontSize:9, padding:"2px 9px", borderRadius:99, fontWeight:600 }}>TODAY</span>
+          <span style={{ background:"#e0f2fe", color:"#0369a1", fontSize:9, padding:"2px 9px", borderRadius:99, fontWeight:600 }}>TODAY</span>
         </div>
         {/* Incoming message bubble */}
         <div style={{ display:"flex", justifyContent:"flex-start", marginBottom:4 }}>
-          <div style={{ background:"#fff", borderRadius:"0 8px 8px 8px", maxWidth:"88%", fontSize:12, color:"#111", lineHeight:1.45, overflow:"hidden", boxShadow:"0 1px 1px rgba(0,0,0,.07)" }}>
+          <div style={{ background:"#fff", borderRadius:"0 8px 8px 8px", maxWidth:"88%", fontSize:12, color:"#15132b", lineHeight:1.45, overflow:"hidden", boxShadow:"0 1px 1px rgba(0,0,0,.07)" }}>
             {hasHeader && (
-              <div style={{ padding:"7px 10px 3px", fontSize:12, fontWeight:700, color:C.text1, borderBottom:"1px solid #F0F0F0" }}>
+              <div style={{ padding:"7px 10px 3px", fontSize:12, fontWeight:700, color:C.text1, borderBottom:"1px solid #f1f0f7" }}>
                 {template.header_text}
               </div>
             )}
@@ -1084,9 +1084,9 @@ const TemplatePreview = ({ template }) => {
               10:24 AM
             </div>
             {hasButtons && (
-              <div style={{ borderTop:"1px solid #E0E0E0" }}>
+              <div style={{ borderTop:"1px solid #ececf3" }}>
                 {buttons.map((btn, idx) => (
-                  <div key={idx} style={{ display:"block", width:"100%", padding:"7px 9px", border:"none", borderTop: idx > 0 ? "1px solid #F0F0F0" : "none", textAlign:"center", color:"#00A5F4", fontSize:11, fontWeight:500, background:"transparent", fontFamily:"-apple-system, 'SF Pro Display', sans-serif" }}>
+                  <div key={idx} style={{ display:"block", width:"100%", padding:"7px 9px", border:"none", borderTop: idx > 0 ? "1px solid #f1f0f7" : "none", textAlign:"center", color:"#0ea5e9", fontSize:11, fontWeight:500, background:"transparent", fontFamily:"-apple-system, 'SF Pro Display', sans-serif" }}>
                     {btn.text || btn}
                   </div>
                 ))}
@@ -1338,7 +1338,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
       )}
 
       {mode === "template" ? (<>
-        <div style={{ background:C.blueBg, border:`1px solid #90CAF9`, borderRadius:10, padding:"10px 12px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
+        <div style={{ background:C.blueBg, border:`1px solid #7dd3fc`, borderRadius:10, padding:"10px 12px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
           <span style={{ color:C.blue, flexShrink:0, paddingTop:1 }}>{IC.tpl(15)}</span>
           <div style={{ flex:1, fontSize:11, color:C.text2, lineHeight:1.5 }}>
             Messages are sent using <strong>Meta-approved templates only</strong>. Reply buttons, if any, are defined by the template. To create or edit a template, use WhatsApp Manager.
@@ -1365,9 +1365,9 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
           <div style={{ display:"flex", flexWrap:"wrap", gap:6, marginBottom:14 }}>
             <Badge label={tpl.category} bg={C.brandBg} color={C.brandDark}/>
             <Badge label={tpl.lang || tpl.language || 'English'} bg={C.sectionBg} color={C.text3}/>
-            <Badge label={tpl.status} bg={tpl.status==="Approved"||tpl.status==="APPROVED"?C.brandBg:"#FFF3E0"} color={tpl.status==="Approved"||tpl.status==="APPROVED"?C.brandDark:"#B04E0E"} dot/>
+            <Badge label={tpl.status} bg={tpl.status==="Approved"||tpl.status==="APPROVED"?C.brandBg:"#fff4e0"} color={tpl.status==="Approved"||tpl.status==="APPROVED"?C.brandDark:"#b0431f"} dot/>
             {templateButtons && (
-              <Badge label={`${templateButtons.length} reply button${templateButtons.length===1?"":"s"}`} bg="#FFF8E1" color="#7A5C00"/>
+              <Badge label={`${templateButtons.length} reply button${templateButtons.length===1?"":"s"}`} bg="#fff8e6" color="#7a5000"/>
             )}
           </div>
 
@@ -1430,9 +1430,9 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
           <Alert kind="warn">Pick a template above to configure variables and preview the message.</Alert>
         )}
       </>) : (<>
-        <div style={{ background:"#FFF8E1", border:`1px solid #FFE082`, borderRadius:10, padding:"10px 12px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
-          <span style={{ color:"#7A5C00", flexShrink:0, paddingTop:1 }}>{IC.warn(15)}</span>
-          <div style={{ flex:1, fontSize:11, color:"#7A5C00", lineHeight:1.5 }}>
+        <div style={{ background:"#fff8e6", border:`1px solid #ffdfa0`, borderRadius:10, padding:"10px 12px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
+          <span style={{ color:"#7a5000", flexShrink:0, paddingTop:1 }}>{IC.warn(15)}</span>
+          <div style={{ flex:1, fontSize:11, color:"#7a5000", lineHeight:1.5 }}>
             <strong>Direct messages</strong> are sent via the WhatsApp Cloud API without a template. They only work within the 24-hour conversation window. Outside that window, the message will fail.
           </div>
         </div>
@@ -1552,7 +1552,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
 
       <Sec style={{ marginBottom:8 }}>Conditions ({rules.length} {rules.length===1?"rule":"rules"} · {matchMode==="any"?"ANY":"ALL"} match)</Sec>
       {rules.length === 0 && (
-        <div style={{ background:C.redBg, border:`1px solid #F4C9C9`, borderRadius:10, padding:"11px 13px", marginBottom:8, display:"flex", alignItems:"center", gap:9 }}>
+        <div style={{ background:C.redBg, border:`1px solid #fecdd3`, borderRadius:10, padding:"11px 13px", marginBottom:8, display:"flex", alignItems:"center", gap:9 }}>
           <span style={{ color:C.redDark }}>{IC.err(14)}</span>
           <div style={{ fontSize:11, color:C.redDark, lineHeight:1.45, fontWeight:500 }}>
             No rules defined. Add at least one condition or pick a preset above.
@@ -1652,8 +1652,8 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
           {testResult && (
             <Badge
               label={testResult.overall ? "Matched" : "Not matched"}
-              bg={testResult.overall ? C.brandBg : "#FFF3E0"}
-              color={testResult.overall ? C.brandDark : "#B04E0E"}
+              bg={testResult.overall ? C.brandBg : "#fff4e0"}
+              color={testResult.overall ? C.brandDark : "#b0431f"}
               dot style={{ padding:"4px 9px" }}/>
           )}
         </div>
@@ -1692,16 +1692,16 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
           </div>
         </div>
         <div style={{
-          background: notMatchedSteps.length ? "#FFF3E0" : "#fff",
-          border: `1px solid ${notMatchedSteps.length ? "#FFCC80" : C.cardBorder}`,
+          background: notMatchedSteps.length ? "#fff4e0" : "#fff",
+          border: `1px solid ${notMatchedSteps.length ? "#ffd48a" : C.cardBorder}`,
           borderRadius:10, padding:10,
           opacity: notMatchedSteps.length ? 1 : 0.85,
         }}>
-          <div style={{ fontSize:9, color:"#B04E0E", fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", marginBottom:3 }}>Not matched</div>
-          <div style={{ fontSize:11, color: notMatchedSteps.length ? "#B04E0E" : C.text5, fontWeight:600, lineHeight:1.4 }}>
+          <div style={{ fontSize:9, color:"#b0431f", fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", marginBottom:3 }}>Not matched</div>
+          <div style={{ fontSize:11, color: notMatchedSteps.length ? "#b0431f" : C.text5, fontWeight:600, lineHeight:1.4 }}>
             {branchSummary(notMatchedSteps)}
           </div>
-          <div style={{ fontSize:9, color: notMatchedSteps.length ? "#B04E0E" : C.muted, opacity: notMatchedSteps.length ? 0.75 : 1, fontFamily:"'DM Mono'", marginTop:4 }}>
+          <div style={{ fontSize:9, color: notMatchedSteps.length ? "#b0431f" : C.muted, opacity: notMatchedSteps.length ? 0.75 : 1, fontFamily:"'DM Mono'", marginTop:4 }}>
             {notMatchedSteps.length} step{notMatchedSteps.length===1?"":"s"} connected
           </div>
         </div>
@@ -1806,7 +1806,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         </div>
       </Field>
       <Field label="Body · JSON">
-        <pre style={{ background:"#0E1F1A", color:"#7FE5BB", borderRadius:8, padding:12, fontSize:10.5, lineHeight:1.55, fontFamily:"'DM Mono'", overflowX:"auto", margin:0 }}>{`{\n  "name":       "{{first_name}}",\n  "phone":      "{{phone}}",\n  "city":       "{{city}}",\n  "bhk_type":   "{{bhk_type}}",\n  "lead_score": "{{lead_score}}",\n  "source":     "whatsapp_flow"\n}`}</pre>
+        <pre style={{ background:"#0e2a20", color:"#7FE5BB", borderRadius:8, padding:12, fontSize:10.5, lineHeight:1.55, fontFamily:"'DM Mono'", overflowX:"auto", margin:0 }}>{`{\n  "name":       "{{first_name}}",\n  "phone":      "{{phone}}",\n  "city":       "{{city}}",\n  "bhk_type":   "{{bhk_type}}",\n  "lead_score": "{{lead_score}}",\n  "source":     "whatsapp_flow"\n}`}</pre>
       </Field>
       <Field label="Save response to field" hint="Extract a value from the API response (JSONPath) and save it on the contact.">
         <div style={{ display:"flex", gap:6 }}>
@@ -1854,7 +1854,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
     const previewNames = eligible.map(m => m.name).join(", ") || "Nobody selected";
 
     content = (<>
-      <div style={{ background:C.pinkBg, border:`1px solid #E2A8C0`, borderRadius:10, padding:"11px 13px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
+      <div style={{ background:C.pinkBg, border:`1px solid #fda4af`, borderRadius:10, padding:"11px 13px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
         <span style={{ color:C.pink, flexShrink:0, paddingTop:1 }}>{IC.agent(15)}</span>
         <div style={{ flex:1 }}>
           <div style={{ fontSize:12, fontWeight:700, color:C.pink, marginBottom:3 }}>What this block does</div>
@@ -1877,7 +1877,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
       <div style={{ background:C.sectionBg, border:`1px solid ${C.innerBorder}`, borderRadius:10, padding:6, marginBottom:14, maxHeight:260, overflowY:"auto" }}>
         {teamMembers.map(m => {
           const isSel = assigned.includes(m.id);
-          const dot = m.avail === "online" ? "#1D9E75" : m.avail === "away" ? "#E5A100" : "#9C9B92";
+          const dot = m.avail === "online" ? "#17b978" : m.avail === "away" ? "#ffb020" : "#6c6a82";
           return (
             <button key={m.id}
               onClick={()=>{
@@ -1970,11 +1970,11 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
             <div style={{ display:"flex", alignItems:"center", gap:7 }}>
               <span style={{ fontSize:12, color:C.text3, fontWeight:500 }}>{x.l}</span>
               {x.disabled && (
-                <span style={{ fontSize:8.5, fontWeight:700, padding:"2px 6px", borderRadius:99, background:"#FFF3E0", color:"#B04E0E", letterSpacing:".08em", textTransform:"uppercase", border:"1px solid #FFCC80" }}>Coming soon</span>
+                <span style={{ fontSize:8.5, fontWeight:700, padding:"2px 6px", borderRadius:99, background:"#fff4e0", color:"#b0431f", letterSpacing:".08em", textTransform:"uppercase", border:"1px solid #ffd48a" }}>Coming soon</span>
               )}
             </div>
             {x.disabled
-              ? <div style={{ width:32, height:18, borderRadius:99, background:"#E3E1D8", position:"relative", flexShrink:0, cursor:"not-allowed" }}>
+              ? <div style={{ width:32, height:18, borderRadius:99, background:"#e5e3ef", position:"relative", flexShrink:0, cursor:"not-allowed" }}>
                   <div style={{ width:14, height:14, borderRadius:"50%", background:"#fff", position:"absolute", top:2, left:2, boxShadow:"0 1px 3px rgba(0,0,0,.2)" }}/>
                 </div>
               : <Toggle value={!!notify[x.key]} onChange={(v)=>setNotify(x.key, v)} size="sm"/>}
@@ -2002,43 +2002,43 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         body: "Starts this automation when a contact sends a specific word or phrase via WhatsApp. Great for entry points like PRICE, BOOK, HELP, or INFO that you'd print on flyers, ads, or product packaging."
       },
       link: {
-        icon: IC.link, color: C.blue, bg: C.blueBg, border: "#90CAF9",
+        icon: IC.link, color: C.blue, bg: C.blueBg, border: "#7dd3fc",
         source: "wa", sourceLabel: "WhatsApp inbound message webhook",
         title: "WhatsApp click-to-chat link",
         body: "Starts when a contact opens a wa.me link from your website, Meta ads, Instagram bio, or email signature. If the link is inside a Click-to-WhatsApp Meta ad, Meta opens a 72-hour free conversation window instead of the usual 24h."
       },
       qr: {
-        icon: IC.qr, color: "#6A3FAF", bg: "#E8E0F8", border: "#B5A4DD",
+        icon: IC.qr, color: "#5b4be6", bg: "#e0dbff", border: "#a99cf5",
         source: "wa", sourceLabel: "WhatsApp inbound message webhook",
         title: "QR code scan",
         body: "Technically identical to a click-to-chat link — the QR encodes a wa.me URL with a pre-filled message that identifies the scan source. WhatsApp doesn't know it came from a QR; ForgeChat attributes it via the pre-filled text."
       },
       newContact: {
-        icon: IC.user, color: C.purpleDark, bg: C.purpleBg, border: "#C7C2F4",
+        icon: IC.user, color: C.purpleDark, bg: C.purpleBg, border: "#c7befb",
         source: "wa", sourceLabel: "WhatsApp inbound message webhook (first-time contact)",
         title: "New contact created",
         body: "Fires the first time an unknown WhatsApp number messages your business number. Use this for welcome flows, opt-in capture, GDPR/DPDP consent, or any first-time greeting."
       },
       anyMessage: {
-        icon: IC.msg, color: C.blue, bg: C.blueBg, border: "#90CAF9",
+        icon: IC.msg, color: C.blue, bg: C.blueBg, border: "#7dd3fc",
         source: "wa", sourceLabel: "WhatsApp inbound message webhook",
         title: "Any inbound message",
         body: "Fires on every inbound WhatsApp message from any contact — a catch-all entry point. Use sparingly; combine with filters so it doesn't override more specific triggers like Keyword or Tag Applied."
       },
       tagApplied: {
-        icon: IC.tag, color: "#5B5851", bg: "#F1F0EB", border: "#D9D6CE",
+        icon: IC.tag, color: "#3a3852", bg: "#f1f0f7", border: "#dcdbe8",
         source: "bsp", sourceLabel: "Workspace event · not a WhatsApp API event",
         title: "Tag applied to contact",
         body: "Fires the moment a specific tag is added to a contact — by another flow, manual tagging in the inbox, or an import. This is a workspace-level event, not something WhatsApp itself emits."
       },
       webhook: {
-        icon: IC.api, color: C.navy, bg: C.navyBg, border: "#9FAFD0",
+        icon: IC.api, color: C.navy, bg: C.navyBg, border: "#7dd3fc",
         source: "bsp", sourceLabel: "External HTTP webhook · not a WhatsApp API event",
         title: "Incoming webhook",
         body: "Starts when an external service sends an HTTP POST to this flow's unique webhook URL. Each field in the request body becomes a variable downstream. Connect Razorpay, Stripe, Google Forms, Make.com, Zapier — anything that can fire a webhook."
       },
       apiEvent: {
-        icon: IC.api, color: "#4A2D7A", bg: "#E8E0F8", border: "#B5A4DD",
+        icon: IC.api, color: "#3d2cb8", bg: "#e0dbff", border: "#a99cf5",
         source: "bsp", sourceLabel: "Integrated app event · not a WhatsApp API event",
         title: "Integrated app event",
         body: "Starts on a typed event from an integrated app — Razorpay payment success, Calendly booking confirmed, Google Form submission, etc. Filter to just the events you care about."
@@ -2192,7 +2192,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         <Field label="QR code preview">
           <div style={{ background:C.sectionBg, border:`1px solid ${C.innerBorder}`, borderRadius:10, padding:14, textAlign:"center" }}>
             <div style={{ width:104, height:104, margin:"0 auto 8px", background:"#fff", border:`1px solid ${C.cardBorder}`, borderRadius:6, padding:6, display:"flex", alignItems:"center", justifyContent:"center" }}>
-              <div style={{ width:"100%", height:"100%", backgroundImage:`radial-gradient(circle at 18% 18%, #111 0, #111 8%, transparent 8%), radial-gradient(circle at 82% 18%, #111 0, #111 8%, transparent 8%), radial-gradient(circle at 18% 82%, #111 0, #111 8%, transparent 8%), linear-gradient(45deg, transparent 0 45%, #111 45% 55%, transparent 55%), linear-gradient(135deg, transparent 0 30%, #111 30% 40%, transparent 40% 60%, #111 60% 70%, transparent 70%)`, backgroundSize:"100% 100%", borderRadius:4 }}/>
+              <div style={{ width:"100%", height:"100%", backgroundImage:`radial-gradient(circle at 18% 18%, #15132b 0, #15132b 8%, transparent 8%), radial-gradient(circle at 82% 18%, #15132b 0, #15132b 8%, transparent 8%), radial-gradient(circle at 18% 82%, #15132b 0, #15132b 8%, transparent 8%), linear-gradient(45deg, transparent 0 45%, #15132b 45% 55%, transparent 55%), linear-gradient(135deg, transparent 0 30%, #15132b 30% 40%, transparent 40% 60%, #15132b 60% 70%, transparent 70%)`, backgroundSize:"100% 100%", borderRadius:4 }}/>
             </div>
             <div style={{ fontSize:9, fontFamily:"'DM Mono'", fontWeight:700, color:C.text3 }}>{qrLabel}</div>
             <Btn kind="ghost" size="sm" icon={IC.copy(11)} style={{ marginTop:8 }}>Download SVG</Btn>
@@ -2360,7 +2360,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
             <span style={{
               fontSize:8.5, fontWeight:700, padding:"2px 6px", borderRadius:99,
               letterSpacing:".08em", textTransform:"uppercase",
-              background: ex.source === "wa" ? "#1F8451" : "#7A5C00",
+              background: ex.source === "wa" ? "#0e8a5a" : "#7a5000",
               color:"#fff",
             }}>{ex.source === "wa" ? "WhatsApp event" : "Workspace event"}</span>
           </div>
@@ -2445,10 +2445,10 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
     const fallbackTemplateId = node.fallbackTemplateId || "";
     const goalOk    = !!(aiGoal && aiGoal.trim());
     content = (<>
-      <div style={{ background:"#FFF3E0", border:"1px solid #FFCC80", borderRadius:10, padding:"11px 13px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
-        <span style={{ color:"#B04E0E", flexShrink:0, paddingTop:1 }}>{IC.warn(15)}</span>
+      <div style={{ background:"#fff4e0", border:"1px solid #ffd48a", borderRadius:10, padding:"11px 13px", marginBottom:14, display:"flex", alignItems:"flex-start", gap:9 }}>
+        <span style={{ color:"#b0431f", flexShrink:0, paddingTop:1 }}>{IC.warn(15)}</span>
         <div style={{ flex:1 }}>
-          <div style={{ fontSize:12, fontWeight:700, color:"#B04E0E", marginBottom:3 }}>Meta AI policy · January 2026</div>
+          <div style={{ fontSize:12, fontWeight:700, color:"#b0431f", marginBottom:3 }}>Meta AI policy · January 2026</div>
           <div style={{ fontSize:11, color:C.text2, lineHeight:1.5 }}>
             Open-ended general-purpose AI chatbots on WhatsApp are <strong>not allowed</strong>. Every AI step must serve a concrete business task. Pick one below so this step stays compliant.
           </div>
@@ -2560,7 +2560,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         return (
           <div key={a.id} style={{ marginBottom:16 }}>
             <div style={{ display:"flex", alignItems:"center", gap:9, marginBottom:7 }}>
-              <span style={{ color:"#C8881F", display:"flex", flexShrink:0 }}>{kind.icon(17)}</span>
+              <span style={{ color:"#e09400", display:"flex", flexShrink:0 }}>{kind.icon(17)}</span>
               <Select value={a.kind} onChange={(e)=>updateAction(i, { kind: e.target.value })} style={{ flex:1, fontSize:13, fontWeight:600, color:C.text1, border:"none", background:"transparent", padding:"2px 6px 2px 0" }}>
                 {ACTION_KINDS.map(k=><option key={k.kind} value={k.kind}>{k.kind}</option>)}
               </Select>
@@ -2706,7 +2706,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
                   />
                   {curField && (
                     <div style={{ display:"flex", alignItems:"center", gap:6, marginTop:5 }}>
-                      <span style={{ fontSize:9, fontWeight:700, padding:"2px 6px", borderRadius:5, background: isNumeric ? "#FFF8E1" : isEmail ? C.blueBg : isPhone ? C.purpleBg : isDate ? C.tealBg : C.sectionBg, color: isNumeric ? "#7A5C00" : isEmail ? C.blue : isPhone ? C.purpleDark : isDate ? C.teal : C.text4, fontFamily:"'DM Mono'", letterSpacing:".04em", textTransform:"uppercase" }}>
+                      <span style={{ fontSize:9, fontWeight:700, padding:"2px 6px", borderRadius:5, background: isNumeric ? "#fff8e6" : isEmail ? C.blueBg : isPhone ? C.purpleBg : isDate ? C.tealBg : C.sectionBg, color: isNumeric ? "#7a5000" : isEmail ? C.blue : isPhone ? C.purpleDark : isDate ? C.teal : C.text4, fontFamily:"'DM Mono'", letterSpacing:".04em", textTransform:"uppercase" }}>
                         {isNumeric ? "Number" : isEmail ? "Email" : isPhone ? "Phone +91" : isDate ? "Date" : "Text"}
                       </span>
                       {!valueValid && <span style={{ fontSize:10, color:C.red, fontWeight:600 }}>{valueHint}</span>}
@@ -2756,9 +2756,9 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         <summary style={{
           padding:"13px 16px", listStyle:"none",
           background:"transparent",
-          border:`2px dashed #E5A100`,
+          border:`2px dashed #ffb020`,
           borderRadius:10, cursor:"pointer",
-          color:"#C8881F", fontSize:14, fontWeight:600,
+          color:"#e09400", fontSize:14, fontWeight:600,
           fontFamily:"'DM Sans'",
           display:"flex", alignItems:"center", justifyContent:"center", gap:7,
         }}>
@@ -2773,7 +2773,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
               display:"flex", alignItems:"center", gap:9, marginBottom:1,
               fontSize:12, fontWeight:500, color:C.text2, fontFamily:"'DM Sans'",
             }}>
-              <span style={{ color:"#C8881F", display:"flex", flexShrink:0 }}>{k.icon(15)}</span>
+              <span style={{ color:"#e09400", display:"flex", flexShrink:0 }}>{k.icon(15)}</span>
               <span>{k.kind}</span>
             </button>
           ))}
@@ -2853,7 +2853,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
         <div style={{ background:C.sectionBg, border:`1px solid ${C.innerBorder}`, borderRadius:10, padding:"11px 13px", marginBottom:14 }}>
           <div style={{ fontSize:13, fontWeight:700, color:C.text1, marginBottom:6 }}>{wf.name}</div>
           <div style={{ display:"flex", gap:8, alignItems:"center", flexWrap:"wrap" }}>
-            <Badge label={wf.status} bg={wf.status==="active"||wf.status==="Active"?C.brandBg:"#FFF3E0"} color={wf.status==="active"||wf.status==="Active"?C.brandDark:"#B04E0E"} dot/>
+            <Badge label={wf.status} bg={wf.status==="active"||wf.status==="Active"?C.brandBg:"#fff4e0"} color={wf.status==="active"||wf.status==="Active"?C.brandDark:"#b0431f"} dot/>
             <span style={{ fontSize:10.5, color:C.text5, fontFamily:"'DM Mono'", fontWeight:600 }}>{(wf.triggers ?? 0).toLocaleString("en-IN")} triggers · last 30 days</span>
           </div>
         </div>
@@ -2915,16 +2915,16 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
     <aside style={{ width:344, borderLeft:`1px solid ${C.cardBorder}`, background:"#fff", flexShrink:0, overflowY:"auto" }}>
       <div style={{
         padding:"15px 18px 13px",
-        borderBottom:`1px solid ${isActionHeader ? "#F0E0A8" : C.cardBorder}`,
-        background: isActionHeader ? "#FFF6D6" : "#fff",
+        borderBottom:`1px solid ${isActionHeader ? "#ffdfa0" : C.cardBorder}`,
+        background: isActionHeader ? "#fff0cc" : "#fff",
       }}>
         <div style={{ display:"flex", alignItems:"center", gap:9, marginBottom: isActionHeader ? 0 : 10 }}>
           <div style={{
             width:32, height:32, borderRadius:8,
             background: isActionHeader ? "#FFFFFF80" : t.bg,
-            color: isActionHeader ? "#C8881F" : t.color,
+            color: isActionHeader ? "#e09400" : t.color,
             display:"flex", alignItems:"center", justifyContent:"center",
-            border:`1px solid ${isActionHeader ? "#F0E0A8" : t.border}`,
+            border:`1px solid ${isActionHeader ? "#ffdfa0" : t.border}`,
             flexShrink:0,
           }}>{isActionHeader ? IC.zap(16) : t.icon(16)}</div>
           <div style={{ flex:1, minWidth:0 }}>
@@ -2942,7 +2942,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
                   style={{
                     fontSize: isActionHeader ? 17 : 14,
                     fontWeight:700,
-                    color: isActionHeader ? "#7A5C00" : C.text1,
+                    color: isActionHeader ? "#7a5000" : C.text1,
                     fontFamily:"'DM Sans'", flex:1, minWidth:0,
                     border:`1px solid ${C.brandBright}`,
                     borderRadius:5,
@@ -2959,7 +2959,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
                   style={{
                     fontSize: isActionHeader ? 17 : 14,
                     fontWeight:700,
-                    color: isActionHeader ? "#7A5C00" : ((node.title && node.title.trim()) || node.type === 'trigger' ? C.text1 : C.muted),
+                    color: isActionHeader ? "#7a5000" : ((node.title && node.title.trim()) || node.type === 'trigger' ? C.text1 : C.muted),
                     fontFamily:"'DM Sans'", flex:1, minWidth:0,
                     padding:"2px 0",
                     overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap",
@@ -2972,7 +2972,7 @@ const SettingsPanel = ({ node, nodes=[], edges=[], onUpdateNode=()=>{}, onDelete
                 title={editingTitle ? "Done editing" : "Rename this node"}
                 onClick={()=>setEditingTitle(v => !v)}
                 style={{
-                  color: editingTitle ? C.brand : (isActionHeader ? "#7A5C00" : C.text5),
+                  color: editingTitle ? C.brand : (isActionHeader ? "#7a5000" : C.text5),
                   background: editingTitle ? C.brandBg : "transparent",
                 }}
               >{editingTitle ? IC.ok(13) : IC.edit(13)}</IconBtn>
@@ -3084,7 +3084,7 @@ const BuilderToolbar = ({ automationName, status, onBack, onSave, isDirty, savin
       ) : (
         <Btn kind="ghost" icon={IC.check(13)} disabled
           title="No unsaved changes"
-          style={{ color: C.green || '#0F6E56', borderColor: C.green || '#0F6E56', opacity: .85, pointerEvents: 'none', cursor: 'default' }}>
+          style={{ color: C.green || '#0e8a5a', borderColor: C.green || '#0e8a5a', opacity: .85, pointerEvents: 'none', cursor: 'default' }}>
           Saved
         </Btn>
       )}
@@ -3335,7 +3335,7 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
   }, [conv, waiting, ended]);
 
   return (
-    <div style={{ width:308, borderLeft:`1px solid ${C.cardBorder}`, background:"#FAFAF7", flexShrink:0, display:"flex", flexDirection:"column", minHeight:0 }}>
+    <div style={{ width:308, borderLeft:`1px solid ${C.cardBorder}`, background:"#fafaff", flexShrink:0, display:"flex", flexDirection:"column", minHeight:0 }}>
       <div style={{ padding:"11px 14px", borderBottom:`1px solid ${C.cardBorder}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexShrink:0 }}>
         <div>
           <div style={{ fontSize:10, color:C.muted, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase" }}>Live Preview</div>
@@ -3346,18 +3346,18 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
       <div style={{ flex:1, minHeight:0, overflow:"hidden", padding:"14px 14px 10px", display:"flex", flexDirection:"column", alignItems:"center" }}>
         <div style={{
           width: 278, flex: 1, minHeight: 0, maxHeight: 600,
-          background: "linear-gradient(155deg, #D8D8DE 0%, #A6A6AD 30%, #82828A 58%, #BFBFC5 82%, #6E6E76 100%)",
+          background: "linear-gradient(155deg, #dcdbe8 0%, #b7b5c6 30%, #6c6a82 58%, #b7b5c6 82%, #6c6a82 100%)",
           borderRadius: 52, padding: 3.5,
           boxShadow: "0 22px 50px rgba(0,0,0,.28), 0 4px 10px rgba(0,0,0,.10), inset 0 0 0 0.5px rgba(255,255,255,.55), inset 0 -2px 4px rgba(0,0,0,.18)",
           position: "relative", display: "flex", flexDirection: "column",
         }}>
-          <div style={{ position:"absolute", left:0, top:84,  width:3, height:30, background:"linear-gradient(90deg,#4A4A50,#6B6B72)", borderRadius:"3px 0 0 3px" }}/>
-          <div style={{ position:"absolute", left:0, top:130, width:3, height:48, background:"linear-gradient(90deg,#4A4A50,#6B6B72)", borderRadius:"3px 0 0 3px" }}/>
-          <div style={{ position:"absolute", left:0, top:188, width:3, height:48, background:"linear-gradient(90deg,#4A4A50,#6B6B72)", borderRadius:"3px 0 0 3px" }}/>
-          <div style={{ position:"absolute", right:0, top:130, width:3, height:64, background:"linear-gradient(270deg,#4A4A50,#6B6B72)", borderRadius:"0 3px 3px 0" }}/>
-          <div style={{ position:"absolute", right:0, top:208, width:3, height:38, background:"linear-gradient(270deg,#4A4A50,#6B6B72)", borderRadius:"0 3px 3px 0" }}/>
+          <div style={{ position:"absolute", left:0, top:84,  width:3, height:30, background:"linear-gradient(90deg,#3a3852,#6c6a82)", borderRadius:"3px 0 0 3px" }}/>
+          <div style={{ position:"absolute", left:0, top:130, width:3, height:48, background:"linear-gradient(90deg,#3a3852,#6c6a82)", borderRadius:"3px 0 0 3px" }}/>
+          <div style={{ position:"absolute", left:0, top:188, width:3, height:48, background:"linear-gradient(90deg,#3a3852,#6c6a82)", borderRadius:"3px 0 0 3px" }}/>
+          <div style={{ position:"absolute", right:0, top:130, width:3, height:64, background:"linear-gradient(270deg,#3a3852,#6c6a82)", borderRadius:"0 3px 3px 0" }}/>
+          <div style={{ position:"absolute", right:0, top:208, width:3, height:38, background:"linear-gradient(270deg,#3a3852,#6c6a82)", borderRadius:"0 3px 3px 0" }}/>
 
-          <div style={{ background: "#000", borderRadius: 48.5, padding: 2, flex: 1, minHeight: 0, display: "flex", flexDirection: "column", boxShadow: "inset 0 0 0 0.5px rgba(255,255,255,.12)" }}>
+          <div style={{ background: "#15132b", borderRadius: 48.5, padding: 2, flex: 1, minHeight: 0, display: "flex", flexDirection: "column", boxShadow: "inset 0 0 0 0.5px rgba(255,255,255,.12)" }}>
             <div style={{ flex: 1, minHeight: 0, position: "relative", borderRadius: 46.5, overflow: "hidden", display: "flex", flexDirection: "column", background: "#075E54" }}>
               <div style={{ position:"absolute", top:0, left:0, right:0, height:46, padding:"14px 28px 0", display:"flex", justifyContent:"space-between", alignItems:"flex-start", color:"#fff", zIndex:5, fontFamily:"-apple-system, 'SF Pro Display', system-ui, sans-serif", fontWeight:600, fontSize:14, letterSpacing:"-.01em", pointerEvents:"none" }}>
                 <span style={{ minWidth:48, textAlign:"left" }}>{now()}</span>
@@ -3381,8 +3381,8 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
                 </div>
               </div>
 
-              <div style={{ position:"absolute", top:11, left:"50%", transform:"translateX(-50%)", width:108, height:32, background:"#000", borderRadius:99, zIndex:6, boxShadow:"inset 0 0 0 0.5px rgba(255,255,255,.08), 0 0 0 0.5px #000" }}>
-                <div style={{ position:"absolute", top:11, right:14, width:9, height:9, borderRadius:"50%", background:"#1a1a1d", boxShadow:"inset 0 0 0 1px #050505, inset 0 0 4px rgba(80,120,200,.3)" }}/>
+              <div style={{ position:"absolute", top:11, left:"50%", transform:"translateX(-50%)", width:108, height:32, background:"#15132b", borderRadius:99, zIndex:6, boxShadow:"inset 0 0 0 0.5px rgba(255,255,255,.08), 0 0 0 0.5px #15132b" }}>
+                <div style={{ position:"absolute", top:11, right:14, width:9, height:9, borderRadius:"50%", background:"#15132b", boxShadow:"inset 0 0 0 1px #15132b, inset 0 0 4px rgba(80,120,200,.3)" }}/>
               </div>
 
               <div style={{ background:"#075E54", paddingTop:50, paddingBottom:8, paddingLeft:12, paddingRight:12, color:"#fff", fontFamily:"-apple-system, 'SF Pro Display', system-ui, sans-serif", flexShrink:0, position:"relative", zIndex:1 }}>
@@ -3405,13 +3405,13 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
 
               <div ref={chatRef} style={{ flex:1, minHeight:0, overflowY:"auto", background:"#E5DDD5", padding:"10px 7px", backgroundImage:"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M20 20 L25 25 M55 55 L60 60' stroke='%23D9CFC4' stroke-width='1'/%3E%3C/svg%3E\")" }}>
                 <div style={{ display:"flex", justifyContent:"center", marginBottom:8 }}>
-                  <span style={{ background:"#E1F2FA", color:"#3C6678", fontSize:9, padding:"2px 9px", borderRadius:99, fontWeight:600 }}>TODAY</span>
+                  <span style={{ background:"#e0f2fe", color:"#0369a1", fontSize:9, padding:"2px 9px", borderRadius:99, fontWeight:600 }}>TODAY</span>
                 </div>
                 {conv.map((m, i) => {
                   if (m.from === "system") {
                     return (
                       <div key={i} style={{ display:"flex", justifyContent:"center", margin:"6px 0" }}>
-                        <div style={{ background:"#FFF8E1", border:"1px solid #FFE082", color:"#7A5C00", fontSize:9, padding:"3px 9px", borderRadius:99, fontWeight:600, maxWidth:"90%", textAlign:"center", lineHeight:1.4 }}>{m.text}</div>
+                        <div style={{ background:"#fff8e6", border:"1px solid #ffdfa0", color:"#7a5000", fontSize:9, padding:"3px 9px", borderRadius:99, fontWeight:600, maxWidth:"90%", textAlign:"center", lineHeight:1.4 }}>{m.text}</div>
                       </div>
                     );
                   }
@@ -3420,7 +3420,7 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
                   const isWaitingOnThese = waiting && waiting.nodeId === m.ownerNodeId;
                   return (
                     <div key={i} style={{ display:"flex", justifyContent: isUser ? "flex-end" : "flex-start", marginBottom:4 }}>
-                      <div style={{ background: isUser ? "#DCF8C6" : "#fff", borderRadius: isUser ? "8px 0 8px 8px" : "0 8px 8px 8px", maxWidth: "82%", fontSize:11, color:"#111", lineHeight:1.4, overflow:"hidden", boxShadow:"0 1px 1px rgba(0,0,0,.07)" }}>
+                      <div style={{ background: isUser ? "#DCF8C6" : "#fff", borderRadius: isUser ? "8px 0 8px 8px" : "0 8px 8px 8px", maxWidth: "82%", fontSize:11, color:"#15132b", lineHeight:1.4, overflow:"hidden", boxShadow:"0 1px 1px rgba(0,0,0,.07)" }}>
                         <div style={{ padding:"5px 9px" }}>
                           {m.text}
                           <div style={{ fontSize:8, color:"#667781", textAlign:"right", marginTop:2, fontFamily:"-apple-system, 'SF Pro Display', sans-serif", display:"flex", justifyContent:"flex-end", alignItems:"center", gap:3 }}>
@@ -3428,11 +3428,11 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
                           </div>
                         </div>
                         {hasButtons && (
-                          <div style={{ borderTop:"1px solid #E0E0E0" }}>
+                          <div style={{ borderTop:"1px solid #ececf3" }}>
                             {m.buttons.map((btn, idx) => (
                               <button key={idx} onClick={()=>isWaitingOnThese && onTapButton(btn, idx)} disabled={!isWaitingOnThese}
-                                style={{ display:"block", width:"100%", padding:"7px 9px", border:"none", borderTop:"1px solid #F0F0F0", textAlign:"center", color:"#00A5F4", fontSize:11, fontWeight:500, background:"transparent", cursor: isWaitingOnThese ? "pointer" : "default", opacity: isWaitingOnThese ? 1 : 0.4, fontFamily:"-apple-system, 'SF Pro Display', sans-serif", transition:"background .12s" }}
-                                onMouseEnter={(e)=>{ if (isWaitingOnThese) e.currentTarget.style.background = "#F5FBFF"; }}
+                                style={{ display:"block", width:"100%", padding:"7px 9px", border:"none", borderTop:"1px solid #f1f0f7", textAlign:"center", color:"#0ea5e9", fontSize:11, fontWeight:500, background:"transparent", cursor: isWaitingOnThese ? "pointer" : "default", opacity: isWaitingOnThese ? 1 : 0.4, fontFamily:"-apple-system, 'SF Pro Display', sans-serif", transition:"background .12s" }}
+                                onMouseEnter={(e)=>{ if (isWaitingOnThese) e.currentTarget.style.background = "#f0f9ff"; }}
                                 onMouseLeave={(e)=>{ e.currentTarget.style.background = "transparent"; }}
                               >{btn.text || btn}</button>
                             ))}
@@ -3444,17 +3444,17 @@ const PhonePreview = ({ onClose, nodes = [], edges = [], templates = [], teamMem
                 })}
                 {ended && (
                   <div style={{ display:"flex", justifyContent:"center", marginTop:10 }}>
-                    <span style={{ background:"#E1F5EE", color:C.brandDark, fontSize:9, padding:"3px 10px", borderRadius:99, fontWeight:700, letterSpacing:".06em", textTransform:"uppercase" }}>End of flow</span>
+                    <span style={{ background:"#e1f7ef", color:C.brandDark, fontSize:9, padding:"3px 10px", borderRadius:99, fontWeight:700, letterSpacing:".06em", textTransform:"uppercase" }}>End of flow</span>
                   </div>
                 )}
               </div>
 
-              <div style={{ background:"#F0F0F0", padding:"7px 9px 22px", display:"flex", alignItems:"center", gap:6, flexShrink:0, position:"relative" }}>
-                <div style={{ flex:1, background:"#fff", borderRadius:99, padding:"6px 12px", fontSize:10, color:"#999", border:"1px solid #E5E5E0" }}>
+              <div style={{ background:"#f1f0f7", padding:"7px 9px 22px", display:"flex", alignItems:"center", gap:6, flexShrink:0, position:"relative" }}>
+                <div style={{ flex:1, background:"#fff", borderRadius:99, padding:"6px 12px", fontSize:10, color:"#b7b5c6", border:"1px solid #ececf3" }}>
                   {waiting ? "↑ Tap a reply button above" : ended ? "Conversation ended — tap Restart" : "Message"}
                 </div>
                 <div style={{ width:28, height:28, background:"#25D366", borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"#fff", flexShrink:0, boxShadow:"0 1px 2px rgba(0,0,0,.15)" }}>{IC.send(13)}</div>
-                <div style={{ position:"absolute", bottom:6, left:"50%", transform:"translateX(-50%)", width:110, height:4, background:"#111", borderRadius:99, opacity:.85 }}/>
+                <div style={{ position:"absolute", bottom:6, left:"50%", transform:"translateX(-50%)", width:110, height:4, background:"#15132b", borderRadius:99, opacity:.85 }}/>
               </div>
             </div>
           </div>
@@ -4357,24 +4357,24 @@ const AutomationBuilderView = ({ automation, onBack, onSave, onToggleStatus, act
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
         .picker-item:hover {
-          background: #F8F7F2 !important;
-          border-color: #E5E5E0 !important;
+          background: #f5f5fb !important;
+          border-color: #ececf3 !important;
         }
         .picker-item:active {
-          background: #F0EFEA !important;
+          background: #f1f0f7 !important;
         }
         .rename-input::placeholder {
-          color: #AAA;
+          color: #b7b5c6;
           font-style: italic;
         }
         .rename-input:focus {
-          border-color: #1D9E75 !important;
-          box-shadow: 0 0 0 3px #E1F5EE !important;
+          border-color: #17b978 !important;
+          box-shadow: 0 0 0 3px #e1f7ef !important;
         }
         ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #D5D5D0; border-radius: 99px; }
-        ::-webkit-scrollbar-thumb:hover { background: #AAA; }
+        ::-webkit-scrollbar-thumb { background: #dcdbe8; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b7b5c6; }
       `}</style>
     </div>
   );

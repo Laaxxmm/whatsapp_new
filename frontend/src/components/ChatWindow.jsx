@@ -58,7 +58,7 @@ function ForwardModal({ waNumber, message, onClose }) {
         <div style={{ padding: '10px 16px' }}>
           <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search contacts…" style={{ width: '100%', border: `1px solid ${C.border}`, borderRadius: 8, padding: '8px 10px', fontSize: 13, fontFamily: FONT, outline: 'none', boxSizing: 'border-box' }} />
         </div>
-        {result && <div style={{ margin: '0 16px 8px', fontSize: 12.5, color: result.ok ? C.green : '#A32D2D', background: result.ok ? '#E3F2EC' : C.primaryLight, borderRadius: 8, padding: '8px 10px' }}>{result.msg}</div>}
+        {result && <div style={{ margin: '0 16px 8px', fontSize: 12.5, color: result.ok ? C.green : '#4b37d8', background: result.ok ? '#e1f7ef' : C.primaryLight, borderRadius: 8, padding: '8px 10px' }}>{result.msg}</div>}
         <div style={{ overflowY: 'auto', padding: '0 8px 10px' }}>
           {loading ? <div style={{ padding: 18, color: C.textMuted, fontSize: 13 }}>Loading…</div>
             : filtered.length === 0 ? <div style={{ padding: 18, color: C.textMuted, fontSize: 13 }}>No contacts.</div>
@@ -947,7 +947,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                     <button
                       onClick={() => handleHeaderAssign(null)}
                       style={menuItemStyle}
-                      onMouseEnter={e => { e.currentTarget.style.background = '#F3F4F6'; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#f1f0f7'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
                     >
                       {assignedUserId == null
@@ -963,7 +963,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                           key={u.id}
                           onClick={() => handleHeaderAssign(u.id)}
                           style={menuItemStyle}
-                          onMouseEnter={e => { e.currentTarget.style.background = '#F3F4F6'; }}
+                          onMouseEnter={e => { e.currentTarget.style.background = '#f1f0f7'; }}
                           onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
                         >
                           {sel
@@ -992,7 +992,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                 {agentBusy
                   ? <Loader2 size={18} style={{ animation: 'spin 1s linear infinite' }} />
                   : <Bot size={18} />}
-                <span style={{ position: 'absolute', top: 5, right: 5, width: 8, height: 8, borderRadius: '50%', background: agentConv.paused ? '#f59e0b' : '#22c55e', border: '1.5px solid #fff' }} />
+                <span style={{ position: 'absolute', top: 5, right: 5, width: 8, height: 8, borderRadius: '50%', background: agentConv.paused ? '#ffb020' : '#17b978', border: '1.5px solid #fff' }} />
               </button>
             )}
 
@@ -1016,7 +1016,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                   <button
                     onClick={() => { handleEditClick(); setMenuOpen(false); }}
                     style={menuItemStyle}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#F3F4F6'; }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#f1f0f7'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
                   >
                     <User size={15} color={C.textSecondary} /><span>Contact info</span>
@@ -1024,7 +1024,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                   <button
                     onClick={() => { refetch(); setMenuOpen(false); }}
                     style={menuItemStyle}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#F3F4F6'; }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#f1f0f7'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
                   >
                     <RefreshCw size={15} color={C.textSecondary} /><span>Refresh</span>
@@ -1033,7 +1033,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
                     onClick={handleExportChat}
                     disabled={messages.length === 0}
                     style={{ ...menuItemStyle, opacity: messages.length === 0 ? 0.5 : 1, cursor: messages.length === 0 ? 'not-allowed' : 'pointer' }}
-                    onMouseEnter={e => { if (messages.length) e.currentTarget.style.background = '#F3F4F6'; }}
+                    onMouseEnter={e => { if (messages.length) e.currentTarget.style.background = '#f1f0f7'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
                   >
                     <Download size={15} color={C.textSecondary} /><span>Export chat</span>
@@ -1136,7 +1136,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
       {/* Reply composer */}
       <div style={{ borderTop: `1px solid ${C.borderDark}`, background: 'var(--c-chatPanel)', flexShrink: 0 }}>
         {windowStatus && !windowStatus.canSendFreeForm && (
-          <div style={{ padding: '8px 16px', background: '#FFF3E0', borderBottom: `1px solid #FFB74D`, fontSize: 12, color: '#E65100', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div style={{ padding: '8px 16px', background: '#fff4e0', borderBottom: `1px solid #ffc861`, fontSize: 12, color: '#d1522f', fontFamily: FONT, display: 'flex', alignItems: 'center', gap: 6 }}>
             <Lock size={13} />
             <span>
               {windowStatus.reason ? (
@@ -1152,7 +1152,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
           </div>
         )}
         {sendError && (
-          <div style={{ padding: '6px 16px', background: 'var(--c-primaryLight)', color: '#A32D2D', fontSize: 12, fontFamily: FONT, borderBottom: `1px solid #F8C8C8` }}>
+          <div style={{ padding: '6px 16px', background: 'var(--c-dangerBg)', color: 'var(--c-dangerText)', fontSize: 12, fontFamily: FONT, borderBottom: `1px solid var(--c-dangerBorder)` }}>
             {sendError}
           </div>
         )}
@@ -1179,7 +1179,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
           <div style={{ padding: '10px 16px', background: 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, display: 'flex', gap: 12, alignItems: 'center' }}>
             <Mic size={20} color={C.primary} />
             <audio controls src={audioPreviewUrl} style={{ flex: 1, height: 36 }} />
-            <button onClick={cancelRecording} style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: '#A32D2D', padding: 4 }} title="Delete recording">
+            <button onClick={cancelRecording} style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: '#e11d48', padding: 4 }} title="Delete recording">
               <Trash2 size={16} />
             </button>
           </div>
@@ -1190,7 +1190,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
           <div style={{ padding: '10px 16px', background: 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
             {pendingPreviewUrl ? (
               pendingFile.type.startsWith('video/') ? (
-                <video src={pendingPreviewUrl} style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, background: '#000' }} />
+                <video src={pendingPreviewUrl} style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, background: '#15132b' }} />
               ) : (
                 <img src={pendingPreviewUrl} alt="preview" style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8 }} />
               )
@@ -1230,7 +1230,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
           }}
         >
           {dragOver && (
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(220, 38, 38, 0.08)', border: `2px dashed ${C.primary}`, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.primary, fontSize: 13, fontWeight: 600, fontFamily: FONT, zIndex: 5, pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(91, 75, 230, 0.08)', border: `2px dashed ${C.primary}`, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.primary, fontSize: 13, fontWeight: 600, fontFamily: FONT, zIndex: 5, pointerEvents: 'none' }}>
               Drop file to attach
             </div>
           )}
@@ -1277,8 +1277,8 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
 
           {isRecording ? (
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', background: 'var(--c-primaryLight)', borderRadius: 8, boxShadow: C.shadowSm }}>
-              <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#A32D2D', animation: 'pulse 1.2s ease-in-out infinite' }} />
-              <span style={{ fontSize: 13, color: '#A32D2D', fontFamily: FONT, fontWeight: 600 }}>
+              <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#4b37d8', animation: 'pulse 1.2s ease-in-out infinite' }} />
+              <span style={{ fontSize: 13, color: '#4b37d8', fontFamily: FONT, fontWeight: 600 }}>
                 Recording… {String(Math.floor(recordingSeconds / 60)).padStart(2, '0')}:{String(recordingSeconds % 60).padStart(2, '0')}
               </span>
               <span style={{ flex: 1 }} />
@@ -1314,7 +1314,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
               <button
                 onClick={stopRecording}
                 title="Stop recording"
-                style={{ width: 40, height: 40, borderRadius: 20, border: 'none', background: '#A32D2D', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                style={{ width: 40, height: 40, borderRadius: 20, border: 'none', background: '#4b37d8', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
               ><Square size={14} fill="#fff" /></button>
             ) : (
               !audioBlob && (
@@ -1340,7 +1340,7 @@ export default function ChatWindow({ waNumber, contactNumber, onContactSaved }) 
             title="Send"
             style={{
               width: 40, height: 40, borderRadius: 20, border: 'none',
-              background: isRecording || ((!composerText.trim() && !pendingFile && !audioBlob) || !windowStatus?.canSendFreeForm) ? '#ccc' : C.primary,
+              background: isRecording || ((!composerText.trim() && !pendingFile && !audioBlob) || !windowStatus?.canSendFreeForm) ? '#dcdbe8' : C.primary,
               color: '#fff', cursor: isRecording || ((!composerText.trim() && !pendingFile && !audioBlob) || !windowStatus?.canSendFreeForm) ? 'not-allowed' : 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
             }}
@@ -1613,9 +1613,9 @@ function LibraryPickerModal({ waNumber, sending, onClose, onSend }) {
         </div>
 
         {/* List */}
-        <div style={{ flex: 1, overflow: 'auto', padding: 16, background: '#FAFAF8' }}>
+        <div style={{ flex: 1, overflow: 'auto', padding: 16, background: '#fafaff' }}>
           {error && (
-            <div style={{ padding: 10, background: 'var(--c-primaryLight)', color: '#A32D2D', borderRadius: 6, fontSize: 13 }}>{error}</div>
+            <div style={{ padding: 10, background: 'var(--c-dangerBg)', color: 'var(--c-dangerText)', borderRadius: 6, fontSize: 13 }}>{error}</div>
           )}
           {!media ? (
             <div style={{ padding: 40, textAlign: 'center', color: C.textMuted }}>Loading…</div>
@@ -1630,10 +1630,10 @@ function LibraryPickerModal({ waNumber, sending, onClose, onSend }) {
                 const Icon = meta.Icon;
                 const state = syncStateFor(m);
                 const isSel = selected?.id === m.id;
-                const stateColor = state.kind === 'synced' ? '#059669'
-                  : state.kind === 'failed' ? '#DC2626'
-                  : state.kind === 'expired' ? '#B45309'
-                  : '#6B7280';
+                const stateColor = state.kind === 'synced' ? '#17b978'
+                  : state.kind === 'failed' ? '#e11d48'
+                  : state.kind === 'expired' ? '#b47100'
+                  : '#6c6a82';
                 return (
                   <button
                     key={m.id}
@@ -1757,8 +1757,8 @@ function LibraryPickerModal({ waNumber, sending, onClose, onSend }) {
 }
 
 const TYPE_META = {
-  image:    { Icon: ImageIcon, label: 'Image',    color: '#3B82F6' },
+  image:    { Icon: ImageIcon, label: 'Image',    color: '#0ea5e9' },
   video:    { Icon: Video,     label: 'Video',    color: '#8B5CF6' },
-  audio:    { Icon: Music,     label: 'Audio',    color: '#10B981' },
-  document: { Icon: FileText,  label: 'Document', color: '#F59E0B' },
+  audio:    { Icon: Music,     label: 'Audio',    color: '#17b978' },
+  document: { Icon: FileText,  label: 'Document', color: '#ffb020' },
 };

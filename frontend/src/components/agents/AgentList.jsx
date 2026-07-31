@@ -39,7 +39,7 @@ function Row({ agent, waAccounts, onEdit }) {
       }}
       onMouseEnter={e => {
         e.currentTarget.style.boxShadow = C.shadowMd;
-        e.currentTarget.style.borderColor = '#D6D6CE';
+        e.currentTarget.style.borderColor = '#dcdbe8';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.boxShadow = 'none';
@@ -48,7 +48,7 @@ function Row({ agent, waAccounts, onEdit }) {
     >
       <div style={{
         width: 36, height: 36, borderRadius: 10,
-        background: agent.isActive ? '#FEF1F1' : '#F2F2EC',
+        background: agent.isActive ? '#eeebff' : '#f1f0f7',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         flexShrink: 0,
       }}>
@@ -66,7 +66,7 @@ function Row({ agent, waAccounts, onEdit }) {
           </div>
         )}
         <div style={{ display: 'flex', gap: 14, marginTop: 6, fontSize: 11, color: C.textMuted, fontFamily: MONO }}>
-          <span style={{ color: isDraft && !agent.aiProvider ? '#B45309' : C.textMuted }}>{providerLabel}</span>
+          <span style={{ color: isDraft && !agent.aiProvider ? '#b47100' : C.textMuted }}>{providerLabel}</span>
           <span>· {agent.toolCount || 0} tool{(agent.toolCount || 0) === 1 ? '' : 's'}</span>
           {wa && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <MessageSquare size={11} /> {wa.displayName}
@@ -95,10 +95,10 @@ function StatusPill({ status, active }) {
   // Draft takes precedence: a draft is incomplete and never handles traffic,
   // regardless of the (forced-false) is_active flag.
   const variant = status === 'draft'
-    ? { bg: '#FEF3C7', color: '#92400E', label: 'Draft' }
+    ? { bg: '#fff0cc', color: '#b47100', label: 'Draft' }
     : active
-      ? { bg: '#ECFDF5', color: '#065F46', label: 'Active' }
-      : { bg: '#F2F2EC', color: C.textSecondary, label: 'Paused' };
+      ? { bg: '#effcf6', color: '#0b6b47', label: 'Active' }
+      : { bg: '#f1f0f7', color: C.textSecondary, label: 'Paused' };
   return (
     <span style={{
       fontSize: 10, fontWeight: 700, letterSpacing: '.04em',
@@ -120,7 +120,7 @@ function EmptyState({ onCreate }) {
     }}>
       <div style={{
         width: 56, height: 56, borderRadius: 14, margin: '0 auto 16px',
-        background: '#FEF1F1', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: '#eeebff', display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         <Bot size={28} color={C.primary} />
       </div>

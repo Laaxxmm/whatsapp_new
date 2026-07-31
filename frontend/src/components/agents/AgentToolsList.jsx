@@ -12,9 +12,9 @@ import HttpToolConfig from './HttpToolConfig.jsx';
  */
 const TOOL_TYPES = [
   { type: 'google_sheets', label: 'Google Sheets', desc: 'Read, append, or update rows in a sheet.',
-    icon: FileSpreadsheet, iconColor: '#0F7A38', iconBg: '#E6F4EA' },
+    icon: FileSpreadsheet, iconColor: '#0e8a5a', iconBg: '#e1f7ef' },
   { type: 'http_request', label: 'HTTP request', desc: 'Call an external API / device / webhook.',
-    icon: Globe, iconColor: '#2563EB', iconBg: '#E6EEFC' },
+    icon: Globe, iconColor: '#0284c7', iconBg: '#e0f2fe' },
 ];
 
 const toolMeta = (type) => TOOL_TYPES.find(t => t.type === type) || TOOL_TYPES[0];
@@ -55,7 +55,7 @@ export default function AgentToolsList({ agentId, tools, onChange }) {
     <div style={{ fontFamily: FONT }}>
       {error && (
         <div style={{ display: 'flex', gap: 8, alignItems: 'center', padding: '8px 12px', borderRadius: 8,
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8', fontSize: 12, marginBottom: 12 }}>
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff', fontSize: 12, marginBottom: 12 }}>
           <AlertCircle size={13} /> {error}
         </div>
       )}
@@ -107,7 +107,7 @@ export default function AgentToolsList({ agentId, tools, onChange }) {
                     <div key={t.type}
                       onClick={() => { setMenuOpen(false); setAdding(t.type); }}
                       style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 10px', borderRadius: 7, cursor: 'pointer' }}
-                      onMouseEnter={e => e.currentTarget.style.background = '#F5F5F0'}
+                      onMouseEnter={e => e.currentTarget.style.background = '#f5f5fb'}
                       onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                       <div style={{ width: 30, height: 30, borderRadius: 7, background: t.iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         <Icon size={15} color={t.iconColor} />
@@ -177,7 +177,7 @@ function ToolRow({ tool, busy, onToggle, onEdit, onRemove }) {
       </div>
       <button onClick={onToggle} disabled={busy} title={tool.isEnabled ? 'Disable' : 'Enable'}
         style={iconBtn}>
-        <Power size={14} color={tool.isEnabled ? '#0F7A38' : C.textMuted} />
+        <Power size={14} color={tool.isEnabled ? '#0e8a5a' : C.textMuted} />
       </button>
       <button onClick={onEdit} disabled={busy}
         style={{ ...iconBtn, fontSize: 12, fontWeight: 600, padding: '6px 10px' }}>

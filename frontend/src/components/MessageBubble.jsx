@@ -92,10 +92,10 @@ function MediaPending({ Icon, kind }) {
 function MediaFailed({ Icon, label, error, onRetry, status }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', minWidth: 200 }}>
-      <AlertCircle size={16} color="#A32D2D" />
+      <AlertCircle size={16} color="#e11d48" />
       <Icon size={18} color={C.textMuted} />
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 12, color: '#A32D2D', fontFamily: FONT }}>
+        <div style={{ fontSize: 12, color: '#4b37d8', fontFamily: FONT }}>
           {status === 'expired' ? `${label} no longer available` : `Failed to load ${label}`}
         </div>
         {error && status !== 'expired' && (
@@ -118,7 +118,7 @@ function MediaFailed({ Icon, label, error, onRetry, status }) {
 
 function StatusTicks({ status }) {
   if (status === 'sending') return <Loader2 size={11} color="#8696a0" style={{ animation: 'spin 1s linear infinite' }} />;
-  if (status === 'failed') return <AlertCircle size={11} color="#A32D2D" />;
+  if (status === 'failed') return <AlertCircle size={11} color="#e11d48" />;
   if (status === 'read') return <CheckCheck size={12} color="#53bdeb" />;
   if (status === 'delivered') return <CheckCheck size={12} color="#8696a0" />;
   return <Check size={12} color="#8696a0" />;
@@ -154,7 +154,7 @@ function fmtDuration(seconds) {
 }
 
 /* ── Sharp play / pause SVGs matching WhatsApp ─────────────────────── */
-function PlayIcon({ size = 18, color = '#1f3c2e' }) {
+function PlayIcon({ size = 18, color = '#0e2a20' }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{ display: 'block' }}>
       <path d="M8 5v14l11-7z" />
@@ -162,7 +162,7 @@ function PlayIcon({ size = 18, color = '#1f3c2e' }) {
   );
 }
 
-function PauseIcon({ size = 18, color = '#1f3c2e' }) {
+function PauseIcon({ size = 18, color = '#0e2a20' }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{ display: 'block' }}>
       <rect x="6" y="4" width="4" height="16" rx="1" />
@@ -220,7 +220,7 @@ function VoiceMessagePlayer({ src, message, isOutgoing, senderAvatarUrl, contact
   // Avatar config
   const avatarUrl = isOutgoing ? senderAvatarUrl : null;
   const avatarInitial = isOutgoing ? 'F' : (contactName ? contactName.charAt(0).toUpperCase() : '?');
-  const avatarBg = isOutgoing ? '#008069' : '#6B7280';
+  const avatarBg = isOutgoing ? '#008069' : '#6c6a82';
 
   return (
     <div style={{ width: '100%', maxWidth: 360 }}>
@@ -322,7 +322,7 @@ function VoiceMessagePlayer({ src, message, isOutgoing, senderAvatarUrl, contact
                 left: `calc(${progress * 100}% - 3px)`,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                width: 6, height: 6, borderRadius: '50%', background: '#111',
+                width: 6, height: 6, borderRadius: '50%', background: '#15132b',
                 transition: 'left 0.1s linear',
                 pointerEvents: 'none',
               }} />

@@ -142,7 +142,7 @@ function IntegrationCard({ title, status, onClick }) {
         border: `1px solid ${C.border}`, cursor: 'pointer',
         transition: 'box-shadow .15s, border-color .15s', fontFamily: FONT,
       }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = C.shadowMd; e.currentTarget.style.borderColor = '#D6D6CE'; }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = C.shadowMd; e.currentTarget.style.borderColor = '#dcdbe8'; }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = C.border; }}
     >
       <div style={{ flex: 1, minWidth: 0 }}>
@@ -158,7 +158,7 @@ function IntegrationCard({ title, status, onClick }) {
 // FORGECHAT integrations card look).
 function Connected({ children }) {
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 6, background: '#dcfce7', color: '#15803d' }}>
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 6, background: '#d9f7e9', color: '#0e8a5a' }}>
       {children}
     </span>
   );

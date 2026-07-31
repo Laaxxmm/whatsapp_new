@@ -126,14 +126,14 @@ export function BulkDeleteButton({ sel, label, onConfirm, confirmMessage, style 
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
           padding: '8px 14px',
-          background: 'var(--c-primaryLight)', color: '#A32D2D',
-          border: '1.5px solid #A32D2D', borderRadius: 8,
+          background: 'var(--c-primaryLight)', color: '#4b37d8',
+          border: '1.5px solid #4b37d8', borderRadius: 8,
           fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT,
           transition: 'background .15s, color .15s',
           ...style,
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = '#A32D2D'; e.currentTarget.style.color = '#fff'; }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = '#FCEBEB'; e.currentTarget.style.color = '#A32D2D'; }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#4b37d8'; e.currentTarget.style.color = '#fff'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = '#eeebff'; e.currentTarget.style.color = '#4b37d8'; }}
       >
         <Trash2 size={14} />
         Delete {n} selected
@@ -169,16 +169,16 @@ function BulkDeleteModal({ title, message, onConfirm, onCancel }) {
                  boxShadow: '0 24px 60px rgba(0,0,0,.22)' }}
       >
         <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--c-text)', marginBottom: 10 }}>{title}</div>
-        <div style={{ fontSize: 13, color: '#555', lineHeight: 1.55, marginBottom: 22 }}>{message}</div>
+        <div style={{ fontSize: 13, color: '#3a3852', lineHeight: 1.55, marginBottom: 22 }}>{message}</div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
           <button
             onClick={onCancel}
-            style={{ padding: '9px 18px', border: '1.5px solid #D5D5D0', background: 'var(--c-cardBg)', color: '#444',
+            style={{ padding: '9px 18px', border: '1.5px solid #dcdbe8', background: 'var(--c-cardBg)', color: '#3a3852',
                      borderRadius: 9, fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: FONT }}
           >Cancel</button>
           <button
             onClick={onConfirm}
-            style={{ padding: '9px 18px', border: 'none', background: '#A32D2D', color: '#fff',
+            style={{ padding: '9px 18px', border: 'none', background: '#4b37d8', color: '#fff',
                      borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: FONT }}
           >Delete</button>
         </div>

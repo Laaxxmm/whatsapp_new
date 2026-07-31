@@ -76,7 +76,7 @@ export default function AiAgentBuilderPage({ user, navigate }) {
 
       {error && (
         <div style={{ padding: '10px 16px', margin: '12px 24px 0', borderRadius: 8,
-          background: '#FCEBEB', color: '#A32D2D', border: '1px solid #FBC8C8',
+          background: '#eeebff', color: '#4b37d8', border: '1px solid #e0dbff',
           fontSize: 13 }}>
           {error}
         </div>

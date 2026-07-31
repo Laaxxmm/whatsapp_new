@@ -162,7 +162,7 @@ function KpiDetailModal({ tile, range, onClose }) {
             </div>
           )}
           {!loading && error && (
-            <div style={{ margin: 18, background: C.primaryLight, color: '#A32D2D', border: '1px solid #F3C9C9', borderRadius: 10, padding: '12px 14px', fontSize: 13 }}>{error}</div>
+            <div style={{ margin: 18, background: C.dangerBg, color: C.dangerText, border: `1px solid ${C.dangerBorder}`, borderRadius: 10, padding: '12px 14px', fontSize: 13 }}>{error}</div>
           )}
           {!loading && !error && items.length === 0 && (
             <div style={{ padding: '32px 18px', textAlign: 'center', fontSize: 13, color: C.textMuted }}>No items to show.</div>
@@ -343,7 +343,7 @@ export default function HomePage({ user, onPageChange }) {
 
       {/* Error */}
       {error && (
-        <div style={{ background: C.primaryLight, color: '#A32D2D', border: '1px solid #F3C9C9', borderRadius: 10, padding: '12px 14px', fontSize: 13, fontFamily: FONT, marginBottom: 16 }}>
+        <div style={{ background: C.dangerBg, color: C.dangerText, border: `1px solid ${C.dangerBorder}`, borderRadius: 10, padding: '12px 14px', fontSize: 13, fontFamily: FONT, marginBottom: 16 }}>
           Couldn’t load the dashboard. Please try again in a moment.
         </div>
       )}
@@ -371,9 +371,9 @@ export default function HomePage({ user, onPageChange }) {
                   <button key={i} onClick={() => go(al.page)} style={{
                     display: 'inline-flex', alignItems: 'center', gap: 7, cursor: 'pointer', fontFamily: FONT,
                     fontSize: 12.5, fontWeight: 600, padding: '7px 12px', borderRadius: 9,
-                    border: `1px solid ${warn ? '#F3C9C9' : C.border}`,
+                    border: `1px solid ${warn ? C.dangerBorder : C.border}`,
                     background: warn ? C.primaryLight : C.cardBg,
-                    color: warn ? '#A32D2D' : C.textSecondary,
+                    color: warn ? C.dangerText : C.textSecondary,
                   }}>
                     <AlertTriangle size={13} strokeWidth={2.4} style={{ color: warn ? C.primary : C.textMuted }} />
                     {al.label}

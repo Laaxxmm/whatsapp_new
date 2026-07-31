@@ -53,9 +53,9 @@ export default function SetupWizard({ onComplete }) {
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '60%',
-          background: 'radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+          background: 'radial-gradient(circle, rgba(91,75,230,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '50%', height: '50%',
-          background: 'radial-gradient(circle, rgba(83,74,183,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+          background: 'radial-gradient(circle, rgba(91,75,230,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 480 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 40 }}>
             <img src="/forgemind-logo.gif" alt="" style={{ width: 40, height: 40, borderRadius: 9 }} />
@@ -123,7 +123,7 @@ export default function SetupWizard({ onComplete }) {
             </label>
 
             {error && (
-              <div style={{ background: '#FCEBEB', color: '#A32D2D', borderRadius: 8, padding: '10px 12px', fontSize: 13, fontWeight: 500, marginBottom: 18 }}>
+              <div style={{ background: '#eeebff', color: '#4b37d8', borderRadius: 8, padding: '10px 12px', fontSize: 13, fontWeight: 500, marginBottom: 18 }}>
                 {error}
               </div>
             )}

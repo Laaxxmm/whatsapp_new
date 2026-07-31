@@ -139,9 +139,9 @@ export default function SearchableSelect({
                   style={{
                     display: 'flex', alignItems: 'center', gap: 8, padding: '8px 8px',
                     borderRadius: 6, cursor: 'pointer',
-                    background: on ? '#FDF6F6' : 'transparent',
+                    background: on ? '#f7f5ff' : 'transparent',
                   }}
-                  onMouseEnter={e => { if (!on) e.currentTarget.style.background = '#F5F5F0'; }}
+                  onMouseEnter={e => { if (!on) e.currentTarget.style.background = '#f5f5fb'; }}
                   onMouseLeave={e => { if (!on) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <Check size={13} color={C.primary} style={{ flexShrink: 0, opacity: on ? 1 : 0 }} />
@@ -163,7 +163,7 @@ export default function SearchableSelect({
                 borderTop: `1px solid ${C.border}`, cursor: 'pointer',
                 fontSize: 13, fontWeight: 600, color: C.primary, fontFamily: FONT,
               }}
-              onMouseEnter={e => e.currentTarget.style.background = '#FDF6F6'}
+              onMouseEnter={e => e.currentTarget.style.background = '#f7f5ff'}
               onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
             >
               <Plus size={14} /> {createLabel}

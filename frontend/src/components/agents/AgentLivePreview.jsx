@@ -206,7 +206,7 @@ export default function AgentLivePreview({ agentId, headerTitle, canTest = true 
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
       {recording ? (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 8, padding: '9px 12px', background: 'var(--c-cardBg)', borderRadius: 99, border: '1px solid var(--c-border)' }}>
-          <span style={{ width: 8, height: 8, borderRadius: 99, background: '#EF4444', animation: 'agentRecPulse 1s ease-in-out infinite' }} />
+          <span style={{ width: 8, height: 8, borderRadius: 99, background: '#f43f5e', animation: 'agentRecPulse 1s ease-in-out infinite' }} />
           <span style={{ fontSize: 12, color: C.text, fontFamily: FONT }}>Recording… tap ◼ to send</span>
         </div>
       ) : transcribing ? (
@@ -251,7 +251,7 @@ export default function AgentLivePreview({ agentId, headerTitle, canTest = true 
       ) : (
         <CircleBtn
           label={recording ? 'Stop & send' : 'Record voice note'}
-          color={recording ? '#EF4444' : '#25D366'}
+          color={recording ? '#f43f5e' : '#25D366'}
           onClick={recording ? stopRecording : startRecording}
           disabled={!canTest || transcribing || sending}
         >
@@ -272,7 +272,7 @@ export default function AgentLivePreview({ agentId, headerTitle, canTest = true 
         bodyRef={bodyRef}
       >
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-          <span style={{ background: '#E1F2FA', color: '#3C6678', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
+          <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: 9, padding: '2px 9px', borderRadius: 99, fontWeight: 600 }}>TODAY</span>
         </div>
 
         {messages.length === 0 && !sending && !transcribing && (
@@ -295,7 +295,7 @@ export default function AgentLivePreview({ agentId, headerTitle, canTest = true 
         )}
 
         {error && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, margin: '8px auto 0', maxWidth: '92%', padding: '6px 9px', borderRadius: 8, background: '#FCEBEB', color: '#A32D2D', fontSize: 10, lineHeight: 1.4 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, margin: '8px auto 0', maxWidth: '92%', padding: '6px 9px', borderRadius: 8, background: '#eeebff', color: '#4b37d8', fontSize: 10, lineHeight: 1.4 }}>
             <AlertCircle size={12} style={{ flexShrink: 0 }} />
             <span style={{ wordBreak: 'break-word' }}>{error}</span>
           </div>
@@ -332,7 +332,7 @@ function MessageBlock({ message }) {
         <Bubble isUser={isUser}>
           <audio controls src={message.audioUrl} style={{ width: 200, maxWidth: '100%', height: 34, display: 'block' }} />
           {message.content && <div style={textStyle}>{message.content}</div>}
-          {message.note && <div style={{ fontSize: 10, color: '#B45309', marginTop: 3 }}>{message.note}</div>}
+          {message.note && <div style={{ fontSize: 10, color: '#b47100', marginTop: 3 }}>{message.note}</div>}
           <MetaRow isUser={isUser} />
         </Bubble>
       )}
@@ -349,7 +349,7 @@ function MessageBlock({ message }) {
         <Bubble isUser={isUser}>
           <div style={textStyle}>{message.content}</div>
           {message.status === 'capped' && (
-            <div style={{ fontSize: 9.5, color: '#B45309', marginTop: 3 }}>Hit the tool-iteration cap; reply may be partial.</div>
+            <div style={{ fontSize: 9.5, color: '#b47100', marginTop: 3 }}>Hit the tool-iteration cap; reply may be partial.</div>
           )}
           <MetaRow isUser={isUser} />
         </Bubble>

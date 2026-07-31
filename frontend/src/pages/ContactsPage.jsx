@@ -523,7 +523,7 @@ export default function ContactsPage({ user, onNavigate }) {
               display: 'flex', alignItems: 'center', gap: 4,
               padding: '8px 14px', borderRadius: 8,
               border: 'none',
-              background: selectedContacts.size > 0 ? C.primary : '#ccc',
+              background: selectedContacts.size > 0 ? C.primary : '#dcdbe8',
               cursor: selectedContacts.size > 0 ? 'pointer' : 'not-allowed',
               fontSize: 13, fontWeight: 700,
               color: '#fff', fontFamily: FONT,
@@ -627,7 +627,7 @@ export default function ContactsPage({ user, onNavigate }) {
                   return (
                     <tr key={c.contact_number} style={{ background: isSelected ? 'var(--c-primaryLight)' : 'var(--c-cardBg)', borderBottom: `1px solid ${C.border}`, cursor: 'pointer' }}
                       onClick={() => openDetail(c, 'view')}
-                      onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = '#f9fafb'; }}
+                      onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = '#fafaff'; }}
                       onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = '#fff'; }}
                     >
                       <td style={{ padding: '12px 8px 12px 16px', textAlign: 'center' }} onClick={e => e.stopPropagation()}>
@@ -739,12 +739,12 @@ export default function ContactsPage({ user, onNavigate }) {
                     ))}
                   </div>
                   {importResult.skipped?.length > 0 && (
-                    <div style={{ background: '#FFF8E6', border: '1px solid #F0E0B0', borderRadius: 10, padding: '10px 14px', maxHeight: 160, overflowY: 'auto' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 700, color: '#8A6D00', marginBottom: 6 }}>
+                    <div style={{ background: '#FFF8E6', border: '1px solid #ffdfa0', borderRadius: 10, padding: '10px 14px', maxHeight: 160, overflowY: 'auto' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 700, color: '#7a5000', marginBottom: 6 }}>
                         <AlertTriangle size={14} /> Skipped rows
                       </div>
                       {importResult.skipped.map((s, i) => (
-                        <div key={i} style={{ fontSize: 12, color: '#7A6200', padding: '2px 0' }}>
+                        <div key={i} style={{ fontSize: 12, color: '#7a5000', padding: '2px 0' }}>
                           Row {s.row}: {s.reason}
                         </div>
                       ))}
@@ -802,7 +802,7 @@ export default function ContactsPage({ user, onNavigate }) {
               )}
 
               {importError && (
-                <div style={{ marginTop: 14, background: '#FCEBEB', color: '#A32D2D', borderRadius: 8, padding: '10px 14px', fontSize: 13 }}>
+                <div style={{ marginTop: 14, background: '#eeebff', color: '#4b37d8', borderRadius: 8, padding: '10px 14px', fontSize: 13 }}>
                   {importError}
                 </div>
               )}
@@ -831,7 +831,7 @@ export default function ContactsPage({ user, onNavigate }) {
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 6,
                       padding: '9px 20px', borderRadius: 8, border: 'none',
-                      background: (!importFile || importing) ? '#ccc' : C.primary, color: '#fff',
+                      background: (!importFile || importing) ? '#dcdbe8' : C.primary, color: '#fff',
                       cursor: (!importFile || importing) ? 'not-allowed' : 'pointer',
                       fontSize: 13, fontWeight: 700, fontFamily: FONT,
                     }}
@@ -968,7 +968,7 @@ export default function ContactsPage({ user, onNavigate }) {
                           searchPlaceholder="Search media..."
                         />
                         {broadcastMediaItems.length === 0 && !broadcastMediaLoading ? (
-                          <div style={{ fontSize: 11, color: '#E65100', marginTop: 4, fontFamily: FONT }}>
+                          <div style={{ fontSize: 11, color: '#d1522f', marginTop: 4, fontFamily: FONT }}>
                             This template has a {headerMediaType} header — upload a {headerMediaType} to the Media Library first.
                           </div>
                         ) : (
@@ -1096,13 +1096,13 @@ export default function ContactsPage({ user, onNavigate }) {
                             />
                             <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.25)' }}>
                               <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <Play size={16} color="#111" fill="#111" />
+                                <Play size={16} color="#15132b" fill="#15132b" />
                               </div>
                             </div>
                           </div>
                         ) : (
                           <div style={{ padding: 16, display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <div style={{ width: 40, height: 40, borderRadius: 8, background: '#E1F5EE', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0F6E56' }}>
+                            <div style={{ width: 40, height: 40, borderRadius: 8, background: '#e1f7ef', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0e8a5a' }}>
                               {broadcastMessageType === 'audio' ? <Music size={20} /> : <FileText size={20} />}
                             </div>
                             <div>
@@ -1322,7 +1322,7 @@ export default function ContactsPage({ user, onNavigate }) {
                     disabled={isBroadcastFormInvalid()}
                     style={{
                       padding: '10px 18px', borderRadius: 8, border: 'none',
-                      background: isBroadcastFormInvalid() ? '#ccc' : C.primary,
+                      background: isBroadcastFormInvalid() ? '#dcdbe8' : C.primary,
                       color: '#fff', cursor: isBroadcastFormInvalid() ? 'not-allowed' : 'pointer',
                       fontSize: 13, fontWeight: 700, fontFamily: FONT,
                       display: 'flex', alignItems: 'center', gap: 6,
@@ -1336,7 +1336,7 @@ export default function ContactsPage({ user, onNavigate }) {
 
               {/* RIGHT — Preview */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 8 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#888', fontFamily: FONT }}>Live Preview</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#6c6a82', fontFamily: FONT }}>Live Preview</div>
                 {broadcastMessageType === 'template' ? (
                   <WhatsAppPreview template={previewTemplate} minHeight={280} emptyText="Select a template&#10;to preview" />
                 ) : (
@@ -1411,7 +1411,7 @@ export default function ContactsPage({ user, onNavigate }) {
                     }}
                   />
                   {String(detailNumber || '').replace(/\D/g, '') !== String(detailContact.contact_number) && (
-                    <div style={{ fontSize: 11, color: '#E65100', marginTop: 4, display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <div style={{ fontSize: 11, color: '#d1522f', marginTop: 4, display: 'flex', alignItems: 'center', gap: 4 }}>
                       <AlertTriangle size={11} /> Changing the number moves the entire conversation &amp; history to it.
                     </div>
                   )}

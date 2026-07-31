@@ -11,11 +11,17 @@ html, body, #root {
 }
 
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Matches the LMS portal's type rendering (alternate stylistic set). */
+  font-feature-settings: "ss01", "cv01";
   background: var(--c-pageBg);
   color: var(--c-text);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 input, button, textarea, select {
@@ -24,32 +30,46 @@ input, button, textarea, select {
 
 /* ─── Color palette (light only) ────────────────────────────────────────
    Tokens consumed via the `C` object in constants.js (each maps to var(--c-*)).
-   This app is light-mode only — there is no dark theme. */
+   This app is light-mode only — there is no dark theme.
+
+   Palette matches the Indefine LMS portal (tailwind.config.ts / globals.css):
+   brand #5b4be6, brand-ink #4b37d8, brand-soft #eeebff, ink #15132b,
+   page #f5f5fb, line #ececf3, mint #17b978, gold #ffb020, coral #ff6b4a.
+   The chat tokens below deliberately stay WhatsApp-native — users read bubble
+   and tick colours as protocol semantics, not as branding. */
 :root {
-  --c-pageBg: #F7F7F3;
-  --c-sidebarBg: #FAF9F5;
-  --c-sidebarBorder: #E5E5E0;
-  --c-headerBg: #0F0F10;
-  --c-headerText: #F5F5F2;
-  --c-headerMuted: #A1A1AA;
+  --c-pageBg: #f5f5fb;
+  --c-sidebarBg: #ffffff;
+  --c-sidebarBorder: #ececf3;
+  --c-headerBg: #15132b;
+  --c-headerText: #f5f5fb;
+  --c-headerMuted: #b7b5c6;
   --c-headerBorder: rgba(255,255,255,.12);
   --c-headerSurface: rgba(255,255,255,.06);
   --c-cardBg: #ffffff;
-  --c-border: #E5E5E0;
-  --c-borderDark: #d1d7db;
-  --c-text: #111111;
-  --c-textSecondary: #6B7280;
-  --c-textMuted: #8696a0;
-  --c-primary: #dc2626;
-  --c-primaryHover: #b91c1c;
-  --c-primaryLight: #FCEBEB;
-  --c-primaryText: #111b21;
-  --c-purple: #534AB7;
-  --c-green: #0F6E56;
-  --c-amber: #E8A317;
-  --c-shadowSm: 0 1px 2px rgba(0,0,0,.08);
-  --c-shadowMd: 0 8px 24px rgba(0,0,0,.06);
-  --c-shadowLg: 0 20px 60px rgba(0,0,0,.15);
+  --c-border: #ececf3;
+  --c-borderDark: #dcdbe8;
+  --c-text: #15132b;
+  --c-textSecondary: #6c6a82;
+  --c-textMuted: #b7b5c6;
+  --c-primary: #5b4be6;
+  --c-primaryHover: #4b37d8;
+  --c-primaryLight: #eeebff;
+  --c-primaryText: #15132b;
+  --c-purple: #8b5cf6;
+  --c-green: #0e8a5a;
+  --c-amber: #ffb020;
+  /* Danger/failure. Separate from --c-primary: the old palette was red and used
+     one colour for both branding and errors, so a brand change alone would have
+     made failed sends and delete actions read as ordinary brand accents. */
+  --c-danger: #e11d48;
+  --c-dangerText: #be123c;
+  --c-dangerBg: #fff1f2;
+  --c-dangerBorder: #fecdd3;
+  /* LMS shadow scale: soft / lift / pop, all tinted with the ink colour. */
+  --c-shadowSm: 0 1px 2px 0 rgba(20,19,43,.04), 0 1px 3px 0 rgba(20,19,43,.06);
+  --c-shadowMd: 0 10px 30px -18px rgba(20,19,43,.25);
+  --c-shadowLg: 0 12px 24px -8px rgba(91,75,230,.28), 0 4px 12px -4px rgba(91,75,230,.18);
   --c-waBg: #e5ddd5;
   /* chat */
   --c-incomingBg: #ffffff;
@@ -62,11 +82,21 @@ input, button, textarea, select {
   --c-statusSent: #8696a0;
   /* neutral aliases for literal-heavy views */
   --c-surface: #ffffff;
-  --c-surfaceAlt: #F7F7F3;
-  --c-hover: #EFEEE6;
+  --c-surfaceAlt: #f5f5fb;
+  --c-hover: #f1f0f7;
   --c-chatPanel: #f0f2f5;
   --c-chatWall: #efeae2;
 }
 
 input, textarea, select { color: var(--c-text); }
 ::placeholder { color: var(--c-textMuted); opacity: 1; }
+
+/* Scrollbars, matching the LMS portal. */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgb(15 23 42 / 0.12);
+  border-radius: 999px;
+  border: 3px solid var(--c-pageBg);
+}
+::-webkit-scrollbar-thumb:hover { background: rgb(15 23 42 / 0.22); }
