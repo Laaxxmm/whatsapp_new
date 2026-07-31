@@ -10,6 +10,11 @@
 
 const { Router } = require('express');
 const pool = require('../db');
+// Export envelope type. Files exported before the rename carry the old value,
+// so imports accept both — dropping it would orphan every previously saved file.
+const EXPORT_TYPE = 'indefine-chat.agent';
+const EXPORT_TYPES = [EXPORT_TYPE, 'forgechat.agent'];
+
 const { adminOnly } = require('../middleware/access');
 
 const router = Router();
@@ -454,7 +459,7 @@ router.get('/agents/:id/export', adminOnly, async (req, res) => {
     );
     const full = agentShape(rows[0]);
     res.json({
-      type: 'forgechat.agent',
+      type: EXPORT_TYPE,
       version: 1,
       agent: {
         name: full.name,
@@ -490,8 +495,8 @@ router.get('/agents/:id/export', adminOnly, async (req, res) => {
 router.post('/agents/import', adminOnly, async (req, res) => {
   try {
     const payload = req.body || {};
-    if (payload.type !== 'forgechat.agent' || !payload.agent) {
-      return res.status(400).json({ error: 'That file is not a ForgeChat agent export.' });
+    if (!EXPORT_TYPES.includes(payload.type) || !payload.agent) {
+      return res.status(400).json({ error: 'That file is not an agent export.' });
     }
     const a = payload.agent;
     if (!a.name || !a.systemPrompt) {

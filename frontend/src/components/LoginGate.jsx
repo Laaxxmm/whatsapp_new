@@ -114,27 +114,6 @@ export default function LoginGate({ onLogin }) {
           </p>
 
         </div>
-
-        {/* Upstream attribution — this app is built on ForgeChat by Forgemind. */}
-        <a
-          href="https://forgemind.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            position: 'absolute',
-            bottom: 32,
-            left: 64,
-            fontSize: 10,
-            fontWeight: 600,
-            color: '#3a3852',
-            letterSpacing: '.06em',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          Built on ForgeChat by <span style={{ color: C.primary }}>Forgemind</span>
-        </a>
       </div>
 
       {/* Right form panel */}

@@ -66,7 +66,7 @@ async function ensureTables() {
     const { rows } = await client.query('SELECT COUNT(*) FROM coexistence.forgecrm_users');
     if (parseInt(rows[0].count, 10) === 0) {
       if (process.env.ADMIN_PASSWORD) {
-        const adminEmail = (process.env.ADMIN_EMAIL || 'admin@forgemind.space').trim().toLowerCase();
+        const adminEmail = (process.env.ADMIN_EMAIL || 'admin@example.com').trim().toLowerCase();
         const hash = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10);
         await client.query(
           `INSERT INTO coexistence.forgecrm_users (username, email, password, display_name, role)

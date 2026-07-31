@@ -14,13 +14,12 @@ import ContactsPage from './pages/ContactsPage.jsx';
 import BulkMessagePage from './pages/BulkMessagePage.jsx';
 import AdminSettingsPage from './pages/AdminSettingsPage.jsx';
 import MediaLibraryPage from './pages/MediaLibraryPage.jsx';
-import AboutUsPage from './pages/AboutUsPage.jsx';
 import PipelinesPage from './pages/PipelinesPage.jsx';
 import AiAgentBuilderPage from './pages/AiAgentBuilderPage.jsx';
 
 const VALID_PAGES = new Set([
   'home', 'chatbot-builder', 'template-builder', 'chats',
-  'contacts', 'pipelines', 'bulk-message', 'admin-settings', 'media-library', 'about',
+  'contacts', 'pipelines', 'bulk-message', 'admin-settings', 'media-library',
   'ai-agent-builder',
 ]);
 
@@ -118,7 +117,6 @@ export default function App() {
       case 'bulk-message': return <BulkMessagePage onNavigate={navigate} />;
       case 'chatbot-builder': return <ChatbotBuilderPage subParts={subParts} navigate={navigate} />;
       case 'ai-agent-builder': return <AiAgentBuilderPage user={user} navigate={navigate} />;
-      case 'about': return <AboutUsPage />;
       case 'admin-settings': return <AdminSettingsPage onLogout={handleLogout} onNavigate={setPage} subParts={subParts} navigate={navigate} user={user} />;
       default: return <HomePage user={user} onPageChange={setPage} />;
     }

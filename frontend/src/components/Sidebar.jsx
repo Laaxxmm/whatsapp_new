@@ -1,6 +1,6 @@
 import {
   Home, Zap, LayoutTemplate, MessageCircle, Users,
-  Megaphone, Image as ImageIcon, Info, KanbanSquare, Bot,
+  Megaphone, Image as ImageIcon, KanbanSquare, Bot,
   ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import { C, FONT } from '../constants.js';
@@ -15,7 +15,6 @@ const NAV_ITEMS = [
   { id: 'contacts', label: 'Contacts', Icon: Users },
   { id: 'pipelines', label: 'Pipelines', Icon: KanbanSquare },
   { id: 'bulk-message', label: 'Bulk Message', Icon: Megaphone },
-  { id: 'about', label: 'About Us', Icon: Info },
 ];
 
 export default function Sidebar({ activePage, onPageChange, collapsed, setCollapsed, user }) {

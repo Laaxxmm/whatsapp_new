@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const { requirePermission } = require('../middleware/access');
+// Export envelope type. Files exported before the rename carry the old value,
+// so imports accept both — dropping it would orphan every previously saved file.
+const EXPORT_TYPE = 'indefine-chat.automation';
+const EXPORT_TYPES = [EXPORT_TYPE, 'forgechat.automation'];
+
 
 /**
  * Automations are linear keyword→message flows: one Keyword Trigger followed by
@@ -165,7 +170,7 @@ router.get('/chatbots/:id/export', requirePermission('chatbot-builder'), async (
     if (rows.length === 0) return res.status(404).json({ error: 'Chatbot not found' });
     const c = rows[0];
     res.json({
-      type: 'forgechat.automation',
+      type: EXPORT_TYPE,
       version: 1,
       automation: { name: c.name, description: c.description, trigger_type: c.trigger_type, config: c.config || {} },
     });
@@ -180,8 +185,8 @@ router.get('/chatbots/:id/export', requirePermission('chatbot-builder'), async (
 router.post('/chatbots/import', requirePermission('chatbot-builder'), async (req, res) => {
   try {
     const payload = req.body || {};
-    if (payload.type !== 'forgechat.automation' || !payload.automation || !payload.automation.name) {
-      return res.status(400).json({ error: 'That file is not a ForgeChat automation export.' });
+    if (!EXPORT_TYPES.includes(payload.type) || !payload.automation || !payload.automation.name) {
+      return res.status(400).json({ error: 'That file is not an automation export.' });
     }
     const a = payload.automation;
     const { rows } = await pool.query(

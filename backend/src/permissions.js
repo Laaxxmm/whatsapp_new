@@ -14,7 +14,7 @@
 
 const PAGES = [
   'home', 'chats', 'contacts', 'pipelines', 'bulk-message', 'template-builder',
-  'chatbot-builder', 'media-library', 'about',
+  'chatbot-builder', 'media-library',
   'admin-settings:general', 'admin-settings:tags', 'admin-settings:category',
   'admin-settings:fields', 'admin-settings:whatsapp-accounts',
   'admin-settings:users', 'admin-settings:mcp',
@@ -23,10 +23,10 @@ const PAGES = [
 const ROLE_PAGE_DEFAULTS = {
   admin: PAGES.slice(),           // everything
   bda_sales: [
-    'home', 'chats', 'contacts', 'pipelines', 'about',
+    'home', 'chats', 'contacts', 'pipelines',
     'admin-settings:general',     // only the General tab in user settings
   ],
-  viewer: ['home', 'about'],      // legacy fallback
+  viewer: ['home'],               // legacy fallback
 };
 
 // Returns the set of pages a user can access given their role plus any

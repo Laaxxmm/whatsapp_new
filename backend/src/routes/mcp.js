@@ -148,10 +148,10 @@ adminRouter.get('/mcp/install', adminOnly, (req, res) => {
     serverPath,
     configSnippet: {
       mcpServers: {
-        'forgechat-agents': {
+        'indefine-chat-agents': {
           command: 'node',
           args: [serverPath],
-          env: { FORGECHAT_API_URL: apiUrl, FORGECHAT_API_KEY: 'fck_live_PASTE_YOUR_KEY' },
+          env: { INDEFINE_API_URL: apiUrl, INDEFINE_API_KEY: 'fck_live_PASTE_YOUR_KEY' },
         },
       },
     },

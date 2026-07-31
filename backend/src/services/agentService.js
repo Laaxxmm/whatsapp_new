@@ -8,6 +8,11 @@
 // 500.
 
 const pool = require('../db');
+// Export envelope type. Files exported before the rename carry the old value,
+// so imports accept both — dropping it would orphan every previously saved file.
+const EXPORT_TYPE = 'indefine-chat.agent';
+const EXPORT_TYPES = [EXPORT_TYPE, 'forgechat.agent'];
+
 
 const SUPPORTED_PROVIDERS = new Set(['anthropic', 'openai']);
 
@@ -355,7 +360,7 @@ async function exportAgent(id) {
   const full = await getAgent(id);
   if (!full) throw new ApiError(404, 'Not found');
   return {
-    type: 'forgechat.agent',
+    type: EXPORT_TYPE,
     version: 1,
     agent: {
       name: full.name,
@@ -409,8 +414,8 @@ async function resolveModelId({ aiModelId, aiProvider, aiModelLabel }) {
 // auto-activates), relinks model/number when they resolve here, and re-adds
 // every tool. Returns { agent, warnings }.
 async function importAgent(payload = {}) {
-  if (!payload || payload.type !== 'forgechat.agent' || !payload.agent) {
-    throw new ApiError(400, 'That file is not a ForgeChat agent export.');
+  if (!payload || !EXPORT_TYPES.includes(payload.type) || !payload.agent) {
+    throw new ApiError(400, 'That file is not an agent export.');
   }
   const a = payload.agent;
   if (!a.name || !a.systemPrompt) {

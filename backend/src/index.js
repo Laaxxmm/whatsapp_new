@@ -284,12 +284,12 @@ async function start() {
   setInterval(runTemplateSync, TEMPLATE_SYNC_MS).unref(); // every 10 min (gated by pending count)
 
   const server = app.listen(PORT, () => {
-    console.log(`[ForgeChat] Backend running on port ${PORT}`);
+    console.log(`[Indefine Chat] Backend running on port ${PORT}`);
   });
 
   // Graceful shutdown so BullMQ marks in-flight jobs as stalled (not lost)
   const shutdown = async (sig) => {
-    console.log(`[ForgeChat] ${sig} received, draining…`);
+    console.log(`[Indefine Chat] ${sig} received, draining…`);
     server.close(() => {});
     await shutdownMediaQueue();
     await shutdownSendQueue();

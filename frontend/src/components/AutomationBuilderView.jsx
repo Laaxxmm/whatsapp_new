@@ -240,7 +240,7 @@ const BUILTIN_VARS = [
   { key: "contact_number", description: "Contact phone number (alias)" },
 ];
 
-// Normalize a ForgeCRM field name into a {{variable}} token key.
+// Normalize a CRM field name into a {{variable}} token key.
 // MUST stay identical to fieldVarKey() in backend automationEngine.js so the
 // token this picker inserts is the token the engine resolves at runtime.
 // "Date of Birth" -> "date_of_birth", "city" -> "city".
@@ -260,7 +260,7 @@ const VarPickerButton = ({ onInsert, style }) => {
     document.addEventListener("mousedown", close);
     return () => document.removeEventListener("mousedown", close);
   }, [open]);
-  // Custom contact fields from ForgeCRM (Admin Settings → Fields), as variable
+  // Custom contact fields from the CRM (Admin Settings → Fields), as variable
   // tokens. Deduped against the built-ins and each other by normalized key.
   const customVars = [];
   const seen = new Set(BUILTIN_VARS.map(v => v.key));

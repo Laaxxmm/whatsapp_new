@@ -155,7 +155,7 @@ function IntegrationCard({ title, status, onClick }) {
 }
 
 // Status pill — green when connected, muted grey otherwise (matches the
-// FORGECHAT integrations card look).
+// integrations card look).
 function Connected({ children }) {
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 6, background: '#d9f7e9', color: '#0e8a5a' }}>
