@@ -271,14 +271,20 @@ router.post('/webhook/whatsapp', async (req, res) => {
   let auditId = null;
   try {
     // Authenticity: this endpoint is necessarily unauthenticated (public), so
-    // the control is Meta's HMAC signature. When META_APP_SECRET is configured
-    // we REJECT anything unsigned/invalid; if it's not set we log a warning so
-    // operators know inbound webhooks are unverified (forgeable).
+    // the control is Meta's HMAC signature. An invalid signature is always
+    // rejected. An ABSENT META_APP_SECRET means we cannot verify at all —
+    // anyone who knows the URL could inject fabricated conversations — so in
+    // production we fail closed and reject. Locally (NODE_ENV !== production)
+    // we accept with a warning so a dev install works without Meta credentials.
     const sig = verifyMetaSignature(req);
     if (sig === false) {
       return res.status(403).json({ error: 'Invalid webhook signature' });
     }
     if (sig === null) {
+      if (process.env.NODE_ENV === 'production') {
+        console.error('[webhook] META_APP_SECRET not set — rejecting unverifiable webhook. Set META_APP_SECRET to the Meta app secret.');
+        return res.status(503).json({ error: 'Webhook signature verification not configured' });
+      }
       console.warn('[webhook] META_APP_SECRET not set — inbound webhook signature NOT verified (set it to reject forged payloads).');
     }
 

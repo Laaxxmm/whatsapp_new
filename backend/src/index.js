@@ -6,8 +6,9 @@ require('./util/instanceSecrets').bootstrapSecrets();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+const { rateLimit } = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
+const { rateLimitKey, ipKey } = require('./util/rateLimitKey');
 const pool = require('./db');
 const { router: authRouter, authMiddleware, ensureTables } = require('./auth');
 const { router: messagesRouter } = require('./routes/messages');
@@ -42,6 +43,15 @@ const { reconcileMessageStatuses } = require('./services/statusReconciler');
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '3001', 10);
+
+// The app always runs behind a reverse proxy (nginx in compose, the platform
+// edge on a PaaS), so req.ip must come from X-Forwarded-For — otherwise every
+// client collapses to the proxy's own IP and IP-based rate limiting is useless
+// (one attacker exhausts the shared bucket for everyone). TRUST_PROXY_HOPS is
+// the number of proxies in front of this process; 1 matches both deployments.
+// Never set it higher than the real hop count — a client could then spoof its
+// IP by prepending entries to X-Forwarded-For.
+app.set('trust proxy', parseInt(process.env.TRUST_PROXY_HOPS || '1', 10));
 
 const ALLOWED_ORIGINS = [
   process.env.CORS_ORIGIN,
@@ -91,31 +101,44 @@ app.use(cookieParser());
 // X-Hub-Signature-256 HMAC over the exact bytes Meta signed.
 app.use(express.json({ limit: '1mb', verify: (req, _res, buf) => { req.rawBody = buf; } }));
 
-// Serve uploaded files statically
-app.use('/uploads', express.static(UPLOAD_DIR));
+// Serve uploaded files statically. Auth-gated: these are user profile pictures,
+// and the filename (timestamp + Math.random) is not a security boundary. The
+// browser sends the sameSite=strict auth cookie on same-origin <img> requests,
+// so the SPA keeps working through the nginx proxy.
+app.use('/uploads', authMiddleware, express.static(UPLOAD_DIR));
 
-// Rate limiting
+// Rate limiting. Bucket keys come from util/rateLimitKey — see the security
+// note there on why the JWT must be verified, not merely decoded.
+const tooMany = (req, res) => {
+  res.status(429).json({ error: 'Too many requests, please try again later' });
+};
+
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 600,
   standardHeaders: true,
   legacyHeaders: false,
   skip: (req) => req.path === '/health',
-  keyGenerator: (req) => {
-    try {
-      const token = req.cookies?.forgecrm_token;
-      if (token) {
-        const decoded = require('jsonwebtoken').decode(token);
-        if (decoded?.username) return `user:${decoded.username}`;
-      }
-    } catch {}
-    return req.ip;
-  },
-  handler: (req, res) => {
-    res.status(429).json({ error: 'Too many requests, please try again later' });
-  },
+  keyGenerator: rateLimitKey,
+  handler: tooMany,
 });
 app.use(apiLimiter);
+
+// Credential endpoints get a much tighter, always-IP-keyed budget: these are
+// pre-authentication, so there is no session to key on and the general 600/min
+// allowance is far too generous for password guessing. Successful logins don't
+// count against it, so a legitimate user is never locked out by their own
+// sign-ins — only failures accumulate.
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: true,
+  keyGenerator: ipKey,
+  handler: tooMany,
+});
+app.use(['/api/auth/login', '/api/auth/setup'], authLimiter);
 
 // Health check
 app.get('/health', (req, res) => res.json({ ok: true }));
